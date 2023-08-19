@@ -27,27 +27,36 @@ class LinkedList {
         this.size++
     }
     // Prepend has the constant time complexity o(n)
-    append(value){
-        const node= new Node(value);
-        if(this.isEmpty()){
-           this.head=node 
-        }else{
-            let prev= this.head;
+    append(value) {
+        const node = new Node(value);
+        if (this.isEmpty()) {
+            this.head = node
+        } else {
+            let prev = this.head;
             while (prev.next) {
-                prev= prev.next
+                prev = prev.next
             }
-            prev.next= node
+            prev.next = node
         }
         this.size++
+    }
+    insert(value, index) {
+        if (index > this.size || index < 0) {
+            return
+        }
+        if(index===0){
+            this.prepend(value)
+            return 
+        }
     }
     print() {
         let curr = this.head;
         let storedValues = ''
         while (curr) {
             storedValues += `${curr.value} `
-            curr = curr.next 
+            curr = curr.next
         }
-        console.log({storedValues})
+        console.log({ storedValues })
     }
 }
 const list = new LinkedList()
