@@ -94,6 +94,7 @@ class LinkedList {
           count ++
           current=current.next
       }
+      return null;
     }
     clearList() {
         this.head = null;
