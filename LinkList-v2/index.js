@@ -28,4 +28,16 @@ class LinkedList {
         }
         this.size++
     }
+    printListData() {
+        let current = this.head
+        while (current) {
+            console.log(current.data);
+            current = current.next
+        }
+
+    }
 }
+const ll = new LinkedList();
+ll.insertFirst(1)
+ll.insertLast(123)
+ll.printListData()
