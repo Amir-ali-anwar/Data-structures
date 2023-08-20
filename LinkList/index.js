@@ -44,10 +44,39 @@ class LinkedList {
         if (index > this.size || index < 0) {
             return
         }
-        if(index===0){
+        if (index === 0) {
             this.prepend(value)
-            return 
+            return
+        } else {
+            let node = new Node(value)
+            let prev = this.head
+            for (let index = 0; index < index - 1; index++) {
+                prev = prev.next
+            }
+            node.next = prev.next;
+            prev.next = node
+            this.size++
         }
+
+    }
+    removeFrom(index){
+        if (index > this.size || index < 0) {
+            return
+        }
+        let removeNode=this.head
+        if(index===0){  
+            removeNode= this.head
+            this.head=this.head.next
+        }else{
+            let prev= this.head
+            for (let i = 0; i < index-1; i++) {
+                prev= prev.next
+            }
+            removeNode= prev.next
+            prev.next= removeNode.next
+        }
+        this.size--
+        return removeNode.value
     }
     print() {
         let curr = this.head;
@@ -63,12 +92,12 @@ const list = new LinkedList()
 console.log('====================================');
 console.log("list size", list.getSize());
 console.log("list empty", list.isEmpty());
-list.print()
-list.prepend(60)
-list.prepend(10)
-list.prepend(40)
-list.prepend(0)
-list.append(100)
-list.append(101)
+// list.print()
+list.insert(10,0)    
+list.insert(20,1)    
+list.insert(30,1)
+console.log(list.getSize())    
+console.log(list.removeFrom(1))    
+// list.insert(50,3)    
 list.print()
 console.log('====================================');
