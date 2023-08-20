@@ -58,31 +58,42 @@ class LinkedList {
         this.size--
 
     }
-    insertAt(data, index){
-         if (index < 0 && index > this.size) {
+    insertAt(data, index) {
+        if (index < 0 && index > this.size) {
             return;
         }
         if (index === 0) {
             this.insertFirst(data);
             return;
-          }else{
-            let node= new Node(data)
-            let current,previous;
+        } else {
+            let node = new Node(data)
+            let current, previous;
             current = this.head;
             let count = 0;
             while (count < index) {
                 previous = current; // Node before index
                 count++;
                 current = current.next; // Node after index
-              }
-          
-              node.next = current;
-              previous.next = node;
-          
-              this.size++;
+            }
 
+            node.next = current;
+            previous.next = node;
+
+            this.size++;
+
+        }
+
+    }
+    getIndex(index){
+      let current= this.head
+      let count=0
+      while (current) {
+          if(current==index ){
+            console.log(current.data);
           }
-      
+          count ++
+          current=current.next
+      }
     }
     clearList() {
         this.head = null;
