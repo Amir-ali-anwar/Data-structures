@@ -13,14 +13,39 @@ const maxCharacters = (str) => {
   let maxval = 0;
   for (const key in obj) {
     if (obj[key] > maxval) {
-        console.log(maxval);
-        max = obj[key];
-        maxChar = key;
+      max = obj[key];
+      maxChar = key;
     }
   }
   return {
     character: maxChar,
-    repeatedValue: max
+    repeatedValue: max,
+  };
 };
+console.log(maxCharacters("amiralianwar"));
+
+// Same task with javaScript reduce
+
+const maxChars = (str) => {
+  const charCount = str.split("").reduce((acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+  }, {});
+  let maxChar = '';
+  let max = 0;
+
+  for (let char in charCount) {
+      if (charCount[char] > max) {
+          max = charCount[char];
+          maxChar = char;
+      }
+  }
+
+  return {
+      character: maxChar,
+      repeatedValue: max
+  };
+
 };
 
+console.log(maxChars("amir"));
