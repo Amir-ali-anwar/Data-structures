@@ -26,3 +26,6 @@ function search(arr, target, leftIndex, rightIndex) {
 let arr = [-5, 2, 10, 4, 6];
 
 console.log(RecursiveBinarySearch(arr, 45));
+
+
+//Big-o =O(log n)
