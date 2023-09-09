@@ -7,7 +7,7 @@ function InsertionSort(array) {
     let j = index - 1;
     while (j>=0 && array[j] > numberToInsert) {
         arr[j+1]=array[j]
-        j=j-1
+        j=j--
     }
     array[j+1]= numberToInsert
   }
