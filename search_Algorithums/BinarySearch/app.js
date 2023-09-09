@@ -7,6 +7,8 @@
 // arr=[-5,2,10,4,6], t=20 -> should return  -1 (index)
 
 function binarySearch(arr, target) {
+  // in case if array is not sorted
+  
   let leftIndex = 0;
   let rightIndex = arr.length - 1;
   while (leftIndex <= rightIndex) {
@@ -28,4 +30,4 @@ let arr = [-5, 2, 10, 4, 6];
 
 console.log(binarySearch(arr, 2));
 
-//Big-0= O(log n) => because input size reduced every iterations
+//Big-0= O(n^2)=> In case of nested loops
