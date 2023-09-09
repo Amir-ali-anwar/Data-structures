@@ -48,4 +48,17 @@ const maxChars = (str) => {
 
 };
 
-console.log(maxChars("amir"));
+// console.log(maxChars("amir"));
+
+
+// third solution
+
+const maxCharactersCount=(object)=>{
+  const chars={}
+  for (const char of object) {
+    chars[char] = (chars[char] || 0) + 1;
+  }
+  return chars
+}
+
+console.log(maxCharactersCount("amiralianwar"));
