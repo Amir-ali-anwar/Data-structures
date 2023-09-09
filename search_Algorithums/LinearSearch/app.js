@@ -19,3 +19,6 @@ function linearSearch(arr, n) {
 let arr = [-5, 2, 10, 4, 6];
 
 console.log(linearSearch(arr, 12));
+
+
+// Big-O=>O(n)
