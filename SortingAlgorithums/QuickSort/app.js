@@ -1,3 +1,7 @@
+// Problem
+
+// Given an array of integers, sort the array
+
 function QuickSort(array) {
   if (array.length < 2) {
     return array;
@@ -21,3 +25,8 @@ function QuickSort(array) {
 
 const arr = [8, 20, -2, 4, -6, 123, 2, 1, 5];
 console.log(QuickSort(arr));
+
+
+//Worse case - O(n^2)
+
+//AVG case- O(nlogn)
