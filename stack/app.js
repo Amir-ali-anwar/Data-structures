@@ -19,9 +19,15 @@ class Stack {
   }
   print(){
     console.log(this.items.toString());
+    return this.items.toString()
   }
 }
 
 const stack = new Stack();
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(4)
 console.log(stack.isEmpty());
 console.log(stack.size());
+console.log(stack.print());
