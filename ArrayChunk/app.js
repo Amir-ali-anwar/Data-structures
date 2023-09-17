@@ -16,11 +16,14 @@ console.log(arrayChunk(inputArray, chunkSize));
 // 2nd solution
 
 let arrayChunks = (inputArray, chunkSize) => {
-  const outputarray = inputArray.map((element, index, array) => {
-    if (index % chunkSize === 0) {
-      return array.slice(index, index + chunkSize);
-    }
-  }).filter((array)=>array);
+  const outputarray = inputArray
+    .map((element, index, array) => {
+      let subarray = index % chunkSize === 0;
+      if (subarray) {
+        return array.slice(index, index + chunkSize);
+      }
+    })
+    .filter((array) => array);
 
   return outputarray;
 };
