@@ -126,7 +126,6 @@ class LinkedList {
     }
 }
 const list = new LinkedList()
-console.log('====================================');
 console.log("list size", list.getSize());
 console.log("list empty", list.isEmpty());
 // list.print()
@@ -137,4 +136,3 @@ console.log(list.getSize())
 console.log(list.removeFrom(1))
 // list.insert(50,3)    
 list.print()
-console.log('====================================');
