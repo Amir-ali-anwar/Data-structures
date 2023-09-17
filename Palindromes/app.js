@@ -1,11 +1,12 @@
-const palindrome = str => {
-    if (typeof str === String) {
-      return str === reverse(str);
-    } else {
-      return false;
-    }
-  };
-  
-  palindrome('noon'); // true
-  palindrome('asdf'); // false
-  
+const palindrome = (str) => {
+  if (typeof str === 'string') {
+     const reversedStr = str.split('').reverse().join('');
+    return str === reversedStr;
+  } else {
+    return false;
+  }
+};
+
+console.log(palindrome("noon"));
+
+
