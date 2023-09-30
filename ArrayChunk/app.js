@@ -43,4 +43,21 @@ let ChunkArray = (inputArray, chunkSize) => {
   return chunkArray;
 };
 
-console.log(ChunkArray(inputArray, chunkSize));
+// console.log(ChunkArray(inputArray, chunkSize));
+
+// 3rd Solution
+
+function ArrayChunk(inputArray, chunkSize){
+ for (let characters of inputArray) {
+  console.log(characters);
+  const arr= inputArray[characters]  
+  // console.log(arr);
+ }
+
+  return inputArray
+
+}
+
+
+
+console.log(ArrayChunk(inputArray, chunkSize));
