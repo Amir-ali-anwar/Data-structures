@@ -27,4 +27,37 @@ let arrayChunks = (inputArray, chunkSize) => {
 
   return outputarray;
 };
-console.log(arrayChunks(inputArray, chunkSize));
+// console.log(arrayChunks(inputArray, chunkSize));
+
+// 3rd Solution
+
+let ChunkArray = (inputArray, chunkSize) => {
+  const chunkArray = [];
+  let start = 0;
+  let index = 1;
+  while (inputArray.length) {
+    chunkArray.push(inputArray.slice(start, index * chunkSize));
+    start = start + index;
+    index++;
+  }
+  return chunkArray;
+};
+
+// console.log(ChunkArray(inputArray, chunkSize));
+
+// 3rd Solution
+
+function ArrayChunk(inputArray, chunkSize){
+ for (let characters of inputArray) {
+  console.log(characters);
+  const arr= inputArray[characters]  
+  // console.log(arr);
+ }
+
+  return inputArray
+
+}
+
+
+
+console.log(ArrayChunk(inputArray, chunkSize));
