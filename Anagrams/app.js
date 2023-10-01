@@ -56,4 +56,4 @@ const characterMap = (str) => {
   }
   return obj
 }
-console.log(Anagram("Dormitory", "Dirty Room"));
+console.log(Anagram("listen", "silent"));
