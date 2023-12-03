@@ -95,3 +95,19 @@ const secondLargestElement = (array) => {
 }
 
 console.log(secondLargestElement(myArraycheck));
+
+
+// Reverse the order of elements in an array.
+
+
+
+
+
+const reverseArray = (array) => {
+  let arr=[]
+  for (let index = array.length-1; index >= 0; index--) {
+    arr.push(array[index])
+  }
+  return arr
+}
+console.log(reverseArray(myArraycheck));
