@@ -116,8 +116,25 @@ console.log(reverseArray(myArraycheck));
 // Find and count duplicate elements in an array.
 
 const findDuplicates=(arr)=>{
-console.log(arr);
+  let tempArray=[]
+  let duplicatesCount=0;
+  for (let index = 0; index < arr.length; index++) {
+      if(!tempArray.includes(arr[index])){
+          tempArray.push(arr[index])
+      }else{
+        duplicatesCount++
+      }  
+    }
+    console.log(duplicatesCount);
+  return tempArray
 }
 
 const duplicateArray=[1,2,3,3,4,5,5,6,6,7,8,9,10]
 console.log(findDuplicates(duplicateArray));
+
+const isSorted=(array)=>{
+  console.log(array);
+}
+
+const sortedArray=[1,12,43,34,12,54,76,100,90]
+console.log(isSorted(sortedArray));
