@@ -34,4 +34,21 @@ const  product_of_even_elements=(inputArray)=>{
   return product
 }
 
-console.log(product_of_even_elements(Input));
+// console.log(product_of_even_elements(Input));
+
+
+const my_array = [3, 8, 1, 6, 2, 8, 5,12]
+
+const largestElement=(array)=>{
+  let max_element= array[0]
+  for (let index =1; index < array.length; index++) {
+    const element = array[index];
+    if(element>max_element){
+      max_element= element
+    }
+  }
+  return max_element
+}
+
+console.log(largestElement(my_array));
+
