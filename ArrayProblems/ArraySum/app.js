@@ -69,3 +69,29 @@ const smallestElement=(array)=>{
 }
 
 console.log(smallestElement(my_array));
+
+// Find the second largest element in an array
+const myArraycheck = [5, 2, 9, 1, 7, 6];
+
+const secondLargestElement = (array) => {
+  if (array.length < 2) {
+    return "Array should have at least two elements";
+  }
+
+  let firstLargest = array[0];
+  let secondLargest = Number.NEGATIVE_INFINITY
+  // let secondLargest= array[1];
+
+  for (let index = 1; index < array.length; index++) {
+    if (array[index] > firstLargest) {
+      secondLargest = firstLargest
+      firstLargest = array[index]
+    } else if (array[index] > secondLargest && array[index] < firstLargest) {
+      secondLargest=array[index]
+    }
+
+  }
+  return secondLargest
+}
+
+console.log(secondLargestElement(myArraycheck));
