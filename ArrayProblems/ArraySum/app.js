@@ -36,6 +36,7 @@ const  product_of_even_elements=(inputArray)=>{
 
 // console.log(product_of_even_elements(Input));
 
+// Find the maximum element in an array.
 
 const my_array = [3, 8, 1, 6, 2, 8, 5,12]
 
@@ -52,3 +53,19 @@ const largestElement=(array)=>{
 
 console.log(largestElement(my_array));
 
+//Find the minimum element in an array.
+
+const my_array1 = [3, 8, 1, 6, 2, 8, 5,12]
+
+const smallestElement=(array)=>{
+  let max_element= array[0]
+  for (let index =1; index < array.length; index++) {
+    const element = array[index];
+    if(element<max_element){
+      max_element= element
+    }
+  }
+  return max_element
+}
+
+console.log(smallestElement(my_array));
