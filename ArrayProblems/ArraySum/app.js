@@ -144,7 +144,24 @@ const isSorted=(array)=>{
   
 }
 const myArray = [1, 2, 3, 4, 5];
-console.log(isSorted(myArray));
+// console.log(isSorted(myArray));
 
 const sortedArray=[1,12,43,34,12,54,76,100,90]
-console.log(isSorted(sortedArray));
+// console.log(isSorted(sortedArray));
+
+
+
+//Given a rotated sorted array, find a target element.
+
+const sortedRotatedArray= [1,2,3,4,5]
+
+const sortedArrayFn = (array, target) => {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    if (element === target) {
+      return element
+    }
+  }
+}
+
+console.log(sortedArrayFn(sortedRotatedArray,4));
