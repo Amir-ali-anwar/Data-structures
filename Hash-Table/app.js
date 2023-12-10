@@ -5,7 +5,7 @@ class HashTable {
     }
     hash(key) {
       let total = 0;
-      for (let index = 0; index < key.length; index++) {
+      for (let index = 0; index < key?.length; index++) {
         total += key.charCodeAt(index)
   
       }
@@ -26,7 +26,7 @@ class HashTable {
     display() {
       for (let index = 0; index < this.table.length; index++) {
         if (this.table[index]) {
-          console.log(index, this.table[index]);
+          console.log( this.table[index],index);
         }
   
       }
@@ -34,5 +34,6 @@ class HashTable {
   }
   
   const table = new HashTable(20)
-  
-  console.log(table.table);
+  table.Set("name","Amir Ali Anwar")
+  table.Set("name","Jannat Anwar")
+  table.display()
