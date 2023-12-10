@@ -133,8 +133,18 @@ const duplicateArray=[1,2,3,3,4,5,5,6,6,7,8,9,10]
 console.log(findDuplicates(duplicateArray));
 
 const isSorted=(array)=>{
-  console.log(array);
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] > array[index + 1]) {
+      console.log("Given array is not sorted");
+      return false
+    }
+  }
+  console.log("Given array is sorted");
+  return true
+  
 }
+const myArray = [1, 2, 3, 4, 5];
+console.log(isSorted(myArray));
 
 const sortedArray=[1,12,43,34,12,54,76,100,90]
 console.log(isSorted(sortedArray));
