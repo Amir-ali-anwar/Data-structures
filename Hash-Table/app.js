@@ -35,5 +35,6 @@ class HashTable {
   
   const table = new HashTable(20)
   table.Set("name","Amir Ali Anwar")
-  table.Set("name","Jannat Anwar")
+  table.Set("name","Jannnat")
+  table.Set("haye","bye")
   table.display()
