@@ -209,11 +209,34 @@ const arrayProducts = (array) => {
     rightProduct *= array[i + 1];
     RightArray[i] = rightProduct;
   }
-  let result=[]
+  let result = []
   for (let index = 0; index < array.length; index++) {
     // Corrected indexing here (used leftArray and rightArray instead of leftProduct and rightProduct)
     result[index] = RightArray[index] * leftArray[index];
   }
   return result
 }
-console.log(arrayProducts(arraynums));
+// console.log(arrayProducts(arraynums));
+
+
+// Given a binary array, find the maximum number of consecutive 1s.
+const binaryArray = [1, 1, 0, 1, 1, 1, 0, 0, 0, 1]
+const hasConsecutiveOnes = (arr) => {
+  let isBinary = false
+  for (let index = 0; index < arr.length - 2; index++) {
+    const element = arr[index];
+    const element1 = arr[index + 1];
+    const element2 = arr[index + 2];
+    if (element===1 && element1===1 && element2 === 1) {
+      return isBinary = true
+    }
+  }
+  return isBinary
+}
+
+console.log(hasConsecutiveOnes(binaryArray));
+
+
+
+
+
