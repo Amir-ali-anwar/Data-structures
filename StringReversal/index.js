@@ -80,5 +80,22 @@ console.log(result);
 let results = substr.substring(-3, 5);
 console.log(results); 
 
+// Method-3
+const strReverse3 = (str) => {
+  console.log(str);
+  let reversed = ''
+  for (const key in str) {
+     reversed = str[key] + reversed  ;
+  }
+  return reversed
+}
 
+console.log(strReverse3(strr));
 
+// Method-4
+const strReverse4=(str)=>{
+  debugger
+  console.log(str);
+return str.split('').reverse().join('')
+}
+console.log(strReverse4(strr));
