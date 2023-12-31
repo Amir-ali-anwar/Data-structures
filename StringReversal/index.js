@@ -68,7 +68,9 @@ console.log(strReverse2(strr));
 // substring array methods
 
 let substr = "Hello, World!";
+// Note:
 
+// If the start index is greater than the end index, substring will swap them.
 let result= substr.substring(7,2)
 console.log(result);
 
