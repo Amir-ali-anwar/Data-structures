@@ -74,5 +74,11 @@ let substr = "Hello, World!";
 let result= substr.substring(7,2)
 console.log(result);
 
+// we can not pass the negative values to the substring, negative values converts into the 0 in substring method.
+// and note that end is excluded 
+
+let results = substr.substring(-3, 5);
+console.log(results); 
+
 
 
