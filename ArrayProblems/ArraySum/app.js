@@ -219,22 +219,35 @@ const arrayProducts = (array) => {
 // console.log(arrayProducts(arraynums));
 
 
-// Given a binary array, find the maximum number of consecutive 1s.
-const binaryArray = [1, 1, 0, 1, 1, 1, 0, 0, 0, 1]
-const hasConsecutiveOnes = (arr) => {
-  let isBinary = false
-  for (let index = 0; index < arr.length - 2; index++) {
-    const element = arr[index];
-    const element1 = arr[index + 1];
-    const element2 = arr[index + 2];
-    if (element===1 && element1===1 && element2 === 1) {
-      return isBinary = true
+  // Given a binary array, find the maximum number of consecutive 1s.
+  const binaryArray = [1, 1, 0, 1, 1, 1, 0, 0, 0, 1]
+  const hasConsecutiveOnes = (arr) => {
+    let isBinary = false
+    for (let index = 0; index < arr.length - 2; index++) {
+      const element = arr[index];
+      const element1 = arr[index + 1];
+      const element2 = arr[index + 2];
+      if (element===1 && element1===1 && element2 === 1) {
+        return isBinary = true
+      }
     }
+    return isBinary
   }
-  return isBinary
-}
 
-console.log(hasConsecutiveOnes(binaryArray));
+  console.log(hasConsecutiveOnes(binaryArray));
+
+
+  //Given a collection of intervals, merge overlapping intervals.
+
+  const intervalArray=[[1, 3], [2, 6], [8, 10], [15, 18]]
+  const isMerge=(arr)=>{
+    arr.map((item)=>{
+      console.log(item);
+    })
+    console.log(arr);
+  }
+
+  console.log(isMerge(intervalArray));
 
 
 
