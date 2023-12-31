@@ -65,6 +65,12 @@ const strReverse2=(str)=>{
 }
 console.log(strReverse2(strr));
 
+// substring array methods
+
+let substr = "Hello, World!";
+
+let result= substr.substring(7,2)
+console.log(result);
 
 
 
