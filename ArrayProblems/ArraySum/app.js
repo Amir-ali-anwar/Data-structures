@@ -275,7 +275,7 @@ const mergeOverlappingIntervals = (sortedIntervals) => {
   mergedIntervals.push(currentInterval)
   return mergedIntervals
 }
-  //first solution
+//first solution
 const isMerge = (arr) => {
   const sortedIntervals = sorting(arr)
   const mergedIntervals = mergeOverlappingIntervals(sortedIntervals)
@@ -285,19 +285,38 @@ console.log(isMerge(intervalArray));
 
 // 2nd solution
 
-const mergingIntervals=(intervals)=>{
-  intervals.sort((a,b)=>a[0]-b[0])
+const mergingIntervals = (intervals) => {
+  intervals.sort((a, b) => a[0] - b[0])
   const merged = [];
   for (const interval of intervals) {
-    if(!merged.length || interval[0]>merged[merged.length-1][1]){
+    if (!merged.length || interval[0] > merged[merged.length - 1][1]) {
       merged.push(interval)
       console.log(merged[merged.length - 1][1]);
       console.log(interval[0]);
-     }
+    } else {
+      merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], interval[1]);
+
+
+    }
   }
   return merged
 }
-console.log(mergingIntervals(intervalArray));
+const newIntervals = [[1, 5], [2, 8], [10, 12], [13, 15]];
 
+console.log(mergingIntervals(newIntervals));
+
+// Given an array of integers, find the average of all elements.
+const numbers = [1, 2, 3, 4, 5];
+
+const arrayAvg = (nums) => {
+  if (nums.length === 0) {
+    return 0
+  }
+  const sumArray= nums.reduce((acc,curr)=>acc+ curr,0)
+  const average= sumArray/nums.length
+  return average
+}
+
+console.log(arrayAvg(numbers));
 
 
