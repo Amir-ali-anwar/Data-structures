@@ -307,8 +307,8 @@ const arrayAvg = (nums) => {
   if (nums.length === 0) {
     return 0
   }
-  const sumArray= nums.reduce((acc,curr)=>acc+ curr,0)
-  const average= sumArray/nums.length
+  const sumArray = nums.reduce((acc, curr) => acc + curr, 0)
+  const average = sumArray / nums.length
   return average
 }
 
@@ -327,5 +327,25 @@ const arrayRotaion = (arr) => {
 }
 const myArray1 = [1, 2, 3, 4, 5];
 
-const result1=  arrayRotaion(myArray1)
+const result1 = arrayRotaion(myArray1)
 console.log(result1);
+
+
+// Check if the elements in an array are sorted in non-decreasing order.
+
+const isNonDecreasing = (arr) => {
+  const arrayLength = arr.length
+  if (arrayLength === 0) {
+    throw new Error("Please input the valid Array")
+  }
+  for (let i = 0; i < arrayLength - 1; i++) {
+    if (arr[i] < arr[i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(isNonDecreasing(myArray1));
+
+// Given a rotated sorted array, find a target element.
+
