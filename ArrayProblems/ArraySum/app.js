@@ -98,11 +98,6 @@ console.log(secondLargestElement(myArraycheck));
 
 
 // Reverse the order of elements in an array.
-
-
-
-
-
 const reverseArray = (array) => {
   let arr = []
   for (let index = array.length - 1; index >= 0; index--) {
@@ -319,4 +314,18 @@ const arrayAvg = (nums) => {
 
 console.log(arrayAvg(numbers));
 
+// Rotate the elements of an array to the right by a given number of steps.
 
+const arrayRotaion = (arr) => {
+  const arrayLength = arr.length
+  for (let i = 0; i < arrayLength - 1; i++) {
+    if (arr[arrayLength] > arr[arrayLength + 1]) {
+      return false
+    }
+  }
+  return true
+}
+const myArray1 = [1, 2, 3, 4, 5];
+
+const result1=  arrayRotaion(myArray1)
+console.log(result1);
