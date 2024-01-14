@@ -219,37 +219,85 @@ const arrayProducts = (array) => {
 // console.log(arrayProducts(arraynums));
 
 
-  // Given a binary array, find the maximum number of consecutive 1s.
-  const binaryArray = [1, 1, 0, 1, 1, 1, 0, 0, 0, 1]
-  const hasConsecutiveOnes = (arr) => {
-    let isBinary = false
-    for (let index = 0; index < arr.length - 2; index++) {
-      const element = arr[index];
-      const element1 = arr[index + 1];
-      const element2 = arr[index + 2];
-      if (element===1 && element1===1 && element2 === 1) {
-        return isBinary = true
-      }
+// Given a binary array, find the maximum number of consecutive 1s.
+const binaryArray = [1, 1, 0, 1, 1, 1, 0, 0, 0, 1]
+const hasConsecutiveOnes = (arr) => {
+  let isBinary = false
+  for (let index = 0; index < arr.length - 2; index++) {
+    const element = arr[index];
+    const element1 = arr[index + 1];
+    const element2 = arr[index + 2];
+    if (element === 1 && element1 === 1 && element2 === 1) {
+      return isBinary = true
     }
-    return isBinary
   }
+  return isBinary
+}
 
-  console.log(hasConsecutiveOnes(binaryArray));
+console.log(hasConsecutiveOnes(binaryArray));
 
 
-  //Given a collection of intervals, merge overlapping intervals.
+//Given a collection of intervals, merge overlapping intervals.
 
-  const intervalArray=[[1, 3], [2, 6], [8, 10], [15, 18]]
-  const isMerge=(arr)=>{
-    arr.map((item)=>{
-      console.log(item);
-    })
-    console.log(arr);
+const intervalArray = [[15, 18], [1, 3], [2, 6], [8, 10]]
+
+const sorting = (intervals) => {
+  const n = intervals.length
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (intervals[j][0] > intervals[j + 1][0]) {
+        const temp = intervals[j]
+        intervals[j] = intervals[j + 1]
+        intervals[j + 1] = temp
+      }
+
+    }
   }
+  return intervals
+}
+const mergeOverlappingIntervals = (sortedIntervals) => {
+  const n = sortedIntervals.length
+  const mergedIntervals = []
+  if (n <= 1) {
+    return sortedIntervals
+  }
+  let currentInterval = sortedIntervals[0]
+  for (let i = 1; i < n; i++) {
+    const nextInterval = sortedIntervals[i]
+    if (currentInterval[1] >= nextInterval[0]) {
+      currentInterval[1] = Math.max(currentInterval[1], nextInterval[1]);
+    } else {
+      mergedIntervals.push(currentInterval)
+      currentInterval = nextInterval
+    }
 
-  console.log(isMerge(intervalArray));
+  }
+  mergedIntervals.push(currentInterval)
+  return mergedIntervals
+}
+  //first solution
+const isMerge = (arr) => {
+  const sortedIntervals = sorting(arr)
+  const mergedIntervals = mergeOverlappingIntervals(sortedIntervals)
+  return mergedIntervals
+}
+console.log(isMerge(intervalArray));
 
+// 2nd solution
 
+const mergingIntervals=(intervals)=>{
+  intervals.sort((a,b)=>a[0]-b[0])
+  const merged = [];
+  for (const interval of intervals) {
+    if(!merged.length || interval[0]>merged[merged.length-1][1]){
+      merged.push(interval)
+      console.log(merged[merged.length - 1][1]);
+      console.log(interval[0]);
+     }
+  }
+  return merged
+}
+console.log(mergingIntervals(intervalArray));
 
 
 
