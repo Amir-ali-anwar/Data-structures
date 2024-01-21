@@ -82,6 +82,23 @@ class LinkList {
     return this.head = this.head.next
 
   }
+  removeAt(index){
+    if (index < 0 || index > this.getSize()) {
+      console.log("Invalid index");
+    throw new Error("Invalid index");
+    }
+    if(index===0){
+      return this.removeFirst()
+    }
+    let currentNode = this.head
+    let prevNode=null
+    while (count < index)  {
+      currentNode = currentNode.next
+      prevNode= currentNode
+      count++
+    }
+    prevNode.next=currentNode.next
+  }
   printList() {
     if (this.isEmpty()) {
       console.log("List is empty");
