@@ -11,7 +11,7 @@ class LinkList {
 
   }
   insertFirst(data) {
-    this.head = new Node(data,this.head)
+    this.head = new Node(data, this.head)
 
   }
   getSize() {
@@ -29,7 +29,7 @@ class LinkList {
       this.head = dataNode
       return;
     }
-    const currentNode = this.head
+    let currentNode = this.head
     while (currentNode.next) {
       currentNode = currentNode.next
     }
@@ -60,15 +60,37 @@ class LinkList {
   isEmpty() {
     return this.getSize() === 0
   }
-  printList(){
-    if(this.isEmpty()){
+  getFirst() {
+    if (this.isEmpty()) {
       console.log("List is empty");
       throw new Error("List is empty")
-    }else{
-      let curr= this.head;
-      let list=''
+    }
+    return this.head.data
+  }
+  getLast() {
+    let currentNode = this.head
+    while (currentNode.next) {
+      currentNode = currentNode.next
+    }
+    return currentNode.data
+  }
+  removeFirst() {
+    if (this.isEmpty()) {
+      console.log("List is empty");
+      throw new Error("List is empty")
+    }
+    return this.head = this.head.next
+
+  }
+  printList() {
+    if (this.isEmpty()) {
+      console.log("List is empty");
+      throw new Error("List is empty")
+    } else {
+      let curr = this.head;
+      let list = ''
       while (curr) {
-        list += `${curr.data}`;
+        list += `${curr.data},`;
         curr = curr.next;
       }
       return list
@@ -79,9 +101,10 @@ class LinkList {
 const firstObj = new LinkList()
 
 firstObj.insertFirst(1)
-// firstObj.insertAtEnd(12)
-// firstObj.insertAt(12, 3)
-// firstObj.isEmpty()
-// firstObj.isEmpty()
+firstObj.insertFirst(2)
+firstObj.insertAtEnd(12)
+console.log(firstObj.removeFirst());
+console.log(firstObj.getLast());
 console.log(firstObj.getSize());
 console.log(firstObj.printList());
+console.log(firstObj.getFirst());
