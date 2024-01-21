@@ -165,14 +165,15 @@ console.log(sortedArrayFn(sortedRotatedArray, 4));
 // Find the missing number
 // Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing.
 
-const findMissingNumber = (array) => {
+const findMissingNumber = async (array) => {
   const arrayLength = array.length;
   const expectedSum = (arrayLength * (arrayLength + 1) / 2)
   const actualSum = array.reduce((sum, num) => sum + num, 0)
   return expectedSum - actualSum
 }
 const array = [0, 1, 3, 4, 5];
-console.log(findMissingNumber(array));
+const missingNumber= await findMissingNumber(array) 
+console.log(missingNumber);
 
 
 //Given an array nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
