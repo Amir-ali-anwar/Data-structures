@@ -30,7 +30,7 @@ const anagram = (strA, strB) => {
   return true
 };
 
-// console.log(anagram("Dormitory", "Dirty Room"));
+console.log(anagram("Dormitory", "Dirty Room"));
 
 
 // solution 2
