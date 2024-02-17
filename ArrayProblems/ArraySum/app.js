@@ -172,7 +172,7 @@ const findMissingNumber = async (array) => {
   return expectedSum - actualSum
 }
 const array = [0, 1, 3, 4, 5];
-const missingNumber= await findMissingNumber(array) 
+const missingNumber = await findMissingNumber(array)
 console.log(missingNumber);
 
 
@@ -348,5 +348,33 @@ const isNonDecreasing = (arr) => {
 }
 console.log(isNonDecreasing(myArray1));
 
-// Given a rotated sorted array, find a target element.
 
+// convert a number in word form into a numeric value
+
+const wordToNumber = (words) => {
+  const wordMap = {
+    'zero': 0,
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
+  };
+  const values = words.map((word) => {
+    const lowerCaseWord = word.toLowerCase()
+    if (wordMap.hasOwnProperty(lowerCaseWord)) {
+      return wordMap[lowerCaseWord]
+    } else {
+      console.log("your given number not found");
+      return NaN
+    }
+  })
+return values
+}
+const words = ['three', 'five', 'seven'];
+
+console.log(wordToNumber(words));
