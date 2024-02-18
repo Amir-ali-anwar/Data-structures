@@ -378,3 +378,38 @@ return values
 const words = ['three', 'five', 'seven'];
 
 console.log(wordToNumber(words));
+
+
+// Find the intersection or union of two arrays.
+
+const isIntersection = (arr1, arr2) => {
+  let array = []
+  for (let i = 0; i < arr1.length; i++) {
+    const element = arr1[i];
+    for (let j = 0; j < arr2.length; j++) {
+      const element1 = arr2[j];
+      if (element === element1) {
+        array.push(element)
+      }
+    }
+  }
+  return array
+}
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [4, 5, 6, 7, 8];
+
+console.log(isIntersection(array1,array2));
+
+// 2nd method
+
+const findIntersection=(arr1,arr2)=>{
+const set= new Set(arr1)
+const intersection = [];
+  for (const iterator of arr2) {
+    if(set.has(iterator)){
+      intersection.push(iterator)
+    }
+  }
+  return intersection
+}
+console.log(findIntersection(array1,array2));
