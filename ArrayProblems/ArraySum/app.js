@@ -430,3 +430,10 @@ const findInterSectionWithHash = (arr1, arr2) => {
   return intersection
 }
 console.log(findInterSectionWithHash(array1,array2));
+
+
+//Write a function called calculateAverageScore that takes an object representing test scores as an argument and returns the average score of the student.
+
+
+
+
