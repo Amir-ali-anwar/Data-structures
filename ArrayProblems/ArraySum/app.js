@@ -413,3 +413,20 @@ const intersection = [];
   return intersection
 }
 console.log(findIntersection(array1,array2));
+
+// 3rd Method 
+
+const findInterSectionWithHash = (arr1, arr2) => {
+  const hashTable = {}
+  for (const iterator of arr1) {
+    hashTable[iterator] = true
+  }
+  const intersection = []
+  for (const element of arr2) {
+    if (hashTable[element]) {
+      intersection.push(element)
+    }
+  }
+  return intersection
+}
+console.log(findInterSectionWithHash(array1,array2));
