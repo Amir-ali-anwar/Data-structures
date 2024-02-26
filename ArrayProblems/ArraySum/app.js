@@ -463,5 +463,17 @@ const calculateStudentAvg = (testScores) => {
 
 }
 
-console.log(calculateStudentAvg(testScores));
+// console.log(calculateStudentAvg(testScores));
 
+
+// Javascript data structure Map
+const map1= new Map()
+map1.set("a", 1);
+map1.set("b", 2);
+map1.set("c", 3);
+
+
+console.log(map1.size); 
+
+
+// Write a function called countCharacters that takes a string as input and returns a Map that contains each character in the string as a key and the count of occurrences of that character as the value.
