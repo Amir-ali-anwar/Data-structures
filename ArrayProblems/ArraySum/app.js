@@ -434,6 +434,34 @@ console.log(findInterSectionWithHash(array1,array2));
 
 //Write a function called calculateAverageScore that takes an object representing test scores as an argument and returns the average score of the student.
 
+const calculateAverageScore=(testScores)=>{
+  const testDataArray=  Object.entries(testScores).map(([subject,score])=>({subject,score})).reduce((acc,curr)=>{
+    acc.numOfSubjects++;
+    acc.totalScore+= curr.score;
+    acc.Average= acc.totalScore/acc.numOfSubjects
+    return acc
+  },{numOfSubjects:0,totalScore:0,Average:0})
+ 
+return testDataArray
+}
+const testScores = {
+  Math: 90,
+  Science: 85,
+  History: 78,
+  English: 92,
+  Geography: 88,
+};
+
+// console.log(calculateAverageScore(testScores));
+
+const calculateStudentAvg = (testScores) => {
+  const testDataArray = Object.values(testScores);
+  const totalScore = testDataArray.reduce((acc, curr) => acc + curr, 0);
+  const average = totalScore / testDataArray.length
+  return average
 
 
+}
+
+console.log(calculateStudentAvg(testScores));
 
