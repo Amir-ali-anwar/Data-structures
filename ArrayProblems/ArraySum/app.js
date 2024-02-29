@@ -477,3 +477,15 @@ console.log(map1.size);
 
 
 // Write a function called countCharacters that takes a string as input and returns a Map that contains each character in the string as a key and the count of occurrences of that character as the value.
+
+const countCharacters=(str)=>{
+  const characterCountMap = new Map();
+  for (const char of str) {
+    const count= characterCountMap.get(char) || 0;
+    characterCountMap.set(char,count+1)
+  }
+  return characterCountMap
+}
+const text = "hello";
+const characterCountMap = countCharacters(text);
+console.log(characterCountMap);
