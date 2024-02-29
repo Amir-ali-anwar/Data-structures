@@ -463,5 +463,63 @@ const calculateStudentAvg = (testScores) => {
 
 }
 
-console.log(calculateStudentAvg(testScores));
+// console.log(calculateStudentAvg(testScores));
+
+
+// Javascript data structure Map
+const map1= new Map()
+map1.set("a", 1);
+map1.set("b", 2);
+map1.set("c", 3);
+
+
+console.log(map1.size); 
+
+
+// Write a function called countCharacters that takes a string as input and returns a Map that contains each character in the string as a key and the count of occurrences of that character as the value.
+
+const countCharacters=(str)=>{
+  const characterCountMap = new Map();
+  for (const char of str) {
+    const count= characterCountMap.get(char) || 0;
+    characterCountMap.set(char,count+1)
+  }
+  return characterCountMap
+}
+const text = "hello";
+const characterCountMap = countCharacters(text);
+console.log(characterCountMap);
+
+//Given an array of integers, find the contiguous subarray (containing at least one number) that has the largest sum and return the sum.
+//For example:
+
+//Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+//Output: 6 (The contiguous subarray [4, -1, 2, 1] has the largest sum of 6.)
+
+
+const contiguousArray = (InputArr) => {
+  let maxSum = InputArr[0];
+  let currentSum = InputArr[0];
+  for (let index = 1; index < InputArr.length; index++) {
+    currentSum += InputArr[index];
+    if (currentSum < InputArr[index]) {
+      currentSum = InputArr[index];
+    }
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+    }
+  }
+  return maxSum;
+}
+
+const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+// console.log(contiguousArray(InputArr));
+
+//You're given an array of integers where each integer lies in the range [1, n] inclusive, and n is the size of the array. Some elements in the range [1, n] may appear multiple times, while others may appear only once. Your task is to find all the numbers in the range [1, n] that do not appear in the given array.
+
+//Example:
+//Let's say we have an array nums = [4, 3, 2, 7, 8, 2, 3, 1]. Here, n = 8 because the size of the array is 8.
+
+//Expected Output: [5, 6]
 
