@@ -489,3 +489,25 @@ const countCharacters=(str)=>{
 const text = "hello";
 const characterCountMap = countCharacters(text);
 console.log(characterCountMap);
+
+//Given an array of integers, find the contiguous subarray (containing at least one number) that has the largest sum and return the sum.
+//For example:
+
+//Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+//Output: 6 (The contiguous subarray [4, -1, 2, 1] has the largest sum of 6.)
+
+
+const contiguousArray=(InputArr)=>{
+  const maxSum=InputArr[0];
+  const currentSum=InputArr[0];
+  for (let index = 1; index < InputArr.length; index++) {
+    const element = InputArr[index];
+    console.log(element);
+    
+  }
+  console.log(InputArr);
+
+}
+const InputArr= [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+console.log(contiguousArray(InputArr));
