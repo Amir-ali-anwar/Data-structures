@@ -497,17 +497,29 @@ console.log(characterCountMap);
 //Output: 6 (The contiguous subarray [4, -1, 2, 1] has the largest sum of 6.)
 
 
-const contiguousArray=(InputArr)=>{
-  const maxSum=InputArr[0];
-  const currentSum=InputArr[0];
+const contiguousArray = (InputArr) => {
+  let maxSum = InputArr[0];
+  let currentSum = InputArr[0];
   for (let index = 1; index < InputArr.length; index++) {
-    const element = InputArr[index];
-    console.log(element);
-    
+    currentSum += InputArr[index];
+    if (currentSum < InputArr[index]) {
+      currentSum = InputArr[index];
+    }
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+    }
   }
-  console.log(InputArr);
-
+  return maxSum;
 }
-const InputArr= [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 
-console.log(contiguousArray(InputArr));
+const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+// console.log(contiguousArray(InputArr));
+
+//You're given an array of integers where each integer lies in the range [1, n] inclusive, and n is the size of the array. Some elements in the range [1, n] may appear multiple times, while others may appear only once. Your task is to find all the numbers in the range [1, n] that do not appear in the given array.
+
+//Example:
+//Let's say we have an array nums = [4, 3, 2, 7, 8, 2, 3, 1]. Here, n = 8 because the size of the array is 8.
+
+//Expected Output: [5, 6]
+
