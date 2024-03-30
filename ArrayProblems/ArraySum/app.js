@@ -516,6 +516,9 @@ const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
 // console.log(contiguousArray(InputArr));
 
+
+
+
 //You're given an array of integers where each integer lies in the range [1, n] inclusive, and n is the size of the array. Some elements in the range [1, n] may appear multiple times, while others may appear only once. Your task is to find all the numbers in the range [1, n] that do not appear in the given array.
 
 //Example:
@@ -523,3 +526,26 @@ const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
 //Expected Output: [5, 6]
 
+
+
+
+//You are required to implement a function generatHash that generates a hash tag from a given input string,
+//the hash tag should be considred as follows:
+
+//The input string should be converted to a hash tag format, where each word is captalized and concatenacted together without spaces
+//if the length of the input string is greater then 200 characters or if the input string is empty or contains only whitespaces,
+//the function should return false
+
+// otherwise, the function should return the generated hash tag prfixed with #.
+
+const generateHash=(str)=>{
+  if(str.length === 200 || str.trim().length===0){
+    return false
+  }
+  str= str.split(" ").map((item)=>{
+    return item.charAt(0).toUpperCase() + item.slice(1)
+  }).join('') 
+  return `#${str}`
+}
+
+console.log(generateHash("My name is Amir Ali Anwar"));
