@@ -548,4 +548,24 @@ const generateHash=(str)=>{
   return `#${str}`
 }
 
-console.log(generateHash("My name is Amir Ali Anwar"));
+//console.log(generateHash("My name is Amir Ali Anwar"));
+
+// 
+// Generate Pascal's triangle up to a given number of rows.
+
+// Generating Pascal's Triangle up to a given number of rows involves constructing the triangle row by row, following the rule that each number in a row is the sum of the two numbers directly above it in the previous row. Here's a basic idea of how to generate Pascal's Triangle:
+
+//Start with the first row containing only the number 1.
+//For each subsequent row:
+//a.The row begins and ends with 1.
+//b.The numbers in between are obtained by summing the two numbers directly above them in the previous row.
+//Continue adding rows until you reach the desired number of rows.
+//For example, let's say we want to generate Pascal's Triangle up to 5 rows:
+
+// Row 1: 1
+// Row 2: 1 1
+// Row 3: 1 2 1
+// Row 4: 1 3 3 1
+// Row 5: 1 4 6 4 1
+
+
