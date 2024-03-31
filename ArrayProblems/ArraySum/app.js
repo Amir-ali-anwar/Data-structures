@@ -568,26 +568,48 @@ const generateHash=(str)=>{
 // Row 4: 1 3 3 1
 // Row 5: 1 4 6 4 1
 
+// const PascalTriangle=(num_rows)=>{
+//   let triangle=[]
+//   for (let index = 0; index < num_rows; index++) {
+//       if(index===1){
+//         arr.push([index])
+//       }
+//       if(index===2){
+//         arr.push([index-1,index-1])
+//       }
+//       if(index===3){
+//         arr.push([index-2,index-1,index-2])
+//       }
+//       if(index===4){
+//         arr.push([index-3,index-1,index-1,index-3])
+//       }
+//       if(index===5){
+//         arr.push([index-4,index-1,index-(-1),index-1,index-4])
+//       }
+//   }
+//   return arr
+// }
+// const num_rows = 6
+// console.log(PascalTriangle(num_rows));
+
+
+
 const PascalTriangle=(num_rows)=>{
-  let arr=[]
-  for (let index = 0; index < num_rows; index++) {
-      if(index===1){
-        arr.push([index])
+  let triangle=[]
+  for (let i = 0; i < num_rows; i++) {
+    let row = []
+    for (let j = 0; j <= i; j++) {
+      if (i === j || i === 0) {
+        row.push(1)
+      } else {
+        let leftValue = (j - 1 >= 0) ? triangle[i - 1][j - 1] : 0;
+        let topValue = (j < triangle[i - 1].length) ? triangle[i - 1][j] : 0;
+        row.push(leftValue+topValue)
       }
-      if(index===2){
-        arr.push([index-1,index-1])
-      }
-      if(index===3){
-        arr.push([index-2,index-1,index-2])
-      }
-      if(index===4){
-        arr.push([index-3,index-1,index-1,index-3])
-      }
-      if(index===5){
-        arr.push([index-4,index-1,index-(-1),index-1,index-4])
-      }
+    }
+    triangle.push(row)
   }
-  return arr
+  return triangle
 }
 const num_rows = 6
 console.log(PascalTriangle(num_rows));
