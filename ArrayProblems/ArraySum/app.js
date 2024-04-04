@@ -613,3 +613,24 @@ const PascalTriangle=(num_rows)=>{
 }
 const num_rows = 6
 console.log(PascalTriangle(num_rows));
+
+
+// write a function called countChar that takes two paramters: a string and a character to count
+// the function should return the number of times the specific character appears in the given string,
+
+// The function should be case-senstive
+
+// The function should handle both cases lowercase and uppercase characters.
+
+// The character paramater can be any printable ASCII character.
+
+
+
+
+const countChar=(str,char)=>{
+
+}
+
+
+
+console.log(countChar('yahoo','i'));
