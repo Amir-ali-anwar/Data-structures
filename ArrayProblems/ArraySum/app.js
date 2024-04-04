@@ -516,6 +516,9 @@ const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
 // console.log(contiguousArray(InputArr));
 
+
+
+
 //You're given an array of integers where each integer lies in the range [1, n] inclusive, and n is the size of the array. Some elements in the range [1, n] may appear multiple times, while others may appear only once. Your task is to find all the numbers in the range [1, n] that do not appear in the given array.
 
 //Example:
@@ -523,3 +526,111 @@ const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
 //Expected Output: [5, 6]
 
+
+
+
+//You are required to implement a function generatHash that generates a hash tag from a given input string,
+//the hash tag should be considred as follows:
+
+//The input string should be converted to a hash tag format, where each word is captalized and concatenacted together without spaces
+//if the length of the input string is greater then 200 characters or if the input string is empty or contains only whitespaces,
+//the function should return false
+
+// otherwise, the function should return the generated hash tag prfixed with #.
+
+const generateHash=(str)=>{
+  if(str.length === 200 || str.trim().length===0){
+    return false
+  }
+  str= str.split(" ").map((item)=>{
+    return item.charAt(0).toUpperCase() + item.slice(1)
+  }).join('') 
+  return `#${str}`
+}
+
+//console.log(generateHash("My name is Amir Ali Anwar"));
+
+// 
+// Generate Pascal's triangle up to a given number of rows.
+
+// Generating Pascal's Triangle up to a given number of rows involves constructing the triangle row by row, following the rule that each number in a row is the sum of the two numbers directly above it in the previous row. Here's a basic idea of how to generate Pascal's Triangle:
+
+//Start with the first row containing only the number 1.
+//For each subsequent row:
+//a.The row begins and ends with 1.
+//b.The numbers in between are obtained by summing the two numbers directly above them in the previous row.
+//Continue adding rows until you reach the desired number of rows.
+//For example, let's say we want to generate Pascal's Triangle up to 5 rows:
+
+// Row 1: 1
+// Row 2: 1 1
+// Row 3: 1 2 1
+// Row 4: 1 3 3 1
+// Row 5: 1 4 6 4 1
+
+// const PascalTriangle=(num_rows)=>{
+//   let triangle=[]
+//   for (let index = 0; index < num_rows; index++) {
+//       if(index===1){
+//         arr.push([index])
+//       }
+//       if(index===2){
+//         arr.push([index-1,index-1])
+//       }
+//       if(index===3){
+//         arr.push([index-2,index-1,index-2])
+//       }
+//       if(index===4){
+//         arr.push([index-3,index-1,index-1,index-3])
+//       }
+//       if(index===5){
+//         arr.push([index-4,index-1,index-(-1),index-1,index-4])
+//       }
+//   }
+//   return arr
+// }
+// const num_rows = 6
+// console.log(PascalTriangle(num_rows));
+
+
+
+const PascalTriangle=(num_rows)=>{
+  let triangle=[]
+  for (let i = 0; i < num_rows; i++) {
+    let row = []
+    for (let j = 0; j <= i; j++) {
+      if (i === j || i === 0) {
+        row.push(1)
+      } else {
+        let leftValue = (j - 1 >= 0) ? triangle[i - 1][j - 1] : 0;
+        let topValue = (j < triangle[i - 1].length) ? triangle[i - 1][j] : 0;
+        row.push(leftValue+topValue)
+      }
+    }
+    triangle.push(row)
+  }
+  return triangle
+}
+const num_rows = 6
+console.log(PascalTriangle(num_rows));
+
+
+// write a function called countChar that takes two paramters: a string and a character to count
+// the function should return the number of times the specific character appears in the given string,
+
+// The function should be case-senstive
+
+// The function should handle both cases lowercase and uppercase characters.
+
+// The character paramater can be any printable ASCII character.
+
+
+
+
+const countChar=(str,char)=>{
+
+}
+
+
+
+console.log(countChar('yahoo','i'));
