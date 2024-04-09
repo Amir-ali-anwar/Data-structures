@@ -614,6 +614,23 @@ const PascalTriangle=(num_rows)=>{
 const num_rows = 6
 console.log(PascalTriangle(num_rows));
 
+// write a funtion findlongestWord that takes a string as input and returns the longest word in the string
+//if there are multiple longest words, return the firs one encountered
+
+// The input string may contain alphatetic characters, digits, spaces and punctuation.
+// The input string is non-empty
+// The input string may contain multple words separated by spaces
+
+const findlongestWord=(str)=>{
+  if(!str || str.trim()===0){
+    throw new Error("please enter the input string")
+  }
+  const strIntoArray = str.split(' ').sort((a, b) => b.length - a.length)
+  return strIntoArray[0]
+}
+
+console.log(findlongestWord('I am the besttttttt yahoooooooooooooo '));
+
 
 // write a function called countChar that takes two paramters: a string and a character to count
 // the function should return the number of times the specific character appears in the given string,
