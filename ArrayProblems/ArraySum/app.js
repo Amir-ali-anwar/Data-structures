@@ -641,13 +641,16 @@ console.log(findlongestWord('I am the besttttttt yahoooooooooooooo '));
 
 // The character paramater can be any printable ASCII character.
 
-
-
-
-const countChar=(str,char)=>{
-
+const countChar = (str, char) => {
+  str = str.toLowerCase();
+  char = char.toLowerCase();
+  let totalCount = str.split('').reduce((acc, curr) => {
+    if (curr === char) {
+      acc++;
+    }
+    return acc
+  }, 0)
+  return totalCount
 }
-
-
 
 console.log(countChar('yahoo','i'));
