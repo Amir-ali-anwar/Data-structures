@@ -614,6 +614,23 @@ const PascalTriangle=(num_rows)=>{
 const num_rows = 6
 console.log(PascalTriangle(num_rows));
 
+// write a funtion findlongestWord that takes a string as input and returns the longest word in the string
+//if there are multiple longest words, return the firs one encountered
+
+// The input string may contain alphatetic characters, digits, spaces and punctuation.
+// The input string is non-empty
+// The input string may contain multple words separated by spaces
+
+const findlongestWord=(str)=>{
+  if(!str || str.trim()===0){
+    throw new Error("please enter the input string")
+  }
+  const strIntoArray = str.split(' ').sort((a, b) => b.length - a.length)
+  return strIntoArray[0]
+}
+
+console.log(findlongestWord('I am the besttttttt yahoooooooooooooo '));
+
 
 // write a function called countChar that takes two paramters: a string and a character to count
 // the function should return the number of times the specific character appears in the given string,
@@ -624,13 +641,30 @@ console.log(PascalTriangle(num_rows));
 
 // The character paramater can be any printable ASCII character.
 
-
-
-
-const countChar=(str,char)=>{
-
+const countChar = (str, char) => {
+  str = str.toLowerCase();
+  char = char.toLowerCase();
+  let totalCount = str.split('').reduce((acc, curr) => {
+    if (curr === char) {
+      acc++;
+    }
+    return acc
+  }, 0)
+  return totalCount
 }
 
+// console.log(countChar('yahoo','i'));
 
 
-console.log(countChar('yahoo','i'));
+//  Write a function called checkTriangleType that takes three parameters representing the  lengths of the sides of a triangle
+// The function should return a string indicating the type of triangle 'equilateral','isosceles' or 'scalene'
+
+const checkTriangleType=(a,b,c)=>{
+  if (a===null || b==null || c==null) throw new Error("Please enter all the values")
+  if(a === b && b==c) return 'equilateral'
+  if (a == b || b == c || a === c) return "isosceles"
+  return  'scalene'
+}
+
+console.log(checkTriangleType(2,2,2));
+console.log(checkTriangleType(0,0,0));
