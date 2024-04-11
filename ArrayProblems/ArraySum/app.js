@@ -666,5 +666,22 @@ const checkTriangleType=(a,b,c)=>{
   return  'scalene'
 }
 
-console.log(checkTriangleType(2,2,2));
-console.log(checkTriangleType(0,0,0));
+// console.log(checkTriangleType(2,2,2));
+// console.log(checkTriangleType(0,0,0));
+
+
+// Write a function to determine whether a given function is a palindrome or not. A palindrom is a word, phrase, number, or other sequence of characters
+// that reads the same forward and backward, ignoring spaces, punctuation and capitalization.
+
+
+const isPalindrome=(str)=>{
+  const newstr= str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+ return newstr === newstr.split('').reverse().join('')
+  // console.log(newstr);
+  // return newstr
+}
+
+console.log(isPalindrome('A man, a plan, a canal, Panama!'));
+
+
+
