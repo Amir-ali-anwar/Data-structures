@@ -704,4 +704,14 @@ const maxFromArray = (arr) => {
   return max
 }
 
-console.log(findMax([2, 4, 5, 10, 100, 300, 5000, 100]));
+// console.log(findMax([2, 4, 5, 10, 100, 300, 5000, 100]));
+
+const EqualArrays=(arr,arr2)=>{
+  if(arr.length !== arr2.length){
+    return false
+  }
+  return arr.every((currItem,index)=>currItem === arr2[index])
+}
+
+console.log(EqualArrays([1,2,3],[1,2,3]));
+console.log(EqualArrays([],[]));
