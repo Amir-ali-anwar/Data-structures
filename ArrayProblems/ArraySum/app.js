@@ -688,7 +688,20 @@ const isPalindrome=(str)=>{
 const findMax=(arr)=>{
   return Math.max(...arr)
 }
-console.log(findMax([2,4,5,10,100,300,5000,100]));
+// console.log(findMax([2,4,5,10,100,300,5000,100]));
 
+const maxFromArray = (arr) => {
+  if (arr.length === 0) {
+    return undefined
+  }
+  const max = arr[0]
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i]
+    }
 
+  }
+  return max
+}
 
+console.log(findMax([2, 4, 5, 10, 100, 300, 5000, 100]));
