@@ -681,7 +681,14 @@ const isPalindrome=(str)=>{
   // return newstr
 }
 
-console.log(isPalindrome('A man, a plan, a canal, Panama!'));
+// console.log(isPalindrome('A man, a plan, a canal, Panama!'));
+
+
+//Write a function findMax that takes and array of numbersas input and returns the maximum number in the array.
+const findMax=(arr)=>{
+  return Math.max(...arr)
+}
+console.log(findMax([2,4,5,10,100,300,5000,100]));
 
 
 
