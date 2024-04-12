@@ -713,5 +713,30 @@ const EqualArrays=(arr,arr2)=>{
   return arr.every((currItem,index)=>currItem === arr2[index])
 }
 
-console.log(EqualArrays([1,2,3],[1,2,3]));
-console.log(EqualArrays([],[]));
+// console.log(EqualArrays([1,2,3],[1,2,3]));
+// console.log(EqualArrays([],[]));
+
+
+
+// write a function that takes a number as a input and returns the sum of its digits
+
+
+const checkArraySum=(arr)=>{
+  let result= Array.from(String(arr)).reduce((acc,curr)=>{
+    acc+= Number(curr);
+    return acc
+  },0)  
+  return result
+}
+
+// console.log(checkArraySum([123456]));
+
+
+const checkArraySumV2=(arr)=>{
+  let result= arr.reduce((acc,curr)=>{
+    const digits= 
+    return acc
+  },0)
+  console.log(result);
+}
+console.log(checkArraySumV2([123456]));
