@@ -734,9 +734,30 @@ const checkArraySum=(arr)=>{
 
 const checkArraySumV2=(arr)=>{
   let result= arr.reduce((acc,curr)=>{
-    const digits= 
+    const digits= String(curr).split('').map(Number)
+    console.log(digits);
     return acc
   },0)
   console.log(result);
 }
 console.log(checkArraySumV2([123456]));
+
+
+//write a function that takes a string as input and returns the count of the vowels in that string,
+// consider 'a', 'e','i','o' and 'u' as vowels (both upppercase and lowercase)
+
+const countVowels=(str)=>{
+  const strArray = str.toLowerCase().split(''); // Splitting into characters
+  const vowelsArray = ['a', 'e', 'i', 'o', 'u'];
+  let vowelsCount=0;
+  for (let index = 0; index < strArray.length; index++) {
+    const element = strArray[index];
+    if(vowelsArray.includes(element)){
+      vowelsCount++
+    }
+    
+  }
+  return vowelsCount
+}
+
+console.log(countVowels('Hello world'));
