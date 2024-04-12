@@ -666,5 +666,98 @@ const checkTriangleType=(a,b,c)=>{
   return  'scalene'
 }
 
-console.log(checkTriangleType(2,2,2));
-console.log(checkTriangleType(0,0,0));
+// console.log(checkTriangleType(2,2,2));
+// console.log(checkTriangleType(0,0,0));
+
+
+// Write a function to determine whether a given function is a palindrome or not. A palindrom is a word, phrase, number, or other sequence of characters
+// that reads the same forward and backward, ignoring spaces, punctuation and capitalization.
+
+
+const isPalindrome=(str)=>{
+  const newstr= str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+ return newstr === newstr.split('').reverse().join('')
+  // console.log(newstr);
+  // return newstr
+}
+
+// console.log(isPalindrome('A man, a plan, a canal, Panama!'));
+
+
+//Write a function findMax that takes and array of numbersas input and returns the maximum number in the array.
+const findMax=(arr)=>{
+  return Math.max(...arr)
+}
+// console.log(findMax([2,4,5,10,100,300,5000,100]));
+
+const maxFromArray = (arr) => {
+  if (arr.length === 0) {
+    return undefined
+  }
+  const max = arr[0]
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i]
+    }
+
+  }
+  return max
+}
+
+// console.log(findMax([2, 4, 5, 10, 100, 300, 5000, 100]));
+
+const EqualArrays=(arr,arr2)=>{
+  if(arr.length !== arr2.length){
+    return false
+  }
+  return arr.every((currItem,index)=>currItem === arr2[index])
+}
+
+// console.log(EqualArrays([1,2,3],[1,2,3]));
+// console.log(EqualArrays([],[]));
+
+
+
+// write a function that takes a number as a input and returns the sum of its digits
+
+
+const checkArraySum=(arr)=>{
+  let result= Array.from(String(arr)).reduce((acc,curr)=>{
+    acc+= Number(curr);
+    return acc
+  },0)  
+  return result
+}
+
+// console.log(checkArraySum([123456]));
+
+
+const checkArraySumV2=(arr)=>{
+  let result= arr.reduce((acc,curr)=>{
+    const digits= String(curr).split('').map(Number)
+    console.log(digits);
+    return acc
+  },0)
+  console.log(result);
+}
+console.log(checkArraySumV2([123456]));
+
+
+//write a function that takes a string as input and returns the count of the vowels in that string,
+// consider 'a', 'e','i','o' and 'u' as vowels (both upppercase and lowercase)
+
+const countVowels=(str)=>{
+  const strArray = str.toLowerCase().split(''); // Splitting into characters
+  const vowelsArray = ['a', 'e', 'i', 'o', 'u'];
+  let vowelsCount=0;
+  for (let index = 0; index < strArray.length; index++) {
+    const element = strArray[index];
+    if(vowelsArray.includes(element)){
+      vowelsCount++
+    }
+    
+  }
+  return vowelsCount
+}
+
+console.log(countVowels('Hello world'));
