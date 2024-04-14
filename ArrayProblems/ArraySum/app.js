@@ -761,3 +761,21 @@ const countVowels=(str)=>{
 }
 
 console.log(countVowels('Hello world'));
+
+
+
+function simpleArraySum(inputString) {
+  // Split the string into individual numbers
+  const numbers = inputString.split(' ').map(Number);
+
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
+
+// Example usage
+const inputString = "123410 11";
+const result = simpleArraySum(inputString);
+console.log(result); // Output: 31
