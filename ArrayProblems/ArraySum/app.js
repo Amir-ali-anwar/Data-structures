@@ -870,3 +870,21 @@ const compareTriplets = (a, b) => {
 
   }
 }
+
+
+// write down the function to check if arrays are equal element-wise
+
+const areEqual = (a, b) => {
+  let result = true;
+  a.forEach((x, i) => {
+    if (!result) return;
+    if (b[i] === undefined || x !== b[i]) return result = false
+  });
+  return result
+} 
+
+const smallArray = [2, 3];
+const smallArray1 = [2, 3];
+const largeArray= Array.from({length:100},(_,i)=>i)
+console.log(largeArray);
+console.log(areEqual(smallArray,largeArray));
