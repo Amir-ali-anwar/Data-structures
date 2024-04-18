@@ -925,9 +925,160 @@ const largeArray= Array.from({length:501},(_,i)=>i)
 
 
 const aVeryBigSum=(arr)=>{
-    
-  return arr
+  return arr.reduce((acc, curr) => acc + curr, 0);
 }
 
-const inputSanple="1000000001 1000000002 1000000003 1000000004 1000000005"
-console.log(aVeryBigSum(inputSanple));
+const inputSanple=[1000000001, 1000000002, 1000000003, 1000000004, 1000000005];
+
+// console.log(aVeryBigSum(inputSanple));
+
+
+// Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+// For example, the square matrix  is shown below:
+
+// 1 2 3
+// 4 5 6
+// 9 8 9  
+// The left-to-right diagonal = . The right to left diagonal = . Their absolute difference is .
+
+// Function description
+
+// Complete the  function in the editor below.
+
+// diagonalDifference takes the following parameter:
+
+// int arr[n][m]: an array of integers
+// Return
+
+// int: the absolute diagonal difference
+// Input Format
+
+// The first line contains a single integer, , the number of rows and columns in the square matrix .
+// Each of the next  lines describes a row, , and consists of  space-separated integers .
+
+// Constraints
+
+// Output Format
+
+// Return the absolute difference between the sums of the matrix's two diagonals as a single integer.
+
+// Sample Input
+
+// 3
+// 11 2 4
+// 4 5 6
+// 10 8 -12
+// Sample Output
+
+// 15
+// Explanation
+
+// The primary diagonal is:
+
+// 11
+//    5
+//      -12
+// Sum across the primary diagonal: 11 + 5 - 12 = 4
+
+// The secondary diagonal is:
+
+//      4
+//    5
+// 10
+// Sum across the secondary diagonal: 4 + 5 + 10 = 19
+// Difference: |4 - 19| = 15
+
+// Note: |x| is the absolute value of x
+const diagonalDifference = (martix) => {
+  let leftDiagonalSum=0
+  let rightDiagonalSum=0;
+  for (let i = 0; i < martix.length; i++) {
+    leftDiagonalSum += martix[i][i];
+    rightDiagonalSum += matrix[i][martix.length-i-1];
+  }
+  return Math.abs(leftDiagonalSum - rightDiagonalSum)
+}
+
+const matrix = [
+  [11, 2, 4],
+  [4, 5, 6],
+  [10, 8, -12]
+];
+
+console.log(diagonalDifference(matrix));
+
+// Write a function that takes an array of numbers as input and returns the minimum value found in the array.
+
+const findMin=(arr)=>{
+  return Math.min(...arr)
+}
+
+// console.log(findMin([4,5,2,3,-6]));
+
+const findMinV2 = (arr) => {
+  if (arr.length === 0) return undefined
+  let minNumber = arr[0]
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < minNumber) {
+      minNumber = arr[i]
+    }
+
+  }
+  return minNumber
+}
+console.log(findMinV2([4, 5, 2, 3, -6]));
+
+
+// Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero. Print the decimal value of each fraction on a new line with  places after the decimal.
+
+// Note: This challenge introduces precision problems. The test cases are scaled to six decimal places, though answers with absolute error of up to  are acceptable.
+
+// Example
+
+// There are  elements, two positive, two negative and one zero. Their ratios are ,  and . Results are printed as:
+
+// 0.400000
+// 0.400000
+// 0.200000
+// Function Description
+
+// Complete the plusMinus function in the editor below.
+
+// plusMinus has the following parameter(s):
+
+// int arr[n]: an array of integers
+// Print
+// Print the ratios of positive, negative and zero values in the array. Each value should be printed on a separate line with  digits after the decimal. The function should not return a value.
+
+// Input Format
+
+// The first line contains an integer, , the size of the array.
+// The second line contains  space-separated integers that describe .
+
+// Constraints
+
+
+
+// Output Format
+
+// Print the following  lines, each to  decimals:
+
+// proportion of positive values
+// proportion of negative values
+// proportion of zeros
+// Sample Input
+
+// STDIN           Function
+// -----           --------
+// 6               arr[] size n = 6
+// -4 3 -9 0 4 1   arr = [-4, 3, -9, 0, 4, 1]
+// Sample Output
+
+// 0.500000
+// 0.333333
+// 0.166667
+// Explanation
+
+// There are  positive numbers,  negative numbers, and  zero in the array.
+// The proportions of occurrence are positive: , negative:  and zeros: .
