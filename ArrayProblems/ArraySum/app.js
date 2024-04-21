@@ -1082,3 +1082,109 @@ console.log(findMinV2([4, 5, 2, 3, -6]));
 
 // There are  positive numbers,  negative numbers, and  zero in the array.
 // The proportions of occurrence are positive: , negative:  and zeros: .
+
+
+
+function plusMinus(arr) {
+  const n = arr.length;
+  let positiveCount = 0;
+  let negativeCount = 0;
+  let zeroCount = 0;
+
+  arr.forEach(num => {
+    if (num > 0) {
+      positiveCount++;
+    } else if (num < 0) {
+      negativeCount++;
+    } else {
+      zeroCount++;
+    }
+  });
+
+  const positiveRatio = positiveCount / n;
+  const negativeRatio = negativeCount / n;
+  const zeroRatio = zeroCount / n;
+
+  console.log(positiveRatio.toFixed(6));
+  console.log(negativeRatio.toFixed(6));
+  console.log(zeroRatio.toFixed(6));
+}
+
+
+const newarray=[1,1,0,-1,-1]
+
+// console.log(plusMinus(newarray));
+
+
+// Staircase detail
+
+// This is a staircase of size :
+
+//    #
+//   ##
+//  ###
+// ####
+// Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+
+// Write a program that prints a staircase of size .
+
+// Function Description
+
+// Complete the staircase function in the editor below.
+
+// staircase has the following parameter(s):
+
+// int n: an integer
+// Print
+
+// Print a staircase as described above.
+
+// Input Format
+
+// A single integer, , denoting the size of the staircase.
+
+// Constraints
+
+//  .
+
+// Output Format
+
+// Print a staircase of size  using # symbols and spaces.
+
+// Note: The last line must have  spaces in it.
+
+// Sample Input
+
+// 6 
+// Sample Output
+
+//      #
+//     ##
+//    ###
+//   ####
+//  #####
+// ######
+// Explanation
+
+// The staircase is right-aligned, composed of # symbols and spaces, and has a height and width of .
+
+
+
+const staircase = (n) => {
+  let result = '';
+  for (let i = 1; i <= n; i++) {
+    let row = '';
+    for (let j = 0; j < i; j++) {
+      row += ' '.repeat(n - i);
+      // Append '#' symbols for the staircase
+      row += '#'.repeat(i);
+      row += '#';
+    }
+    result += row + '\n';
+  }
+  return result;
+}
+
+console.log(staircase(6));
+
+
