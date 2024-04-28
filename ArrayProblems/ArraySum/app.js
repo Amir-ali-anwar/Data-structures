@@ -1278,3 +1278,70 @@ arr = [1, 2, 3, 4, 5,]
 
 
 console.log(miniMaxSum(arr));
+
+ 
+//
+
+// Example
+
+
+// Return '12:01:00'.
+
+
+// Return '00:01:00'.
+
+// Function Description
+
+// Complete the timeConversion function in the editor below. It should return a new string representing the input time in 24 hour format.
+
+// timeConversion has the following parameter(s):
+
+// string s: a time in  hour format
+// Returns
+
+// string: the time in  hour format
+// Input Format
+
+// A single string  that represents a time in -hour clock format (i.e.:  or ).
+
+// Constraints
+
+// All input times are valid
+// Sample Input 0
+
+// 07:05:45PM
+// Sample Output 0
+
+// 19:05:45
+
+function timeConversion(s) {
+  // Extract hour, minute, second, and period (AM/PM) from the input string
+  var [hour, minute, second, period] = s.split(/:|([AP]M)/g).filter(Boolean);
+
+  // Convert hour to integer
+  hour = parseInt(hour, 10);
+
+  // If period is PM and hour is not 12, add 12 to hour
+  if (period === 'PM' && hour !== 12) {
+      hour += 12;
+  }
+
+  // If period is AM and hour is 12, set hour to 0
+  if (period === 'AM' && hour === 12) {
+      hour = 0;
+  }
+
+  // Format hour, minute, and second to have leading zeros
+  hour = hour.toString().padStart(2, '0');
+  minute = minute.padStart(2, '0');
+  second = second.padStart(2, '0');
+
+  // Return the time in 24-hour format
+  return `${hour}:${minute}:${second}`;
+}
+
+// Sample Input
+var s = '07:05:45PM';
+
+// Output
+console.log(timeConversion(s)); // Output: 19:05:45
