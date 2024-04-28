@@ -165,14 +165,14 @@ console.log(sortedArrayFn(sortedRotatedArray, 4));
 // Find the missing number
 // Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing.
 
-const findMissingNumber = async (array) => {
+const findMissingNumber =  (array) => {
   const arrayLength = array.length;
   const expectedSum = (arrayLength * (arrayLength + 1) / 2)
   const actualSum = array.reduce((sum, num) => sum + num, 0)
   return expectedSum - actualSum
 }
 const array = [0, 1, 3, 4, 5];
-const missingNumber = await findMissingNumber(array)
+const missingNumber =  findMissingNumber(array)
 console.log(missingNumber);
 
 
@@ -1082,3 +1082,199 @@ console.log(findMinV2([4, 5, 2, 3, -6]));
 
 // There are  positive numbers,  negative numbers, and  zero in the array.
 // The proportions of occurrence are positive: , negative:  and zeros: .
+
+
+
+function plusMinus(arr) {
+  const n = arr.length;
+  let positiveCount = 0;
+  let negativeCount = 0;
+  let zeroCount = 0;
+
+  arr.forEach(num => {
+    if (num > 0) {
+      positiveCount++;
+    } else if (num < 0) {
+      negativeCount++;
+    } else {
+      zeroCount++;
+    }
+  });
+
+  const positiveRatio = positiveCount / n;
+  const negativeRatio = negativeCount / n;
+  const zeroRatio = zeroCount / n;
+
+  console.log(positiveRatio.toFixed(6));
+  console.log(negativeRatio.toFixed(6));
+  console.log(zeroRatio.toFixed(6));
+}
+
+
+const newarray=[1,1,0,-1,-1]
+
+// console.log(plusMinus(newarray));
+
+
+// Staircase detail
+
+// This is a staircase of size :
+
+//    #
+//   ##
+//  ###
+// ####
+// Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+
+// Write a program that prints a staircase of size .
+
+// Function Description
+
+// Complete the staircase function in the editor below.
+
+// staircase has the following parameter(s):
+
+// int n: an integer
+// Print
+
+// Print a staircase as described above.
+
+// Input Format
+
+// A single integer, , denoting the size of the staircase.
+
+// Constraints
+
+//  .
+
+// Output Format
+
+// Print a staircase of size  using # symbols and spaces.
+
+// Note: The last line must have  spaces in it.
+
+// Sample Input
+
+// 6 
+// Sample Output
+
+//      #
+//     ##
+//    ###
+//   ####
+//  #####
+// ######
+// Explanation
+
+// The staircase is right-aligned, composed of # symbols and spaces, and has a height and width of .
+
+
+
+const staircase = (n) => {
+  let result = '';
+  for (let i = 1; i <= n; i++) {
+    let row = '';
+    for (let j = 0; j < i; j++) {
+      row += ' '.repeat(n - i);
+      // Append '#' symbols for the staircase
+      row += '#'.repeat(i);
+      row += '#';
+    }
+    result += row + '\n';
+  }
+  return result;
+}
+
+// console.log(staircase(6));
+
+
+// Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+
+// Example
+
+// The minimum sum is  and the maximum sum is . The function prints
+
+// 16 24
+// Function Description
+
+// Complete the miniMaxSum function in the editor below.
+
+// miniMaxSum has the following parameter(s):
+
+// arr: an array of  integers
+// Print
+
+// Print two space-separated integers on one line: the minimum sum and the maximum sum of  of  elements.
+
+// Input Format
+
+// A single line of five space-separated integers.
+
+// Constraints
+
+
+// Output Format
+
+// Print two space-separated long integers denoting the respective minimum and maximum values that can be calculated by summing exactly four of the five integers. (The output can be greater than a 32 bit integer.)
+
+// Sample Input
+
+// 1 2 3 4 5
+// Sample Output
+
+// 10 14
+// Explanation
+
+// The numbers are , , , , and . Calculate the following sums using four of the five integers:
+
+// Sum everything except , the sum is .
+// Sum everything except , the sum is .
+// Sum everything except , the sum is .
+// Sum everything except , the sum is .
+// Sum everything except , the sum is 
+
+
+function miniMaxSum(arr) {
+  // Write your code here
+  let arraysum = 0;
+  let sumArray = []
+  let minNumber
+  let maxNumber
+  for (let i = 0; i < arr.length; i++) {
+    let sum = 0
+    console.log(arr[i]);
+    for (let j = 0; j <arr.length; j++) {
+      console.log(arr[j]);
+      if(arr[i] !== arr[j]){
+        console.log(arr[j]);
+        sum+= arr[j]
+      }
+    }
+    // sumArray.push(sum)
+
+    arraysum += sum;
+    sumArray.push(arraysum)
+    console.log(sumArray);
+    maxNumber = sumArray[0];
+    
+  }
+  for (let i = 1; i < sumArray.length; i++) {
+    if (sumArray[i] > maxNumber) {
+      maxNumber = sumArray[i];
+    }
+  }
+  // Find the minimum sum
+  minNumber = sumArray[0];
+  for (let i = 1; i < sumArray.length; i++) {
+    if (sumArray[i] < minNumber) {
+      minNumber = sumArray[i];
+    }
+  }
+  console.log("Minimum sum:", minNumber);
+  console.log("Maximum sum:", maxNumber);
+  return arraysum
+}
+arr = [1, 2, 3, 4, 5,]
+
+
+console.log(miniMaxSum(arr));
