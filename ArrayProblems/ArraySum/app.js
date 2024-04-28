@@ -165,14 +165,14 @@ console.log(sortedArrayFn(sortedRotatedArray, 4));
 // Find the missing number
 // Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing.
 
-const findMissingNumber = async (array) => {
+const findMissingNumber =  (array) => {
   const arrayLength = array.length;
   const expectedSum = (arrayLength * (arrayLength + 1) / 2)
   const actualSum = array.reduce((sum, num) => sum + num, 0)
   return expectedSum - actualSum
 }
 const array = [0, 1, 3, 4, 5];
-const missingNumber = await findMissingNumber(array)
+const missingNumber =  findMissingNumber(array)
 console.log(missingNumber);
 
 
@@ -1236,18 +1236,45 @@ const staircase = (n) => {
 
 function miniMaxSum(arr) {
   // Write your code here
-  let currentNumber = arr[0]
+  let arraysum = 0;
+  let sumArray = []
+  let minNumber
+  let maxNumber
   for (let i = 0; i < arr.length; i++) {
-    currentNumber = arr[i]
-    const element = arr[i];
     let sum = 0
-    for (let j = 0; j < arr.length; j++) {
+    console.log(arr[i]);
+    for (let j = 0; j <arr.length; j++) {
+      console.log(arr[j]);
+      if(arr[i] !== arr[j]){
+        console.log(arr[j]);
+        sum+= arr[j]
+      }
     }
+    // sumArray.push(sum)
 
+    arraysum += sum;
+    sumArray.push(arraysum)
+    console.log(sumArray);
+    maxNumber = sumArray[0];
+    
   }
-  return sum
+  for (let i = 1; i < sumArray.length; i++) {
+    if (sumArray[i] > maxNumber) {
+      maxNumber = sumArray[i];
+    }
+  }
+  // Find the minimum sum
+  minNumber = sumArray[0];
+  for (let i = 1; i < sumArray.length; i++) {
+    if (sumArray[i] < minNumber) {
+      minNumber = sumArray[i];
+    }
+  }
+  console.log("Minimum sum:", minNumber);
+  console.log("Maximum sum:", maxNumber);
+  return arraysum
 }
-arr=[1,2,3,4,5,]
+arr = [1, 2, 3, 4, 5,]
 
 
 console.log(miniMaxSum(arr));
