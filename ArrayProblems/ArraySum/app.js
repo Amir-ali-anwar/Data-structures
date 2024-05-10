@@ -1386,10 +1386,11 @@ console.log(isUpperCase("DATA"));
 //string as input and return the reversed string.
 
 const reverseString = (str) => {
-  const strIntoArray = str.split("");
-  for (let i = 0; i < strIntoArray.length; i++) {
-    const element = strIntoArray[i];
-    console.log(element);
+  let strIntoArray = '';
+  for (let i = str.length-1; i >=0 ; i--) {
+    const element = str[i];
+    strIntoArray+=element
   }
+  return strIntoArray
 };
 console.log(reverseString("hello"));
