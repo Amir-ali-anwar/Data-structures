@@ -1,72 +1,67 @@
 //Given an array of integers, find the sum of all elements.
 
 const arraySum = (inputArray) => {
-  let sum = 0
+  let sum = 0;
   console.log(sum);
   for (let index = 0; index < inputArray.length; index++) {
-
-    sum += inputArray[index]
+    sum += inputArray[index];
   }
-  return sum
-}
-
+  return sum;
+};
 
 const inputArray = [1, 2, 3, 4, 5, 6, 7];
 
-
 // console.log(arraySum(inputArray));
-
 
 // Given an array of integers, find the product of all even elements. If there are no even elements, return 1.
 
-
-const Input = [1, 3, 3, 7, 5]
+const Input = [1, 3, 3, 7, 5];
 
 const product_of_even_elements = (inputArray) => {
-  let product = 1
+  let product = 1;
   for (let index = 0; index < inputArray.length; index++) {
-    let isEven = inputArray[index] % 2 === 0
+    let isEven = inputArray[index] % 2 === 0;
     console.log(isEven);
     if (isEven) {
-      product *= inputArray[index]
+      product *= inputArray[index];
     }
   }
-  return product
-}
+  return product;
+};
 
 // console.log(product_of_even_elements(Input));
 
 // Find the maximum element in an array.
 
-const my_array = [3, 8, 1, 6, 2, 8, 5, 12]
+const my_array = [3, 8, 1, 6, 2, 8, 5, 12];
 
 const largestElement = (array) => {
-  let max_element = array[0]
+  let max_element = array[0];
   for (let index = 1; index < array.length; index++) {
     const element = array[index];
     if (element > max_element) {
-      max_element = element
+      max_element = element;
     }
   }
-  return max_element
-}
+  return max_element;
+};
 
 console.log(largestElement(my_array));
 
 //Find the minimum element in an array.
 
-const my_array1 = [3, 8, 1, 6, 2, 8, 5, 12]
+const my_array1 = [3, 8, 1, 6, 2, 8, 5, 12];
 
 const smallestElement = (array) => {
-  let max_element = array[0]
+  let max_element = array[0];
   for (let index = 1; index < array.length; index++) {
     const element = array[index];
     if (element < max_element) {
-      max_element = element
+      max_element = element;
     }
   }
-  return max_element
-}
+  return max_element;
+};
 
 console.log(smallestElement(my_array));
 
@@ -79,225 +74,227 @@ const secondLargestElement = (array) => {
   }
 
   let firstLargest = array[0];
-  let secondLargest = Number.NEGATIVE_INFINITY
+  let secondLargest = Number.NEGATIVE_INFINITY;
   // let secondLargest= array[1];
 
   for (let index = 1; index < array.length; index++) {
     if (array[index] > firstLargest) {
-      secondLargest = firstLargest
-      firstLargest = array[index]
+      secondLargest = firstLargest;
+      firstLargest = array[index];
     } else if (array[index] > secondLargest && array[index] < firstLargest) {
-      secondLargest = array[index]
+      secondLargest = array[index];
     }
-
   }
-  return secondLargest
-}
+  return secondLargest;
+};
 
 console.log(secondLargestElement(myArraycheck));
 
-
 // Reverse the order of elements in an array.
 const reverseArray = (array) => {
-  let arr = []
+  let arr = [];
   for (let index = array.length - 1; index >= 0; index--) {
-    arr.push(array[index])
+    arr.push(array[index]);
   }
-  return arr
-}
+  return arr;
+};
 console.log(reverseArray(myArraycheck));
-
 
 // Find and count duplicate elements in an array.
 
 const findDuplicates = (arr) => {
-  let tempArray = []
+  let tempArray = [];
   let duplicatesCount = 0;
   for (let index = 0; index < arr.length; index++) {
     if (!tempArray.includes(arr[index])) {
-      tempArray.push(arr[index])
+      tempArray.push(arr[index]);
     } else {
-      duplicatesCount++
+      duplicatesCount++;
     }
   }
   console.log(duplicatesCount);
-  return tempArray
-}
+  return tempArray;
+};
 
-const duplicateArray = [1, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 9, 10]
+const duplicateArray = [1, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 9, 10];
 console.log(findDuplicates(duplicateArray));
 
 const isSorted = (array) => {
   for (let index = 0; index < array.length; index++) {
     if (array[index] > array[index + 1]) {
       console.log("Given array is not sorted");
-      return false
+      return false;
     }
   }
   console.log("Given array is sorted");
-  return true
-
-}
+  return true;
+};
 const myArray = [1, 2, 3, 4, 5];
 // console.log(isSorted(myArray));
 
-const sortedArray = [1, 12, 43, 34, 12, 54, 76, 100, 90]
+const sortedArray = [1, 12, 43, 34, 12, 54, 76, 100, 90];
 // console.log(isSorted(sortedArray));
-
-
 
 //Given a rotated sorted array, find a target element.
 
-const sortedRotatedArray = [1, 2, 3, 4, 5]
+const sortedRotatedArray = [1, 2, 3, 4, 5];
 
 const sortedArrayFn = (array, target) => {
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
     if (element === target) {
-      return element
+      return element;
     }
   }
-}
+};
 
 console.log(sortedArrayFn(sortedRotatedArray, 4));
-
 
 // Find the missing number
 // Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing.
 
-const findMissingNumber =  (array) => {
+const findMissingNumber = (array) => {
   const arrayLength = array.length;
-  const expectedSum = (arrayLength * (arrayLength + 1) / 2)
-  const actualSum = array.reduce((sum, num) => sum + num, 0)
-  return expectedSum - actualSum
-}
+  const expectedSum = (arrayLength * (arrayLength + 1)) / 2;
+  const actualSum = array.reduce((sum, num) => sum + num, 0);
+  return expectedSum - actualSum;
+};
 const array = [0, 1, 3, 4, 5];
-const missingNumber =  findMissingNumber(array)
+const missingNumber = findMissingNumber(array);
 console.log(missingNumber);
-
 
 //Given an array nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
 
-const arraynums = [1, 2, 3, 4, 5, 6, 7]
+const arraynums = [1, 2, 3, 4, 5, 6, 7];
 const arrayProduct = (arr) => {
   return arr.reduce((acc, curr, index) => {
-    const products = arr.reduce((product, num, i) => (i !== index ? product * num : product), 1)
-    acc.push(products)
-    return acc
+    const products = arr.reduce(
+      (product, num, i) => (i !== index ? product * num : product),
+      1
+    );
+    acc.push(products);
+    return acc;
   }, []);
-}
+};
 
 console.log(arrayProduct(arraynums));
 
 //  2nd solution
 
 const arrayProducts = (array) => {
-  const arrayLength = array.length
-  const leftArray = new Array(arrayLength).fill(1)
-  const RightArray = new Array(arrayLength).fill(1)
-  let leftProduct = 1
+  const arrayLength = array.length;
+  const leftArray = new Array(arrayLength).fill(1);
+  const RightArray = new Array(arrayLength).fill(1);
+  let leftProduct = 1;
   for (let index = 1; index < arrayLength; index++) {
-    leftProduct *= array[index - 1]
-    leftArray[index] = leftProduct
+    leftProduct *= array[index - 1];
+    leftArray[index] = leftProduct;
   }
   let rightProduct = 1;
   for (let i = arrayLength - 2; i >= 0; i--) {
     rightProduct *= array[i + 1];
     RightArray[i] = rightProduct;
   }
-  let result = []
+  let result = [];
   for (let index = 0; index < array.length; index++) {
     // Corrected indexing here (used leftArray and rightArray instead of leftProduct and rightProduct)
     result[index] = RightArray[index] * leftArray[index];
   }
-  return result
-}
+  return result;
+};
 // console.log(arrayProducts(arraynums));
 
-
 // Given a binary array, find the maximum number of consecutive 1s.
-const binaryArray = [1, 1, 0, 1, 1, 1, 0, 0, 0, 1]
+const binaryArray = [1, 1, 0, 1, 1, 1, 0, 0, 0, 1];
 const hasConsecutiveOnes = (arr) => {
-  let isBinary = false
+  let isBinary = false;
   for (let index = 0; index < arr.length - 2; index++) {
     const element = arr[index];
     const element1 = arr[index + 1];
     const element2 = arr[index + 2];
     if (element === 1 && element1 === 1 && element2 === 1) {
-      return isBinary = true
+      return (isBinary = true);
     }
   }
-  return isBinary
-}
+  return isBinary;
+};
 
 console.log(hasConsecutiveOnes(binaryArray));
 
-
 //Given a collection of intervals, merge overlapping intervals.
 
-const intervalArray = [[15, 18], [1, 3], [2, 6], [8, 10]]
+const intervalArray = [
+  [15, 18],
+  [1, 3],
+  [2, 6],
+  [8, 10],
+];
 
 const sorting = (intervals) => {
-  const n = intervals.length
+  const n = intervals.length;
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n - i - 1; j++) {
       if (intervals[j][0] > intervals[j + 1][0]) {
-        const temp = intervals[j]
-        intervals[j] = intervals[j + 1]
-        intervals[j + 1] = temp
+        const temp = intervals[j];
+        intervals[j] = intervals[j + 1];
+        intervals[j + 1] = temp;
       }
-
     }
   }
-  return intervals
-}
+  return intervals;
+};
 const mergeOverlappingIntervals = (sortedIntervals) => {
-  const n = sortedIntervals.length
-  const mergedIntervals = []
+  const n = sortedIntervals.length;
+  const mergedIntervals = [];
   if (n <= 1) {
-    return sortedIntervals
+    return sortedIntervals;
   }
-  let currentInterval = sortedIntervals[0]
+  let currentInterval = sortedIntervals[0];
   for (let i = 1; i < n; i++) {
-    const nextInterval = sortedIntervals[i]
+    const nextInterval = sortedIntervals[i];
     if (currentInterval[1] >= nextInterval[0]) {
       currentInterval[1] = Math.max(currentInterval[1], nextInterval[1]);
     } else {
-      mergedIntervals.push(currentInterval)
-      currentInterval = nextInterval
+      mergedIntervals.push(currentInterval);
+      currentInterval = nextInterval;
     }
-
   }
-  mergedIntervals.push(currentInterval)
-  return mergedIntervals
-}
+  mergedIntervals.push(currentInterval);
+  return mergedIntervals;
+};
 //first solution
 const isMerge = (arr) => {
-  const sortedIntervals = sorting(arr)
-  const mergedIntervals = mergeOverlappingIntervals(sortedIntervals)
-  return mergedIntervals
-}
+  const sortedIntervals = sorting(arr);
+  const mergedIntervals = mergeOverlappingIntervals(sortedIntervals);
+  return mergedIntervals;
+};
 console.log(isMerge(intervalArray));
 
 // 2nd solution
 
 const mergingIntervals = (intervals) => {
-  intervals.sort((a, b) => a[0] - b[0])
+  intervals.sort((a, b) => a[0] - b[0]);
   const merged = [];
   for (const interval of intervals) {
     if (!merged.length || interval[0] > merged[merged.length - 1][1]) {
-      merged.push(interval)
+      merged.push(interval);
       console.log(merged[merged.length - 1][1]);
       console.log(interval[0]);
     } else {
-      merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], interval[1]);
-
-
+      merged[merged.length - 1][1] = Math.max(
+        merged[merged.length - 1][1],
+        interval[1]
+      );
     }
   }
-  return merged
-}
-const newIntervals = [[1, 5], [2, 8], [10, 12], [13, 15]];
+  return merged;
+};
+const newIntervals = [
+  [1, 5],
+  [2, 8],
+  [10, 12],
+  [13, 15],
+];
 
 console.log(mergingIntervals(newIntervals));
 
@@ -306,38 +303,37 @@ const numbers = [1, 2, 3, 4, 5];
 
 const arrayAvg = (nums) => {
   if (nums.length === 0) {
-    return 0
+    return 0;
   }
-  const sumArray = nums.reduce((acc, curr) => acc + curr, 0)
-  const average = sumArray / nums.length
-  return average
-}
+  const sumArray = nums.reduce((acc, curr) => acc + curr, 0);
+  const average = sumArray / nums.length;
+  return average;
+};
 
 console.log(arrayAvg(numbers));
 
 // Rotate the elements of an array to the right by a given number of steps.
 
 const arrayRotaion = (arr) => {
-  const arrayLength = arr.length
+  const arrayLength = arr.length;
   for (let i = 0; i < arrayLength - 1; i++) {
     if (arr[arrayLength] > arr[arrayLength + 1]) {
-      return false
+      return false;
     }
   }
-  return true
-}
+  return true;
+};
 const myArray1 = [1, 2, 3, 4, 5];
 
-const result1 = arrayRotaion(myArray1)
+const result1 = arrayRotaion(myArray1);
 console.log(result1);
-
 
 // Check if the elements in an array are sorted in non-decreasing order.
 
 const isNonDecreasing = (arr) => {
-  const arrayLength = arr.length
+  const arrayLength = arr.length;
   if (arrayLength === 0) {
-    throw new Error("Please input the valid Array")
+    throw new Error("Please input the valid Array");
   }
   for (let i = 0; i < arrayLength - 1; i++) {
     if (arr[i] < arr[i - 1]) {
@@ -345,105 +341,107 @@ const isNonDecreasing = (arr) => {
     }
   }
   return true;
-}
+};
 console.log(isNonDecreasing(myArray1));
-
 
 // convert a number in word form into a numeric value
 
 const wordToNumber = (words) => {
   const wordMap = {
-    'zero': 0,
-    'one': 1,
-    'two': 2,
-    'three': 3,
-    'four': 4,
-    'five': 5,
-    'six': 6,
-    'seven': 7,
-    'eight': 8,
-    'nine': 9,
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
   };
   const values = words.map((word) => {
-    const lowerCaseWord = word.toLowerCase()
+    const lowerCaseWord = word.toLowerCase();
     if (wordMap.hasOwnProperty(lowerCaseWord)) {
-      return wordMap[lowerCaseWord]
+      return wordMap[lowerCaseWord];
     } else {
       console.log("your given number not found");
-      return NaN
+      return NaN;
     }
-  })
-return values
-}
-const words = ['three', 'five', 'seven'];
+  });
+  return values;
+};
+const words = ["three", "five", "seven"];
 
 console.log(wordToNumber(words));
-
 
 // Find the intersection or union of two arrays.
 
 const isIntersection = (arr1, arr2) => {
-  let array = []
+  let array = [];
   for (let i = 0; i < arr1.length; i++) {
     const element = arr1[i];
     for (let j = 0; j < arr2.length; j++) {
       const element1 = arr2[j];
       if (element === element1) {
-        array.push(element)
+        array.push(element);
       }
     }
   }
-  return array
-}
+  return array;
+};
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [4, 5, 6, 7, 8];
 
-console.log(isIntersection(array1,array2));
+console.log(isIntersection(array1, array2));
 
 // 2nd method
 
-const findIntersection=(arr1,arr2)=>{
-const set= new Set(arr1)
-const intersection = [];
+const findIntersection = (arr1, arr2) => {
+  const set = new Set(arr1);
+  const intersection = [];
   for (const iterator of arr2) {
-    if(set.has(iterator)){
-      intersection.push(iterator)
+    if (set.has(iterator)) {
+      intersection.push(iterator);
     }
   }
-  return intersection
-}
-console.log(findIntersection(array1,array2));
+  return intersection;
+};
+console.log(findIntersection(array1, array2));
 
-// 3rd Method 
+// 3rd Method
 
 const findInterSectionWithHash = (arr1, arr2) => {
-  const hashTable = {}
+  const hashTable = {};
   for (const iterator of arr1) {
-    hashTable[iterator] = true
+    hashTable[iterator] = true;
   }
-  const intersection = []
+  const intersection = [];
   for (const element of arr2) {
     if (hashTable[element]) {
-      intersection.push(element)
+      intersection.push(element);
     }
   }
-  return intersection
-}
-console.log(findInterSectionWithHash(array1,array2));
-
+  return intersection;
+};
+console.log(findInterSectionWithHash(array1, array2));
 
 //Write a function called calculateAverageScore that takes an object representing test scores as an argument and returns the average score of the student.
 
-const calculateAverageScore=(testScores)=>{
-  const testDataArray=  Object.entries(testScores).map(([subject,score])=>({subject,score})).reduce((acc,curr)=>{
-    acc.numOfSubjects++;
-    acc.totalScore+= curr.score;
-    acc.Average= acc.totalScore/acc.numOfSubjects
-    return acc
-  },{numOfSubjects:0,totalScore:0,Average:0})
- 
-return testDataArray
-}
+const calculateAverageScore = (testScores) => {
+  const testDataArray = Object.entries(testScores)
+    .map(([subject, score]) => ({ subject, score }))
+    .reduce(
+      (acc, curr) => {
+        acc.numOfSubjects++;
+        acc.totalScore += curr.score;
+        acc.Average = acc.totalScore / acc.numOfSubjects;
+        return acc;
+      },
+      { numOfSubjects: 0, totalScore: 0, Average: 0 }
+    );
+
+  return testDataArray;
+};
 const testScores = {
   Math: 90,
   Science: 85,
@@ -457,35 +455,30 @@ const testScores = {
 const calculateStudentAvg = (testScores) => {
   const testDataArray = Object.values(testScores);
   const totalScore = testDataArray.reduce((acc, curr) => acc + curr, 0);
-  const average = totalScore / testDataArray.length
-  return average
-
-
-}
+  const average = totalScore / testDataArray.length;
+  return average;
+};
 
 // console.log(calculateStudentAvg(testScores));
 
-
 // Javascript data structure Map
-const map1= new Map()
+const map1 = new Map();
 map1.set("a", 1);
 map1.set("b", 2);
 map1.set("c", 3);
 
-
-console.log(map1.size); 
-
+console.log(map1.size);
 
 // Write a function called countCharacters that takes a string as input and returns a Map that contains each character in the string as a key and the count of occurrences of that character as the value.
 
-const countCharacters=(str)=>{
+const countCharacters = (str) => {
   const characterCountMap = new Map();
   for (const char of str) {
-    const count= characterCountMap.get(char) || 0;
-    characterCountMap.set(char,count+1)
+    const count = characterCountMap.get(char) || 0;
+    characterCountMap.set(char, count + 1);
   }
-  return characterCountMap
-}
+  return characterCountMap;
+};
 const text = "hello";
 const characterCountMap = countCharacters(text);
 console.log(characterCountMap);
@@ -495,7 +488,6 @@ console.log(characterCountMap);
 
 //Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 //Output: 6 (The contiguous subarray [4, -1, 2, 1] has the largest sum of 6.)
-
 
 const contiguousArray = (InputArr) => {
   let maxSum = InputArr[0];
@@ -510,14 +502,11 @@ const contiguousArray = (InputArr) => {
     }
   }
   return maxSum;
-}
+};
 
 const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
 // console.log(contiguousArray(InputArr));
-
-
-
 
 //You're given an array of integers where each integer lies in the range [1, n] inclusive, and n is the size of the array. Some elements in the range [1, n] may appear multiple times, while others may appear only once. Your task is to find all the numbers in the range [1, n] that do not appear in the given array.
 
@@ -525,9 +514,6 @@ const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 //Let's say we have an array nums = [4, 3, 2, 7, 8, 2, 3, 1]. Here, n = 8 because the size of the array is 8.
 
 //Expected Output: [5, 6]
-
-
-
 
 //You are required to implement a function generatHash that generates a hash tag from a given input string,
 //the hash tag should be considred as follows:
@@ -538,19 +524,22 @@ const InputArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
 // otherwise, the function should return the generated hash tag prfixed with #.
 
-const generateHash=(str)=>{
-  if(str.length === 200 || str.trim().length===0){
-    return false
+const generateHash = (str) => {
+  if (str.length === 200 || str.trim().length === 0) {
+    return false;
   }
-  str= str.split(" ").map((item)=>{
-    return item.charAt(0).toUpperCase() + item.slice(1)
-  }).join('') 
-  return `#${str}`
-}
+  str = str
+    .split(" ")
+    .map((item) => {
+      return item.charAt(0).toUpperCase() + item.slice(1);
+    })
+    .join("");
+  return `#${str}`;
+};
 
 //console.log(generateHash("My name is Amir Ali Anwar"));
 
-// 
+//
 // Generate Pascal's triangle up to a given number of rows.
 
 // Generating Pascal's Triangle up to a given number of rows involves constructing the triangle row by row, following the rule that each number in a row is the sum of the two numbers directly above it in the previous row. Here's a basic idea of how to generate Pascal's Triangle:
@@ -592,26 +581,24 @@ const generateHash=(str)=>{
 // const num_rows = 6
 // console.log(PascalTriangle(num_rows));
 
-
-
-const PascalTriangle=(num_rows)=>{
-  let triangle=[]
+const PascalTriangle = (num_rows) => {
+  let triangle = [];
   for (let i = 0; i < num_rows; i++) {
-    let row = []
+    let row = [];
     for (let j = 0; j <= i; j++) {
       if (i === j || i === 0) {
-        row.push(1)
+        row.push(1);
       } else {
-        let leftValue = (j - 1 >= 0) ? triangle[i - 1][j - 1] : 0;
-        let topValue = (j < triangle[i - 1].length) ? triangle[i - 1][j] : 0;
-        row.push(leftValue+topValue)
+        let leftValue = j - 1 >= 0 ? triangle[i - 1][j - 1] : 0;
+        let topValue = j < triangle[i - 1].length ? triangle[i - 1][j] : 0;
+        row.push(leftValue + topValue);
       }
     }
-    triangle.push(row)
+    triangle.push(row);
   }
-  return triangle
-}
-const num_rows = 6
+  return triangle;
+};
+const num_rows = 6;
 console.log(PascalTriangle(num_rows));
 
 // write a funtion findlongestWord that takes a string as input and returns the longest word in the string
@@ -621,16 +608,15 @@ console.log(PascalTriangle(num_rows));
 // The input string is non-empty
 // The input string may contain multple words separated by spaces
 
-const findlongestWord=(str)=>{
-  if(!str || str.trim()===0){
-    throw new Error("please enter the input string")
+const findlongestWord = (str) => {
+  if (!str || str.trim() === 0) {
+    throw new Error("please enter the input string");
   }
-  const strIntoArray = str.split(' ').sort((a, b) => b.length - a.length)
-  return strIntoArray[0]
-}
+  const strIntoArray = str.split(" ").sort((a, b) => b.length - a.length);
+  return strIntoArray[0];
+};
 
-console.log(findlongestWord('I am the besttttttt yahoooooooooooooo '));
-
+console.log(findlongestWord("I am the besttttttt yahoooooooooooooo "));
 
 // write a function called countChar that takes two paramters: a string and a character to count
 // the function should return the number of times the specific character appears in the given string,
@@ -644,129 +630,117 @@ console.log(findlongestWord('I am the besttttttt yahoooooooooooooo '));
 const countChar = (str, char) => {
   str = str.toLowerCase();
   char = char.toLowerCase();
-  let totalCount = str.split('').reduce((acc, curr) => {
+  let totalCount = str.split("").reduce((acc, curr) => {
     if (curr === char) {
       acc++;
     }
-    return acc
-  }, 0)
-  return totalCount
-}
+    return acc;
+  }, 0);
+  return totalCount;
+};
 
 // console.log(countChar('yahoo','i'));
-
 
 //  Write a function called checkTriangleType that takes three parameters representing the  lengths of the sides of a triangle
 // The function should return a string indicating the type of triangle 'equilateral','isosceles' or 'scalene'
 
-const checkTriangleType=(a,b,c)=>{
-  if (a===null || b==null || c==null) throw new Error("Please enter all the values")
-  if(a === b && b==c) return 'equilateral'
-  if (a == b || b == c || a === c) return "isosceles"
-  return  'scalene'
-}
+const checkTriangleType = (a, b, c) => {
+  if (a === null || b == null || c == null)
+    throw new Error("Please enter all the values");
+  if (a === b && b == c) return "equilateral";
+  if (a == b || b == c || a === c) return "isosceles";
+  return "scalene";
+};
 
 // console.log(checkTriangleType(2,2,2));
 // console.log(checkTriangleType(0,0,0));
 
-
 // Write a function to determine whether a given function is a palindrome or not. A palindrom is a word, phrase, number, or other sequence of characters
 // that reads the same forward and backward, ignoring spaces, punctuation and capitalization.
 
-
-const isPalindrome=(str)=>{
-  const newstr= str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
- return newstr === newstr.split('').reverse().join('')
+const isPalindrome = (str) => {
+  const newstr = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  return newstr === newstr.split("").reverse().join("");
   // console.log(newstr);
   // return newstr
-}
+};
 
 // console.log(isPalindrome('A man, a plan, a canal, Panama!'));
 
-
 //Write a function findMax that takes and array of numbersas input and returns the maximum number in the array.
-const findMax=(arr)=>{
-  return Math.max(...arr)
-}
+const findMax = (arr) => {
+  return Math.max(...arr);
+};
 // console.log(findMax([2,4,5,10,100,300,5000,100]));
 
 const maxFromArray = (arr) => {
   if (arr.length === 0) {
-    return undefined
+    return undefined;
   }
-  const max = arr[0]
+  const max = arr[0];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > max) {
-      max = arr[i]
+      max = arr[i];
     }
-
   }
-  return max
-}
+  return max;
+};
 
 // console.log(findMax([2, 4, 5, 10, 100, 300, 5000, 100]));
 
-const EqualArrays=(arr,arr2)=>{
-  if(arr.length !== arr2.length){
-    return false
+const EqualArrays = (arr, arr2) => {
+  if (arr.length !== arr2.length) {
+    return false;
   }
-  return arr.every((currItem,index)=>currItem === arr2[index])
-}
+  return arr.every((currItem, index) => currItem === arr2[index]);
+};
 
 // console.log(EqualArrays([1,2,3],[1,2,3]));
 // console.log(EqualArrays([],[]));
 
-
-
 // write a function that takes a number as a input and returns the sum of its digits
 
-
-const checkArraySum=(arr)=>{
-  let result= Array.from(String(arr)).reduce((acc,curr)=>{
-    acc+= Number(curr);
-    return acc
-  },0)  
-  return result
-}
+const checkArraySum = (arr) => {
+  let result = Array.from(String(arr)).reduce((acc, curr) => {
+    acc += Number(curr);
+    return acc;
+  }, 0);
+  return result;
+};
 
 // console.log(checkArraySum([123456]));
 
-
-const checkArraySumV2=(arr)=>{
-  let result= arr.reduce((acc,curr)=>{
-    const digits= String(curr).split('').map(Number)
+const checkArraySumV2 = (arr) => {
+  let result = arr.reduce((acc, curr) => {
+    const digits = String(curr).split("").map(Number);
     console.log(digits);
-    return acc
-  },0)
+    return acc;
+  }, 0);
   console.log(result);
-}
+};
 console.log(checkArraySumV2([123456]));
-
 
 //write a function that takes a string as input and returns the count of the vowels in that string,
 // consider 'a', 'e','i','o' and 'u' as vowels (both upppercase and lowercase)
 
-const countVowels=(str)=>{
-  const strArray = str.toLowerCase().split(''); // Splitting into characters
-  const vowelsArray = ['a', 'e', 'i', 'o', 'u'];
-  let vowelsCount=0;
+const countVowels = (str) => {
+  const strArray = str.toLowerCase().split(""); // Splitting into characters
+  const vowelsArray = ["a", "e", "i", "o", "u"];
+  let vowelsCount = 0;
   for (let index = 0; index < strArray.length; index++) {
     const element = strArray[index];
-    if(vowelsArray.includes(element)){
-      vowelsCount++
+    if (vowelsArray.includes(element)) {
+      vowelsCount++;
     }
-    
   }
-  return vowelsCount
-}
+  return vowelsCount;
+};
 
-console.log(countVowels('Hello world'));
-
-
+console.log(countVowels("Hello world"));
 
 function simpleArraySum(inputString) {
   // Split the string into individual numbers
-  const numbers = inputString.split(' ').map(Number);
+  const numbers = inputString.split(" ").map(Number);
 
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
@@ -779,8 +753,6 @@ function simpleArraySum(inputString) {
 const inputString = "123410 11";
 const result = simpleArraySum(inputString);
 console.log(result); // Output: 31
-
-
 
 // Alice and Bob each created one problem for HackerRank. A reviewer rates the two challenges, awarding points on a scale from 1 to 100 for three categories: problem clarity, originality, and difficulty.
 
@@ -855,22 +827,19 @@ console.log(result); // Output: 31
 // Comparing the  and  elements,  and  so Alice receives two points.
 // The return array is .
 
-
 const compareTriplets = (a, b) => {
   let aliceScore = 0;
   let bobScore = 0;
   for (let i = 0; i < 3; i++) {
     if (a[i] > b[i]) {
-      aliceScore++
+      aliceScore++;
     } else if (a[i] < b[i]) {
-      bobScore++
+      bobScore++;
     } else {
-      return [aliceScore, bobScore]
+      return [aliceScore, bobScore];
     }
-
   }
-}
-
+};
 
 // write down the function to check if arrays are equal element-wise
 
@@ -878,16 +847,15 @@ const areEqual = (a, b) => {
   let result = true;
   a.forEach((x, i) => {
     if (!result) return;
-    if (b[i] === undefined || x !== b[i]) return result = false
+    if (b[i] === undefined || x !== b[i]) return (result = false);
   });
-  return result
-} 
+  return result;
+};
 
-const smallArray = [2, 3,500];
-const smallArray1 = [2,3,500];
-const largeArray= Array.from({length:501},(_,i)=>i)
+const smallArray = [2, 3, 500];
+const smallArray1 = [2, 3, 500];
+const largeArray = Array.from({ length: 501 }, (_, i) => i);
 // console.log(areEqual(smallArray,smallArray1));
-
 
 // Function Description
 
@@ -910,7 +878,6 @@ const largeArray= Array.from({length:501},(_,i)=>i)
 
 // Constraints
 
-
 // Sample Input
 
 // 5
@@ -923,15 +890,15 @@ const largeArray= Array.from({length:501},(_,i)=>i)
 // The range of the 32-bit integer is .
 // When we add several integer values, the resulting sum might exceed the above range. You might need to use long int C/C++/Java to store such sums.
 
-
-const aVeryBigSum=(arr)=>{
+const aVeryBigSum = (arr) => {
   return arr.reduce((acc, curr) => acc + curr, 0);
-}
+};
 
-const inputSanple=[1000000001, 1000000002, 1000000003, 1000000004, 1000000005];
+const inputSanple = [
+  1000000001, 1000000002, 1000000003, 1000000004, 1000000005,
+];
 
 // console.log(aVeryBigSum(inputSanple));
-
 
 // Given a square matrix, calculate the absolute difference between the sums of its diagonals.
 
@@ -939,7 +906,7 @@ const inputSanple=[1000000001, 1000000002, 1000000003, 1000000004, 1000000005];
 
 // 1 2 3
 // 4 5 6
-// 9 8 9  
+// 9 8 9
 // The left-to-right diagonal = . The right to left diagonal = . Their absolute difference is .
 
 // Function description
@@ -991,44 +958,42 @@ const inputSanple=[1000000001, 1000000002, 1000000003, 1000000004, 1000000005];
 
 // Note: |x| is the absolute value of x
 const diagonalDifference = (martix) => {
-  let leftDiagonalSum=0
-  let rightDiagonalSum=0;
+  let leftDiagonalSum = 0;
+  let rightDiagonalSum = 0;
   for (let i = 0; i < martix.length; i++) {
     leftDiagonalSum += martix[i][i];
-    rightDiagonalSum += matrix[i][martix.length-i-1];
+    rightDiagonalSum += matrix[i][martix.length - i - 1];
   }
-  return Math.abs(leftDiagonalSum - rightDiagonalSum)
-}
+  return Math.abs(leftDiagonalSum - rightDiagonalSum);
+};
 
 const matrix = [
   [11, 2, 4],
   [4, 5, 6],
-  [10, 8, -12]
+  [10, 8, -12],
 ];
 
 console.log(diagonalDifference(matrix));
 
 // Write a function that takes an array of numbers as input and returns the minimum value found in the array.
 
-const findMin=(arr)=>{
-  return Math.min(...arr)
-}
+const findMin = (arr) => {
+  return Math.min(...arr);
+};
 
 // console.log(findMin([4,5,2,3,-6]));
 
 const findMinV2 = (arr) => {
-  if (arr.length === 0) return undefined
-  let minNumber = arr[0]
+  if (arr.length === 0) return undefined;
+  let minNumber = arr[0];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] < minNumber) {
-      minNumber = arr[i]
+      minNumber = arr[i];
     }
-
   }
-  return minNumber
-}
+  return minNumber;
+};
 console.log(findMinV2([4, 5, 2, 3, -6]));
-
 
 // Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero. Print the decimal value of each fraction on a new line with  places after the decimal.
 
@@ -1058,8 +1023,6 @@ console.log(findMinV2([4, 5, 2, 3, -6]));
 
 // Constraints
 
-
-
 // Output Format
 
 // Print the following  lines, each to  decimals:
@@ -1083,15 +1046,13 @@ console.log(findMinV2([4, 5, 2, 3, -6]));
 // There are  positive numbers,  negative numbers, and  zero in the array.
 // The proportions of occurrence are positive: , negative:  and zeros: .
 
-
-
 function plusMinus(arr) {
   const n = arr.length;
   let positiveCount = 0;
   let negativeCount = 0;
   let zeroCount = 0;
 
-  arr.forEach(num => {
+  arr.forEach((num) => {
     if (num > 0) {
       positiveCount++;
     } else if (num < 0) {
@@ -1110,11 +1071,9 @@ function plusMinus(arr) {
   console.log(zeroRatio.toFixed(6));
 }
 
-
-const newarray=[1,1,0,-1,-1]
+const newarray = [1, 1, 0, -1, -1];
 
 // console.log(plusMinus(newarray));
-
 
 // Staircase detail
 
@@ -1155,7 +1114,7 @@ const newarray=[1,1,0,-1,-1]
 
 // Sample Input
 
-// 6 
+// 6
 // Sample Output
 
 //      #
@@ -1168,25 +1127,22 @@ const newarray=[1,1,0,-1,-1]
 
 // The staircase is right-aligned, composed of # symbols and spaces, and has a height and width of .
 
-
-
 const staircase = (n) => {
-  let result = '';
+  let result = "";
   for (let i = 1; i <= n; i++) {
-    let row = '';
+    let row = "";
     for (let j = 0; j < i; j++) {
-      row += ' '.repeat(n - i);
+      row += " ".repeat(n - i);
       // Append '#' symbols for the staircase
-      row += '#'.repeat(i);
-      row += '#';
+      row += "#".repeat(i);
+      row += "#";
     }
-    result += row + '\n';
+    result += row + "\n";
   }
   return result;
-}
+};
 
 // console.log(staircase(6));
-
 
 // Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
 
@@ -1212,7 +1168,6 @@ const staircase = (n) => {
 
 // Constraints
 
-
 // Output Format
 
 // Print two space-separated long integers denoting the respective minimum and maximum values that can be calculated by summing exactly four of the five integers. (The output can be greater than a 32 bit integer.)
@@ -1231,32 +1186,30 @@ const staircase = (n) => {
 // Sum everything except , the sum is .
 // Sum everything except , the sum is .
 // Sum everything except , the sum is .
-// Sum everything except , the sum is 
-
+// Sum everything except , the sum is
 
 function miniMaxSum(arr) {
   // Write your code here
   let arraysum = 0;
-  let sumArray = []
-  let minNumber
-  let maxNumber
+  let sumArray = [];
+  let minNumber;
+  let maxNumber;
   for (let i = 0; i < arr.length; i++) {
-    let sum = 0
+    let sum = 0;
     console.log(arr[i]);
-    for (let j = 0; j <arr.length; j++) {
+    for (let j = 0; j < arr.length; j++) {
       console.log(arr[j]);
-      if(arr[i] !== arr[j]){
+      if (arr[i] !== arr[j]) {
         console.log(arr[j]);
-        sum+= arr[j]
+        sum += arr[j];
       }
     }
     // sumArray.push(sum)
 
     arraysum += sum;
-    sumArray.push(arraysum)
+    sumArray.push(arraysum);
     console.log(sumArray);
     maxNumber = sumArray[0];
-    
   }
   for (let i = 1; i < sumArray.length; i++) {
     if (sumArray[i] > maxNumber) {
@@ -1272,21 +1225,17 @@ function miniMaxSum(arr) {
   }
   console.log("Minimum sum:", minNumber);
   console.log("Maximum sum:", maxNumber);
-  return arraysum
+  return arraysum;
 }
-arr = [1, 2, 3, 4, 5,]
-
+arr = [1, 2, 3, 4, 5];
 
 console.log(miniMaxSum(arr));
 
- 
 //
 
 // Example
 
-
 // Return '12:01:00'.
-
 
 // Return '00:01:00'.
 
@@ -1322,30 +1271,29 @@ function timeConversion(s) {
   hour = parseInt(hour, 10);
 
   // If period is PM and hour is not 12, add 12 to hour
-  if (period === 'PM' && hour !== 12) {
-      hour += 12;
+  if (period === "PM" && hour !== 12) {
+    hour += 12;
   }
 
   // If period is AM and hour is 12, set hour to 0
-  if (period === 'AM' && hour === 12) {
-      hour = 0;
+  if (period === "AM" && hour === 12) {
+    hour = 0;
   }
 
   // Format hour, minute, and second to have leading zeros
-  hour = hour.toString().padStart(2, '0');
-  minute = minute.padStart(2, '0');
-  second = second.padStart(2, '0');
+  hour = hour.toString().padStart(2, "0");
+  minute = minute.padStart(2, "0");
+  second = second.padStart(2, "0");
 
   // Return the time in 24-hour format
   return `${hour}:${minute}:${second}`;
 }
 
 // Sample Input
-var s = '07:05:45PM';
+var s = "07:05:45PM";
 
 // Output
 console.log(timeConversion(s)); // Output: 19:05:45
-
 
 // HackerLand University has the following grading policy:
 
@@ -1401,25 +1349,48 @@ console.log(timeConversion(s)); // Output: 19:05:45
 // Student  received a , and the next multiple of  from  is . Since , the student's grade will be rounded to .
 // Student  received a grade below , so the grade will not be modified and the student's final grade is .
 
-
 const grades = [73, 67, 38, 33];
 
 function gradingStudents(grades) {
-  const finalgrades= []
+  const finalgrades = [];
   for (let i = 0; i < grades.length; i++) {
     const number = grades[i];
-    const nextMultiple = nextMultipleOf5(number); 
+    const nextMultiple = nextMultipleOf5(number);
     if (nextMultiple - number < 3 && number >= 38) {
       finalgrades.push(nextMultiple);
     } else {
       finalgrades.push(number);
     }
   }
-  return finalgrades
+  return finalgrades;
 }
 console.log(gradingStudents(grades));
-
 
 function nextMultipleOf5(number) {
   return Math.ceil(number / 5) * 5;
 }
+
+// write a function to check if a character is uppercase or lowercase
+
+const isUpperCase = (char) => {
+  if (char.charCodeAt(0) > 65 && char.charCodeAt(0) < 90) {
+    return true;
+  }
+  return false;
+};
+
+console.log(isUpperCase("DATA"));
+
+// write a Javascript function to reverse a string without using any built-in methods or library.The function should take a
+
+//string as input and return the reversed string.
+
+const reverseString = (str) => {
+  let strIntoArray = '';
+  for (let i = str.length-1; i >=0 ; i--) {
+    const element = str[i];
+    strIntoArray+=element
+  }
+  return strIntoArray
+};
+console.log(reverseString("hello"));
