@@ -1408,3 +1408,18 @@ function repeatString(str,num){
 }
 
 console.log(repeatString('abc',0));
+
+
+// write a function called truncateString that takes two paramterss
+
+// A string that needs to be truncated
+// maxlength: An integer representing the maximum length of the string
+// The function should truncate the input string str if its length exceeds the specified maxlenth,if the truncation occurs
+// the function should add '...' to the end of the truncated string.
+
+function truncateString(str,maxLength){
+  if (maxLength == 0 || maxLength < 0) return str;
+  return str.slice(0,maxLength).concat('...')
+}
+const Max_length= 30
+console.log(truncateString("This is a string with special characters: *&^%$",Max_length));
