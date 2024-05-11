@@ -1394,3 +1394,17 @@ const reverseString = (str) => {
   return strIntoArray
 };
 console.log(reverseString("hello"));
+
+// write a function called repeatString that takes two parameters
+
+// a string that needs to be repeated
+// An integer respresenting the number of times the string should be repeated
+// The function should repeat the input string str the specified number of times and return restuling string
+
+
+function repeatString(str,num){
+  if(num===0) return str
+  return str.repeat(num)
+}
+
+console.log(repeatString('abc',0));
