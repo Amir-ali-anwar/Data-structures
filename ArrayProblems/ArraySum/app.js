@@ -1386,12 +1386,12 @@ console.log(isUpperCase("DATA"));
 //string as input and return the reversed string.
 
 const reverseString = (str) => {
-  let strIntoArray = '';
-  for (let i = str.length-1; i >=0 ; i--) {
+  let strIntoArray = "";
+  for (let i = str.length - 1; i >= 0; i--) {
     const element = str[i];
-    strIntoArray+=element
+    strIntoArray += element;
   }
-  return strIntoArray
+  return strIntoArray;
 };
 console.log(reverseString("hello"));
 
@@ -1401,14 +1401,12 @@ console.log(reverseString("hello"));
 // An integer respresenting the number of times the string should be repeated
 // The function should repeat the input string str the specified number of times and return restuling string
 
-
-function repeatString(str,num){
-  if(num===0) return str
-  return str.repeat(num)
+function repeatString(str, num) {
+  if (num === 0) return str;
+  return str.repeat(num);
 }
 
-console.log(repeatString('abc',0));
-
+console.log(repeatString("abc", 0));
 
 // write a function called truncateString that takes two paramterss
 
@@ -1417,9 +1415,152 @@ console.log(repeatString('abc',0));
 // The function should truncate the input string str if its length exceeds the specified maxlenth,if the truncation occurs
 // the function should add '...' to the end of the truncated string.
 
-function truncateString(str,maxLength){
+function truncateString(str, maxLength) {
   if (maxLength == 0 || maxLength < 0) return str;
-  return str.slice(0,maxLength).concat('...')
+  return str.slice(0, maxLength).concat("...");
 }
-const Max_length= 30
-console.log(truncateString("This is a string with special characters: *&^%$",Max_length));
+const Max_length = 30;
+console.log(
+  truncateString("This is a string with special characters: *&^%$", Max_length)
+);
+
+// Write a function called simplePasswordValidator that takes a single parameter
+
+// password:A string representing the password to be validated
+// The function should validate the password based on the following criteria
+// The passsword must contain at least one lowercase letter, one uppercase letter, and one digit
+// The function should return true if the password meets all the criteria, otherwise, it should return fasle
+
+// input
+// password: A non-empty string representing the password to be validated
+
+//output
+
+// true/ if the password meets all the criteria
+
+// false otherwise
+
+// contraints
+
+// The input string password will contain only alphanumeric characters and puncutation marks
+function simplePasswordValidator(pwd) {
+  if (pwd.length < 8) throw new Error("Password length must be at least 8 characters");
+
+  let hasLowercase = false;
+  let hasUppercase = false;
+  let hasDigit = false;
+
+  for (let char of pwd) {
+    if (/[a-z]/.test(char)) hasLowercase = true;
+    else if (/[A-Z]/.test(char)) hasUppercase = true;
+    else if (/[0-9]/.test(char)) hasDigit = true;
+  }
+
+  return hasLowercase && hasUppercase && hasDigit;
+}
+
+console.log(simplePasswordValidator("1231313REWQWqwqqwqwq")); // true
+console.log(simplePasswordValidator("1231313afdasfsA")); // false
+console.log(simplePasswordValidator("1231313afdasfs@")); // false
+
+
+// Sam's house has an apple tree and an orange tree that yield an abundance of fruit. Using the information given below, determine the number of apples and oranges that land on Sam's house.
+
+// In the diagram below:
+
+// The red region denotes the house, where  is the start point, and  is the endpoint. The apple tree is to the left of the house, and the orange tree is to its right.
+// Assume the trees are located on a single point, where the apple tree is at point , and the orange tree is at point .
+// When a fruit falls from its tree, it lands  units of distance from its tree of origin along the -axis. *A negative value of  means the fruit fell  units to the tree's left, and a positive value of  means it falls  units to the tree's right. *
+// Apple and orange(2).png
+
+// Given the value of  for  apples and  oranges, determine how many apples and oranges will fall on Sam's house (i.e., in the inclusive range )?
+
+// For example, Sam's house is between  and . The apple tree is located at  and the orange at . There are  apples and  oranges. Apples are thrown  units distance from , and  units distance. Adding each apple distance to the position of the tree, they land at . Oranges land at . One apple and two oranges land in the inclusive range  so we print
+
+// 1
+// 2
+// Function Description
+
+// Complete the countApplesAndOranges function in the editor below. It should print the number of apples and oranges that land on Sam's house, each on a separate line.
+
+// countApplesAndOranges has the following parameter(s):
+
+// s: integer, starting point of Sam's house location.
+// t: integer, ending location of Sam's house location.
+// a: integer, location of the Apple tree.
+// b: integer, location of the Orange tree.
+// apples: integer array, distances at which each apple falls from the tree.
+// oranges: integer array, distances at which each orange falls from the tree.
+// Input Format
+
+// The first line contains two space-separated integers denoting the respective values of  and .
+// The second line contains two space-separated integers denoting the respective values of  and .
+// The third line contains two space-separated integers denoting the respective values of  and .
+// The fourth line contains  space-separated integers denoting the respective distances that each apple falls from point .
+// The fifth line contains  space-separated integers denoting the respective distances that each orange falls from point .
+
+// Constraints
+
+// Output Format
+
+// Print two integers on two different lines:
+
+// The first integer: the number of apples that fall on Sam's house.
+// The second integer: the number of oranges that fall on Sam's house.
+// Sample Input 0
+
+// 7 11
+// 5 15
+// 3 2
+// -2 2 1
+// 5 -6
+// Sample Output 0
+
+// 1
+// 1
+// Explanation 0
+
+// The first apple falls at position .
+// The second apple falls at position .
+// The third apple falls at position .
+// The first orange falls at position .
+// The second orange falls at position .
+// Only one fruit (the second apple) falls within the region between  and , so we print  as our first line of output.
+// Only the second orange falls within the region between  and , so we print  as our second line of output.
+
+
+
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  // Write your code here
+  // console.log({ s });
+  // console.log({ t });
+  // console.log({ a });
+  // console.log({ b });
+  // console.log({ apples });
+  // console.log({ oranges });
+  let appleCount = 0;
+  let orangeCount = 0;
+  for (let i = 0; i < apples.length; i++) {
+    const appleLanding = apples[i] + a;
+    if (s <= appleLanding && appleLanding <= t) {
+      appleCount++;
+    }
+  }
+  for (let i = 0; i < oranges.length; i++) {
+    const orangesLanding = oranges[i] + a;
+    if (s <= orangesLanding && orangesLanding <= t) {
+      orangeCount++;
+    }
+  }
+  return [appleCount, orangeCount];
+}
+
+const ss = 7;
+const t = 11;
+const a = 5;
+const b = 15;
+const apples = [-2, 2, 1];
+const oranges = [5, -6];
+// Call countApplesAndOranges function with extracted values
+console.log(countApplesAndOranges(ss, t, a, b, apples, oranges));
