@@ -1548,11 +1548,13 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
     }
   }
   for (let i = 0; i < oranges.length; i++) {
-    const orangesLanding = oranges[i] + a;
+    const orangesLanding = oranges[i] + b;
     if (s <= orangesLanding && orangesLanding <= t) {
       orangeCount++;
     }
   }
+  console.log(appleCount);
+  console.log(orangeCount);
   return [appleCount, orangeCount];
 }
 
