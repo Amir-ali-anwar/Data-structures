@@ -1566,3 +1566,24 @@ const apples = [-2, 2, 1];
 const oranges = [5, -6];
 // Call countApplesAndOranges function with extracted values
 console.log(countApplesAndOranges(ss, t, a, b, apples, oranges));
+
+
+// create a function generateBarChart that takes an array of numbers and generates a simple text-based bar chart.
+
+function generateBarChart(arr) {
+  arr.forEach((item) => {
+    console.log('*'.repeat(item));  // Generate and print a string of asterisks
+  });
+}
+
+generateBarChart([5, 3, 9, 2]);
+
+function generateBarChartV2(arr){
+  return arr.map((curr,index)=>{
+    return `${index+1}: ${"*".repeat(curr)}`
+  })
+}
+
+generateBarChartV2([5, 3, 9, 2]);
+
+console.log(generateBarChartV2([5, 3, 9, 2]));
