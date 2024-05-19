@@ -1661,4 +1661,63 @@ const x1 = 0;
 const v1 = 2;
 const x2 = 5;
 const v2 = 3;
-console.log(kangaroo(x1,v1,x2,v2));
+// console.log(kangaroo(x1,v1,x2,v2));
+
+
+// There will be two arrays of integers. Determine all integers that satisfy the following two conditions:
+
+// The elements of the first array are all factors of the integer being considered
+// The integer being considered is a factor of all elements of the second array
+// These numbers are referred to as being between the two arrays. Determine how many such numbers exist.
+
+//Example
+
+//a=[2,6]
+//b=[24,36]
+
+// There are two numbers between the arrays: 6  and 12 .
+
+// 6 % 2 == 0 (true)
+
+// 6 % 6 == 0 (true)
+
+// 24 % 6 == 0 (true)
+
+// 36 % 6 == 0 (true)
+function lcm(a, b) {
+  if (a === 0 || b === 0) return 0;
+  return Math.abs(a * b) / gcd(a, b);
+}
+function getTotalX(a,b){
+  const LcmValue = lcmList(a);
+  const GcdValue = gcdList(b);
+  console.log(LcmValue);
+  console.log(GcdValue);
+  let count=0
+  for (let x = LcmValue; x <= GcdValue; x += LcmValue) {
+    console.log(x);
+    if (GcdValue % x === 0) {
+      count++;
+    }
+  }
+  return count
+}
+function lcmList(arr) {
+  return arr.reduce((acc, val) => lcm(acc, val), 1);
+}
+function gcdList(arr) {
+  return arr.reduce((acc, val) => gcd(acc, val));
+}
+function gcd(x, y) {
+  while (y !== 0) {
+    let temp = y;
+    y = x % y;
+    x = temp;
+  }
+  return x;
+}
+
+const arra= [2, 4]
+const arrb= [16,32,96]
+
+console.log(getTotalX(arra,arrb));
