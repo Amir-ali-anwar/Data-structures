@@ -1548,11 +1548,13 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
     }
   }
   for (let i = 0; i < oranges.length; i++) {
-    const orangesLanding = oranges[i] + a;
+    const orangesLanding = oranges[i] + b;
     if (s <= orangesLanding && orangesLanding <= t) {
       orangeCount++;
     }
   }
+  console.log(appleCount);
+  console.log(orangeCount);
   return [appleCount, orangeCount];
 }
 
@@ -1564,3 +1566,158 @@ const apples = [-2, 2, 1];
 const oranges = [5, -6];
 // Call countApplesAndOranges function with extracted values
 console.log(countApplesAndOranges(ss, t, a, b, apples, oranges));
+
+
+// create a function generateBarChart that takes an array of numbers and generates a simple text-based bar chart.
+
+function generateBarChart(arr) {
+  arr.forEach((item) => {
+    console.log('*'.repeat(item));  // Generate and print a string of asterisks
+  });
+}
+
+generateBarChart([5, 3, 9, 2]);
+
+function generateBarChartV2(arr){
+  return arr.map((curr,index)=>{
+    return `${index+1}: ${"*".repeat(curr)}`
+  })
+}
+
+generateBarChartV2([5, 3, 9, 2]);
+
+// console.log(generateBarChartV2([5, 3, 9, 2]));
+
+
+
+// You are choreographing a circus show with various animals. For one act, you are given two kangaroos on a number line ready to jump in the positive direction (i.e, toward positive infinity).
+
+// The first kangaroo starts at location  and moves at a rate of  meters per jump.
+// The second kangaroo starts at location  and moves at a rate of  meters per jump.
+// You have to figure out a way to get both kangaroos at the same location at the same time as part of the show. If it is possible, return YES, otherwise return NO.
+
+// Example
+
+
+
+
+// After one jump, they are both at , (, ), so the answer is YES.
+
+// Function Description
+
+// Complete the function kangaroo in the editor below.
+
+// kangaroo has the following parameter(s):
+
+// int x1, int v1: starting position and jump distance for kangaroo 1
+// int x2, int v2: starting position and jump distance for kangaroo 2
+// Returns
+
+// string: either YES or NO
+// Input Format
+
+// A single line of four space-separated integers denoting the respective values of , , , and .
+
+// Constraints
+
+// Sample Input 0
+
+// 0 3 4 2
+// Sample Output 0
+
+// YES
+// Explanation 0
+
+// The two kangaroos jump through the following sequence of locations:
+
+// image
+
+// From the image, it is clear that the kangaroos meet at the same location (number  on the number line) after same number of jumps ( jumps), and we print YES.
+
+// Sample Input 1
+
+// 0 2 5 3
+// Sample Output 1
+
+// NO
+// Explanation 1
+
+// The second kangaroo has a starting location that is ahead (further to the right) of the first kangaroo's starting location (i.e., ). Because the second kangaroo moves at a faster rate (meaning ) and is already ahead of the first kangaroo, the first kangaroo will never be able to catch up. Thus, we print NO.
+
+
+function kangaroo(x1, v1, x2, v2) {
+  if(v1===v2){
+    return x1 === x2 ? "YES" : "NO";
+  }else{
+    let n = (x2 - x1) / (v1 - v2);
+    return Number.isInteger(n) && n >= 0 ? "YES" : "NO";
+
+  }
+  // Write your code here
+
+}
+
+const x1 = 0;
+const v1 = 2;
+const x2 = 5;
+const v2 = 3;
+// console.log(kangaroo(x1,v1,x2,v2));
+
+
+// There will be two arrays of integers. Determine all integers that satisfy the following two conditions:
+
+// The elements of the first array are all factors of the integer being considered
+// The integer being considered is a factor of all elements of the second array
+// These numbers are referred to as being between the two arrays. Determine how many such numbers exist.
+
+//Example
+
+//a=[2,6]
+//b=[24,36]
+
+// There are two numbers between the arrays: 6  and 12 .
+
+// 6 % 2 == 0 (true)
+
+// 6 % 6 == 0 (true)
+
+// 24 % 6 == 0 (true)
+
+// 36 % 6 == 0 (true)
+function lcm(a, b) {
+  if (a === 0 || b === 0) return 0;
+  return Math.abs(a * b) / gcd(a, b);
+}
+function getTotalX(a,b){
+  const LcmValue = lcmList(a);
+  const GcdValue = gcdList(b);
+  console.log(LcmValue);
+  console.log(GcdValue);
+  let count=0
+  for (let x = LcmValue; x <= GcdValue; x += LcmValue) {
+    console.log(x);
+    if (GcdValue % x === 0) {
+      count++;
+    }
+  }
+  return count
+}
+function lcmList(arr) {
+  return arr.reduce((acc, val) => lcm(acc, val), 1);
+}
+function gcdList(arr) {
+  return arr.reduce((acc, val) => gcd(acc, val));
+}
+function gcd(x, y) {
+  while (y !== 0) {
+    let temp = y;
+    y = x % y;
+    x = temp;
+  }
+  return x;
+}
+
+const arra= [2, 4]
+const arrb= [16,32,96]
+
+console.log(getTotalX(arra,arrb));
