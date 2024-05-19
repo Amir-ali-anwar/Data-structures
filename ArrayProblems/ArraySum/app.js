@@ -1753,9 +1753,9 @@ const arrb = [16, 32, 96];
 function divisibleSumPairs(n, k, ar) {
   let count = 0;
   for (let i = 0; i < n; i++) {
-    for (let j = i; j < i; j++) {
+    for (let j = i+1; j < n; j++) {
       let pairsSum = ar[i] + ar[j];
-      if (pairsSum % k === 0) {
+     if (pairsSum % k === 0) {
         count++;
       }
     }
