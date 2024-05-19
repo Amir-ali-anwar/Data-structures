@@ -1444,7 +1444,8 @@ console.log(
 
 // The input string password will contain only alphanumeric characters and puncutation marks
 function simplePasswordValidator(pwd) {
-  if (pwd.length < 8) throw new Error("Password length must be at least 8 characters");
+  if (pwd.length < 8)
+    throw new Error("Password length must be at least 8 characters");
 
   let hasLowercase = false;
   let hasUppercase = false;
@@ -1462,7 +1463,6 @@ function simplePasswordValidator(pwd) {
 console.log(simplePasswordValidator("1231313REWQWqwqqwqwq")); // true
 console.log(simplePasswordValidator("1231313afdasfsA")); // false
 console.log(simplePasswordValidator("1231313afdasfs@")); // false
-
 
 // Sam's house has an apple tree and an orange tree that yield an abundance of fruit. Using the information given below, determine the number of apples and oranges that land on Sam's house.
 
@@ -1528,9 +1528,6 @@ console.log(simplePasswordValidator("1231313afdasfs@")); // false
 // Only one fruit (the second apple) falls within the region between  and , so we print  as our first line of output.
 // Only the second orange falls within the region between  and , so we print  as our second line of output.
 
-
-
-
 function countApplesAndOranges(s, t, a, b, apples, oranges) {
   // Write your code here
   // console.log({ s });
@@ -1567,28 +1564,25 @@ const oranges = [5, -6];
 // Call countApplesAndOranges function with extracted values
 console.log(countApplesAndOranges(ss, t, a, b, apples, oranges));
 
-
 // create a function generateBarChart that takes an array of numbers and generates a simple text-based bar chart.
 
 function generateBarChart(arr) {
   arr.forEach((item) => {
-    console.log('*'.repeat(item));  // Generate and print a string of asterisks
+    console.log("*".repeat(item)); // Generate and print a string of asterisks
   });
 }
 
 generateBarChart([5, 3, 9, 2]);
 
-function generateBarChartV2(arr){
-  return arr.map((curr,index)=>{
-    return `${index+1}: ${"*".repeat(curr)}`
-  })
+function generateBarChartV2(arr) {
+  return arr.map((curr, index) => {
+    return `${index + 1}: ${"*".repeat(curr)}`;
+  });
 }
 
 generateBarChartV2([5, 3, 9, 2]);
 
 // console.log(generateBarChartV2([5, 3, 9, 2]));
-
-
 
 // You are choreographing a circus show with various animals. For one act, you are given two kangaroos on a number line ready to jump in the positive direction (i.e, toward positive infinity).
 
@@ -1597,9 +1591,6 @@ generateBarChartV2([5, 3, 9, 2]);
 // You have to figure out a way to get both kangaroos at the same location at the same time as part of the show. If it is possible, return YES, otherwise return NO.
 
 // Example
-
-
-
 
 // After one jump, they are both at , (, ), so the answer is YES.
 
@@ -1644,17 +1635,14 @@ generateBarChartV2([5, 3, 9, 2]);
 
 // The second kangaroo has a starting location that is ahead (further to the right) of the first kangaroo's starting location (i.e., ). Because the second kangaroo moves at a faster rate (meaning ) and is already ahead of the first kangaroo, the first kangaroo will never be able to catch up. Thus, we print NO.
 
-
 function kangaroo(x1, v1, x2, v2) {
-  if(v1===v2){
+  if (v1 === v2) {
     return x1 === x2 ? "YES" : "NO";
-  }else{
+  } else {
     let n = (x2 - x1) / (v1 - v2);
     return Number.isInteger(n) && n >= 0 ? "YES" : "NO";
-
   }
   // Write your code here
-
 }
 
 const x1 = 0;
@@ -1662,7 +1650,6 @@ const v1 = 2;
 const x2 = 5;
 const v2 = 3;
 // console.log(kangaroo(x1,v1,x2,v2));
-
 
 // There will be two arrays of integers. Determine all integers that satisfy the following two conditions:
 
@@ -1688,19 +1675,19 @@ function lcm(a, b) {
   if (a === 0 || b === 0) return 0;
   return Math.abs(a * b) / gcd(a, b);
 }
-function getTotalX(a,b){
+function getTotalX(a, b) {
   const LcmValue = lcmList(a);
   const GcdValue = gcdList(b);
   console.log(LcmValue);
   console.log(GcdValue);
-  let count=0
+  let count = 0;
   for (let x = LcmValue; x <= GcdValue; x += LcmValue) {
     console.log(x);
     if (GcdValue % x === 0) {
       count++;
     }
   }
-  return count
+  return count;
 }
 function lcmList(arr) {
   return arr.reduce((acc, val) => lcm(acc, val), 1);
@@ -1717,7 +1704,68 @@ function gcd(x, y) {
   return x;
 }
 
-const arra= [2, 4]
-const arrb= [16,32,96]
+const arra = [2, 4];
+const arrb = [16, 32, 96];
 
-console.log(getTotalX(arra,arrb));
+// console.log(getTotalX(arra,arrb));
+
+// Given an array of integers and a positive integer , determine the number of  pairs where  and  +  is divisible by .
+
+// Example
+
+// Three pairs meet the criteria:  and .
+
+// Function Description
+
+// Complete the divisibleSumPairs function in the editor below.
+
+// divisibleSumPairs has the following parameter(s):
+
+// int n: the length of array
+// int ar[n]: an array of integers
+// int k: the integer divisor
+// Returns
+// - int: the number of pairs
+
+// Input Format
+
+// The first line contains  space-separated integers,  and .
+// The second line contains  space-separated integers, each a value of .
+
+// Constraints
+
+// Sample Input
+
+// STDIN           Function
+// -----           --------
+// 6 3             n = 6, k = 3
+// 1 3 2 6 1 2     ar = [1, 3, 2, 6, 1, 2]
+// Sample Output
+
+//  5
+// Explanation
+
+// Here are the  valid pairs when  k=3
+
+// (0,2)->ar[0]+ar[2]=1+2=3
+// (0,5)->ar[0]+ar[2]=1+2=3
+
+function divisibleSumPairs(n, k, ar) {
+  let count = 0;
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < i; j++) {
+      let pairsSum = ar[i] + ar[j];
+      if (pairsSum % k === 0) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
+
+const n = 6;
+const k = 3;
+const ar = [1, 3, 2, 6, 1, 2];
+
+console.log(divisibleSumPairs(n, k, ar));  // Output: 5
