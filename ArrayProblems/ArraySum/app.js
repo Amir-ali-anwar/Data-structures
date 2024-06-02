@@ -1814,10 +1814,20 @@ const ar = [1, 3, 2, 6, 1, 2];
 
 // 2 4
 function breakingRecords(scores) {
-  let uniqueScores= [... new Set(scores)]
-  console.log(uniqueScores);
-  // Write your code here
-
+  let minScore = scores[0];
+  let maxScore = scores[0];
+  let minCount = 0;
+  let maxCount = 0;
+  for (let i = 0; i < scores.length; i++) {
+    if (scores[i] > maxScore) {
+      maxScore = scores[i];
+      maxCount++;
+    } else if (scores[i] < minScore) {
+      minScore = scores[i];
+      minCount++;
+    }
+  }
+return [maxCount,minCount]
 }
 
 let scores = [10, 5, 20, 20, 4, 5, 2, 25, 1];
