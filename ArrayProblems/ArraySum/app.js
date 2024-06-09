@@ -1768,4 +1768,175 @@ const n = 6;
 const k = 3;
 const ar = [1, 3, 2, 6, 1, 2];
 
-console.log(divisibleSumPairs(n, k, ar));  // Output: 5
+// console.log(divisibleSumPairs(n, k, ar));  // Output: 5
+
+
+
+// Maria plays college basketball and wants to go pro. Each season she maintains a record of her play. She tabulates the number of times she breaks her season record for most points and least points in a game. Points scored in the first game establish her record for the season, and she begins counting from there.
+
+// Example
+// scores= [12,24,10,24]
+
+// Scores are in the same order as the games played. She tabulates her results as follows:
+
+// Count
+// Game  Score  Minimum  Maximum   Min Max
+//  0      12     12       12       0   0
+//  1      24     12       24       0   1
+//  2      10     10       24       1   1
+//  3      24     10       24       1   1
+
+
+// Given the scores for a season, determine the number of times Maria breaks her records for most and least points scored during the season.
+
+// Function Description
+
+// Complete the breakingRecords function in the editor below.
+
+// breakingRecords has the following parameter(s):
+
+// int scores[n]: points scored per game
+// Returns
+
+// int[2]: An array with the numbers of times she broke her records. Index  is for breaking most points records, and index  is for breaking least points records.
+// Input Format
+
+// The first line contains an integer , the number of games.
+// The second line contains  space-separated integers describing the respective values of .
+
+// Constraints
+
+// Sample Input 0
+
+// 9
+// 10 5 20 20 4 5 2 25 1
+// Sample Output 0
+
+// 2 4
+function breakingRecords(scores) {
+  let minScore = scores[0];
+  let maxScore = scores[0];
+  let minCount = 0;
+  let maxCount = 0;
+  for (let i = 0; i < scores.length; i++) {
+    console.log(scores[i] > maxScore);
+    if (scores[i] > maxScore) {
+      maxScore = scores[i];
+      maxCount++;
+    } else if (scores[i] < minScore) {
+      minScore = scores[i];
+      minCount++;
+    }
+  }
+return [maxCount,minCount]
+}
+
+let scores = [10, 5, 20, 20, 4, 5, 2, 25, 1];
+console.log(breakingRecords(scores)); // Output: [2, 4]
+
+
+
+// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+// You can return the answer in any order.
+
+ 
+
+// Example 1:
+
+// Input: nums = [2,7,11,15], target = 9
+// Output: [0,1]
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+// Example 2:
+
+// Input: nums = [3,2,4], target = 6
+// Output: [1,2]
+// Example 3:
+
+// Input: nums = [3,3], target = 6
+// Output: [0,1]
+ 
+
+// Constraints:
+
+// 2 <= nums.length <= 104
+// -109 <= nums[i] <= 109
+// -109 <= target <= 109
+// Only one valid answer exists.
+
+
+
+function twoSum(nums, target) {
+  let result = [];
+  let numMap = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    let complement= target-nums[i]
+    if(numMap.has(complement)){
+      return [numMap.get(complement),i]
+    }
+    numMap.set(nums[i],i)
+  }
+  return [];
+}
+
+
+let nums = [2, 7, 11, 15];
+let target = 9;
+
+let nums1 = [3,2,3];
+let target1 = 6;
+console.log(twoSum(nums1, target1));
+
+
+// You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+// You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+ 
+
+// Example 1:
+
+
+// Input: l1 = [2,4,3], l2 = [5,6,4]
+// Output: [7,0,8]
+// Explanation: 342 + 465 = 807.
+// Example 2:
+
+// Input: l1 = [0], l2 = [0]
+// Output: [0]
+// Example 3:
+
+// Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+// Output: [8,9,9,9,0,0,0,1]
+ 
+
+// Constraints:
+
+// The number of nodes in each linked list is in the range [1, 100].
+// 0 <= Node.val <= 9
+// It is guaranteed that the list represents a number that does not have leading zeros.
+
+
+const addTwoNumbers = (l1, l2) => {
+  let arraySum = [];
+  let carry = 0;
+  let maxLength = Math.max(l1.length, l2.length);
+  for (let i = 0; i < maxLength; i++) {
+    let digit = i < l1.length ? l1[i] : 0;
+    let digit2 = i < l2.length ? l2[i] : 0;
+    let arraysSum = digit + digit2;
+    carry = Math.floor(arraysSum / 10);
+    arraySum.push(arraysSum % 10);
+  }
+  return arraySum;
+};
+
+const l1 = [1, 2, 3]; 
+const l2 = [4, 5, 6];
+
+const l3 = [2, 4]; 
+const l4 = [5, 5, 4];
+console.log(addTwoNumbers(l3,l4));
+
