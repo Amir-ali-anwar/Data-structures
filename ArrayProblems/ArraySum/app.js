@@ -2,7 +2,7 @@
 
 const arraySum = (inputArray) => {
   let sum = 0;
-  console.log(sum);
+  // console.log(sum);
   for (let index = 0; index < inputArray.length; index++) {
     sum += inputArray[index];
   }
@@ -21,7 +21,7 @@ const product_of_even_elements = (inputArray) => {
   let product = 1;
   for (let index = 0; index < inputArray.length; index++) {
     let isEven = inputArray[index] % 2 === 0;
-    console.log(isEven);
+    // console.log(isEven);
     if (isEven) {
       product *= inputArray[index];
     }
@@ -112,7 +112,7 @@ const findDuplicates = (arr) => {
       duplicatesCount++;
     }
   }
-  console.log(duplicatesCount);
+  // console.log(duplicatesCount);
   return tempArray;
 };
 
@@ -326,7 +326,7 @@ const arrayRotaion = (arr) => {
 const myArray1 = [1, 2, 3, 4, 5];
 
 const result1 = arrayRotaion(myArray1);
-console.log(result1);
+// console.log(result1);
 
 // Check if the elements in an array are sorted in non-decreasing order.
 
@@ -1379,7 +1379,7 @@ const isUpperCase = (char) => {
   return false;
 };
 
-console.log(isUpperCase("DATA"));
+// console.log(isUpperCase("DATA"));
 
 // write a Javascript function to reverse a string without using any built-in methods or library.The function should take a
 
@@ -1460,9 +1460,9 @@ function simplePasswordValidator(pwd) {
   return hasLowercase && hasUppercase && hasDigit;
 }
 
-console.log(simplePasswordValidator("1231313REWQWqwqqwqwq")); // true
-console.log(simplePasswordValidator("1231313afdasfsA")); // false
-console.log(simplePasswordValidator("1231313afdasfs@")); // false
+// console.log(simplePasswordValidator("1231313REWQWqwqqwqwq")); // true
+// console.log(simplePasswordValidator("1231313afdasfsA")); // false
+// console.log(simplePasswordValidator("1231313afdasfs@")); // false
 
 // Sam's house has an apple tree and an orange tree that yield an abundance of fruit. Using the information given below, determine the number of apples and oranges that land on Sam's house.
 
@@ -1550,8 +1550,8 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
       orangeCount++;
     }
   }
-  console.log(appleCount);
-  console.log(orangeCount);
+  // console.log(appleCount);
+  // console.log(orangeCount);
   return [appleCount, orangeCount];
 }
 
@@ -1568,7 +1568,7 @@ console.log(countApplesAndOranges(ss, t, a, b, apples, oranges));
 
 function generateBarChart(arr) {
   arr.forEach((item) => {
-    console.log("*".repeat(item)); // Generate and print a string of asterisks
+    // console.log("*".repeat(item)); // Generate and print a string of asterisks
   });
 }
 
@@ -1678,8 +1678,6 @@ function lcm(a, b) {
 function getTotalX(a, b) {
   const LcmValue = lcmList(a);
   const GcdValue = gcdList(b);
-  console.log(LcmValue);
-  console.log(GcdValue);
   let count = 0;
   for (let x = LcmValue; x <= GcdValue; x += LcmValue) {
     console.log(x);
@@ -1930,13 +1928,16 @@ const addTwoNumbers = (l1, l2) => {
     carry = Math.floor(arraysSum / 10);
     arraySum.push(arraysSum % 10);
   }
+  if(carry>0){
+    arraySum.push(carry)
+  }
   return arraySum;
 };
 
 const l1 = [1, 2, 3]; 
 const l2 = [4, 5, 6];
 
-const l3 = [2, 4]; 
+const l3 = [2, 5]; 
 const l4 = [5, 5, 4];
 console.log(addTwoNumbers(l3,l4));
 
