@@ -31,19 +31,49 @@
 // via Linklist
 
 
-class NodeList {
-    constructor(value = 0, next = null) {
-      this.value = value;
-      this.next = next;
+    class NodeList {
+        constructor(value = 0, next = null) {
+          this.value = value;
+          this.next = next;
+        }
+      }
+    function arrayToList(arr) {
+
+      const head = new NodeList();
+      let current = head
+      for (let val of arr) {
+        current.next = new NodeList(val);
+        current = current.next;
+      }
+      return head.next;
     }
-  }
-  function arrayToList(arr) {
-    console.log(arr);
-    const head = new NodeList();
-    const current= head
-    while (arr) {
-      console.log(arr);
+    function listToArray(list) {
+      let array = []
+      while (list !== null) {
+        array.push(list.val);
+        list = list.next;
+      }
+      return array;
     }
-  }
+    function addNumbers(l1,l2){
+      let dummyHead = new ListNode(0);
+      let p = l1, q = l2, current = dummyHead;
+      let carry = 0;
+      while (p !== null || q !== null) {
+        let x = (p !== null) ? p.val : 0;
+        let y = (q !== null) ? q.val : 0;
+        let sum = carry + x + y;
+        carry = Math.floor(sum / 10);
+        current.next = new ListNode(sum % 10);
+        current = current.next;
+        if (p !== null) p = p.next;
+        if (q !== null) q = q.next;
+    }
+
+      if (carry > 0) {
+        current.next = new ListNode(carry);
+    }
+    return dummyHead.next;
+    }
   let list = [2, 7, 11, 15];
   console.log(arrayToList(list));
