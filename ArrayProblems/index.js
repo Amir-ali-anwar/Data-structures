@@ -76,4 +76,55 @@
     return dummyHead.next;
     }
   let list = [2, 7, 11, 15];
-  console.log(arrayToList(list));
+  // console.log(arrayToList(list));
+
+
+
+
+  // Given a string s, find the length of the longest substring without repeating characters.
+
+//   Example 1:
+
+// Input: s = "abcabcbb"
+// Output: 3
+// Explanation: The answer is "abc", with the length of 3.
+// Example 2:
+
+// Input: s = "bbbbb"
+// Output: 1
+// Explanation: The answer is "b", with the length of 1.
+// Example 3:
+
+// Input: s = "pwwkew"
+// Output: 3
+// Explanation: The answer is "wke", with the length of 3.
+// Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+function lengthOfLongestSubstring(tr) {
+  let trIntoArr = tr.split('');
+  let maxLength = 0;
+
+  for (let i = 0; i < trIntoArr.length; i++) {
+    for (let j = trIntoArr.length; j > i; j--) { // Corrected the ending index
+      let substring = tr.substring(i, j);
+      if(isValidSubstring(substring)){
+        maxLength = Math.max(maxLength, substring.length);
+        break;
+      }
+    }
+  }
+  return maxLength;
+}
+
+function isValidSubstring(substring) {
+  let set = new Set()
+  for (const char of substring) {
+    if (set.has(char)) {
+      return false
+    }
+    set.add(char)
+  }
+  return true
+}
+const inputString = "abcabcbb";
+
+console.log(lengthOfLongestSubstring(inputString));
