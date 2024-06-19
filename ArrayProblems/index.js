@@ -134,7 +134,7 @@ const inputString = "abcabcbb";
 
 function lengthOfLongestSubstringV2(Str) {
   let maxLength = 0;
-  let left = 0;
+  let left = 0; 
   let charMap = new Map()
   for (let right = 0; right < Str.length; right++) {
     let currentCharacter = Str.charAt(right)
