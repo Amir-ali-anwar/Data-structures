@@ -138,7 +138,7 @@ function lengthOfLongestSubstringV2(Str) {
   let charMap = new Map()
   for (let right = 0; right < Str.length; right++) {
     let currentCharacter = Str.charAt(right)
-    console.log(currentCharacter);
+    // console.log(currentCharacter);
     if (charMap.has(currentCharacter)) {
       charMap.delete(Str.charAt(left));
       left++
@@ -149,81 +149,87 @@ function lengthOfLongestSubstringV2(Str) {
   return maxLength
 }
 
-console.log(lengthOfLongestSubstringV2(inputString));
+// console.log(lengthOfLongestSubstringV2(inputString));
 
-// Two children, Lily and Ron, want to share a chocolate bar. Each of the squares has an integer on it.
+// Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero. Print the decimal value of each fraction on a new line with  places after the decimal.
 
-// Lily decides to share a contiguous segment of the bar selected such that:
-
-// The length of the segment matches Ron's birth month, and,
-// The sum of the integers on the squares is equal to his birth day.
-// Determine how many ways she can divide the chocolate.
+// Note: This challenge introduces precision problems. The test cases are scaled to six decimal places, though answers with absolute error of up to  are acceptable.
 
 // Example
 
+// There are  elements, two positive, two negative and one zero. Their ratios are ,  and . Results are printed as:
 
-
-// Lily wants to find segments summing to Ron's birth day,  with a length equalling his birth month, . In this case, there are two segments meeting her criteria:  and .
+// 0.400000
+// 0.400000
+// 0.200000
 
 // Function Description
 
-// Complete the birthday function in the editor below.
+// Complete the plusMinus function in the editor below.
 
-// birthday has the following parameter(s):
+// plusMinus has the following parameter(s):
 
-// int s[n]: the numbers on each of the squares of chocolate
-// int d: Ron's birth day
-// int m: Ron's birth month
-// Returns
+// int arr[n]: an array of integers
+// Print
+// Print the ratios of positive, negative and zero values in the array. Each value should be printed on a separate line with  digits after the decimal. The function should not return a value.
 
-// int: the number of ways the bar can be divided
 // Input Format
 
-// The first line contains an integer , the number of squares in the chocolate bar.
-// The second line contains  space-separated integers , the numbers on the chocolate squares where .
-// The third line contains two space-separated integers,  and , Ron's birth day and his birth month.
+// The first line contains an integer, , the size of the array.
+// The second line contains  space-separated integers that describe .
 
 // Constraints
 
-// , where ()
-// Sample Input 0
 
-// 5
-// 1 2 1 3 2
-// 3 2
-// Sample Output 0
 
-// 2
-// Explanation 0
+// Output Format
 
-// Lily wants to give Ron  squares summing to . The following two segments meet the criteria:
+// Print the following  lines, each to  decimals:
 
-// image
+// proportion of positive values
+// proportion of negative values
+// proportion of zeros
+// Sample Input
 
-// Sample Input 1
+// STDIN           Function
+// -----           --------
+// 6               arr[] size n = 6
+// -4 3 -9 0 4 1   arr = [-4, 3, -9, 0, 4, 1]
+// Sample Output
 
-// 6
-// 1 1 1 1 1 1
-// 3 2
-// Sample Output 1
+// 0.500000
+// 0.333333
+// 0.166667
+// Explanation
 
-// 0
-// Explanation 1
+// There are  positive numbers,  negative numbers, and  zero in the array.
+// The proportions of occurrence are positive: , negative:  and zeros: .
 
-// Lily only wants to give Ron  consecutive squares of chocolate whose integers sum to . There are no possible pieces satisfying these constraints:
 
-// image
+function plusMinus(arr) {
+  // Write your code here
+  let positionNumber = 0;
+  let negativeNumber = 0;
+  let zeroNumber = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) {
+      // console.log(arr[i]);
+      negativeNumber ++
+    }
+    if (arr[i] > 0) {
+      positionNumber ++;
+    }
+    if (arr[i] === 0) {
+      zeroNumber ++;
+    }
+  }
+  console.log((positionNumber/arr.length).toFixed(7));
+  console.log((negativeNumber/arr.length).toFixed(7));
+  console.log((zeroNumber/arr.length).toFixed(7));
+  
+}
 
-// Thus, we print  as our answer.
 
-// Sample Input 2
+const arr = [-4, 3, -9, 0, 4, 1]
 
-// 1
-// 4
-// 4 1
-// Sample Output 2
-
-// 1
-// Explanation 2
-
-// Lily only wants to give Ron  square of chocolate with an integer value of . Because the only square of chocolate in the bar satisfies this constraint, we print  as our answer.
+console.log(plusMinus(arr));
