@@ -1817,7 +1817,7 @@ function breakingRecords(scores) {
   let minCount = 0;
   let maxCount = 0;
   for (let i = 0; i < scores.length; i++) {
-    console.log(scores[i] > maxScore);
+    // console.log(scores[i] > maxScore);
     if (scores[i] > maxScore) {
       maxScore = scores[i];
       maxCount++;
@@ -1830,7 +1830,7 @@ return [maxCount,minCount]
 }
 
 let scores = [10, 5, 20, 20, 4, 5, 2, 25, 1];
-console.log(breakingRecords(scores)); // Output: [2, 4]
+// console.log(breakingRecords(scores)); // Output: [2, 4]
 
 
 
@@ -1885,7 +1885,7 @@ let target = 9;
 
 let nums1 = [3,2,3];
 let target1 = 6;
-console.log(twoSum(nums1, target1));
+// console.log(twoSum(nums1, target1));
 
 
 // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
@@ -1939,5 +1939,74 @@ const l2 = [4, 5, 6];
 
 const l3 = [2, 5]; 
 const l4 = [5, 5, 4];
-console.log(addTwoNumbers(l3,l4));
+// console.log(addTwoNumbers(l3,l4));
 
+
+
+// Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+
+// Example
+
+// The minimum sum is  and the maximum sum is . The function prints
+
+// 16 24
+// Function Description
+
+// Complete the miniMaxSum function in the editor below.
+
+// miniMaxSum has the following parameter(s):
+
+// arr: an array of  integers
+// Print
+
+// Print two space-separated integers on one line: the minimum sum and the maximum sum of  of  elements.
+
+// Input Format
+
+// A single line of five space-separated integers.
+
+// Constraints
+
+
+// Output Format
+
+// Print two space-separated long integers denoting the respective minimum and maximum values that can be calculated by summing exactly four of the five integers. (The output can be greater than a 32 bit integer.)
+
+// Sample Input
+
+// 1 2 3 4 5
+// Sample Output
+
+// 10 14
+
+
+
+function miniMaxSum1(array) {
+  // Write your code here
+  let minNumber = Infinity;
+  let maxNumber = -Infinity;
+  let totalSum = 0;
+
+  // Calculate the sum of all elements
+  for (let i = 0; i < array.length; i++) {
+    totalSum += array[i];
+  }
+    for (let i = 0; i < array.length; i++) {
+      let currentSum = totalSum - array[i]; ;
+      if (currentSum > maxNumber) {
+        maxNumber = currentSum;
+      }
+      if (currentSum < minNumber) {
+        minNumber = currentSum;
+      }
+      
+    }
+    return [minNumber, maxNumber];  // Return the sums if needed
+
+  
+}
+
+
+arr = [1, 2, 3, 4, 5];
+
+console.log(miniMaxSum1(arr));
