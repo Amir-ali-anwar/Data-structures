@@ -409,3 +409,28 @@ function lonelyinteger(a) {
 }
 const a=[1,2,3,4,3,2,1]
 console.log(lonelyinteger(a));
+
+
+
+// Find Repeating Elements
+
+function findRepeatingElements(arr) {
+  const countMap = {};
+  const repeatingElements=[]
+  for (const element of arr) {
+    countMap[element] = (countMap[element] || 0) + 1
+    
+  }
+
+  for (const key in countMap) {
+      console.log(key);
+      if(countMap[key]>1){
+        repeatingElements.push(parseInt(key))
+      }
+      
+  }
+  return repeatingElements
+  
+}
+
+console.log(findRepeatingElements(a));
