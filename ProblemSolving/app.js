@@ -245,3 +245,192 @@ const bird_sightings_1 = [1, 4 ,4 ,4, 5, 3
 ];
 console.log(migratoryBirds(bird_sightings_1));  // Output: 4
 
+
+// Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+
+// Example
+
+// The minimum sum is  and the maximum sum is . The function prints Function Description
+
+// Complete the miniMaxSum function in the editor below.
+
+// miniMaxSum has the following parameter(s):
+
+// arr: an array of  integers
+// Print
+
+// Print two space-separated integers on one line: the minimum sum and the maximum sum of  of  elements.
+
+// Input Format
+
+// A single line of five space-separated integers.
+
+// Constraints
+
+
+// Output Format
+
+// Print two space-separated long integers denoting the respective minimum and maximum values that can be calculated by summing exactly four of the five integers. (The output can be greater than a 32 bit integer.)
+
+// Sample Input
+
+// 1 2 3 4 5
+// Sample Output
+
+// 10 14
+// Explanation
+
+// The numbers are , , , , and . Calculate the following sums using four of the five integers:
+
+// Sum everything except , the sum is .
+// Sum everything except , the sum is .
+// Sum everything except , the sum is .
+// Sum everything except , the sum is .
+// Sum everything except , the sum is .
+// Hints: Beware of integer overflow! Use 64-bit Integer.
+
+
+
+function miniMaxSum(arr) {
+  // Write your code here
+  let sum = 0
+  let sumArray = []
+  for (let i = 0; i < arr.length; i++) {
+     sum += arr[i]
+  }
+  for (const key of arr) {
+
+     sumArray.push(sum - key)
+
+  }
+   const minSum = Math.min(...sumArray);
+  const maxSum = Math.max(...sumArray);
+  console.log(minSum,maxSum);
+
+}
+
+const minmax = [1, 3, 5, 7, 9]
+
+console.log(miniMaxSum(minmax));
+
+
+
+// Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+
+// Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
+// - 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
+
+// Example
+
+
+// Return '12:01:00'.
+
+
+// Return '00:01:00'.
+
+// Function Description
+
+// Complete the timeConversion function in the editor below. It should return a new string representing the input time in 24 hour format.
+
+// timeConversion has the following parameter(s):
+
+// string s: a time in  hour format
+// Returns
+
+// string: the time in  hour format
+// Input Format
+
+// A single string  that represents a time in -hour clock format (i.e.:  or ).
+
+// Constraints
+
+// All input times are valid
+// Sample Input
+
+// 07:05:45PM
+// Sample Output
+
+// 19:05:45
+
+
+function timeConversion(s) {
+  const timeConversion = s.slice(-2)
+  let timewithoutFormat = s.slice(0, -2)
+  let [hours, minutes, seconds] = timewithoutFormat.split(':')
+  if (timeConversion === 'AM') {
+    if (hours === '12') {
+      hours = '00'; // Midnight case
+    }
+  }
+  else if (timeConversion === 'PM') {
+    if (hours !== '12') {
+      hours = String(parseInt(hours) + 12); // Convert to 24-hour format
+    }
+  }
+  return `${hours}:${minutes}:${seconds}`;
+
+}
+
+let timeInput = "07:05:45PM";
+
+console.log(timeConversion(timeInput));
+
+
+// Given an array of integers, where all elements but one occur twice, find the unique element.
+
+// Example
+// a=[1,2,3,4,3,2,1]
+
+
+// The unique element is .
+
+// Function Description
+
+// Complete the lonelyinteger function in the editor below.
+
+// lonelyinteger has the following parameter(s):
+
+// int a[n]: an array of integers
+// Returns
+
+// int: the element that occurs only once
+// Input Format
+
+// The first line contains a single integer, , the number of integers in the array.
+// The second line contains  space-separated integers that describe the values in .
+
+
+function lonelyinteger(a) {
+  let uniqueElement = 0;
+  for (const element of a) {
+      uniqueElement ^= element
+  }
+  return uniqueElement
+}
+const a=[1,2,3,4,3,2,1]
+console.log(lonelyinteger(a));
+
+
+
+// Find Repeating Elements
+
+function findRepeatingElements(arr) {
+  const countMap = {};
+  const repeatingElements=[]
+  for (const element of arr) {
+    countMap[element] = (countMap[element] || 0) + 1
+    
+  }
+
+  for (const key in countMap) {
+      console.log(key);
+      if(countMap[key]>1){
+        repeatingElements.push(parseInt(key))
+      }
+      
+  }
+  return repeatingElements
+  
+}
+
+console.log(findRepeatingElements(a));
