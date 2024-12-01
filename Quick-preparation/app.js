@@ -172,3 +172,18 @@ function bob() {
 }
 
 bob()
+
+
+// Merge two sorted arrays.
+
+const mergeArrays=(arr1,arr2)=>{
+return arr1.concat(arr2).sort((a,b)=>a-b)
+}
+
+
+const arr1=[1, 3, 5, 7, 9]
+const arr2=[2, 4, 6, 8, 10]
+
+
+
+
