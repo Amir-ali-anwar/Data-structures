@@ -128,3 +128,22 @@ function findLongestSubstring(s) {
 // Example usage
 const input = "abcabcbb";
 console.log(findLongestSubstring(input)); // Output: 3 ("abc")
+
+
+// Rotate an array by a certain number of positions. 
+
+const leftRotate=(arr,positions)=>{
+    const n = arr.length
+    positions%=n
+    console.log(arr.slice(0,positions));
+    
+
+    return arr.slice(positions).concat(arr.slice(0,positions))
+
+
+}
+
+const arr = [1, 2, 3, 4, 5];
+const positions = 2;
+
+console.log(leftRotate(arr,positions));
