@@ -24,17 +24,17 @@
 // The second line contains  space-separated integers that make up .
 
 
-    function reverseArray(a) {
-        // Write your code here
-        let reverseArray = []
-        for (let i = a.length - 1; i >= 0; i--) {
-            a[i];
-            reverseArray.push(a[i])
+function reverseArray(a) {
+    // Write your code here
+    let reverseArray = []
+    for (let i = a.length - 1; i >= 0; i--) {
+        a[i];
+        reverseArray.push(a[i])
 
 
-        }
-        return reverseArray
     }
+    return reverseArray
+}
 
 
 // console.log(reverseArray([1, 2, 3]));
@@ -132,13 +132,13 @@ console.log(findLongestSubstring(input)); // Output: 3 ("abc")
 
 // Rotate an array by a certain number of positions. 
 
-const leftRotate=(arr,positions)=>{
+const leftRotate = (arr, positions) => {
     const n = arr.length
-    positions%=n
-    console.log(arr.slice(0,positions));
-    
+    positions %= n
+    console.log(arr.slice(0, positions));
 
-    return arr.slice(positions).concat(arr.slice(0,positions))
+
+    return arr.slice(positions).concat(arr.slice(0, positions))
 
 
 }
@@ -146,7 +146,7 @@ const leftRotate=(arr,positions)=>{
 const arr = [1, 2, 3, 4, 5];
 const positions = 2;
 
-console.log(leftRotate(arr,positions));
+console.log(leftRotate(arr, positions));
 
 
 
@@ -176,14 +176,67 @@ bob()
 
 // Merge two sorted arrays.
 
-const mergeArrays=(arr1,arr2)=>{
-return arr1.concat(arr2).sort((a,b)=>a-b)
+const mergeArrays = (arr1, arr2) => {
+    return arr1.concat(arr2).sort((a, b) => a - b)
 }
 
 
-const arr1=[1, 3, 5, 7, 9]
-const arr2=[2, 4, 6, 8, 10]
+const arr1 = [1, 3, 5, 7, 9]
+const arr2 = [2, 4, 6, 8, 10]
 
+//Inorder, Preorder, Postorder traversals. In javascript
 
+class TreeNode {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null
+    }
+}
 
+// 1. Inorder Traversal (Left → Root → Right):
+
+const inOrderTraversal = (node, result = []) => {
+    if (node) {
+        inOrderTraversal(node.left, result)
+        result.push(node.value)
+        inOrderTraversal(node.right, result)
+    }
+    return result
+
+}
+
+const preorderTraversal = (node, result = []) => {
+    if (node) {
+        result.push(node.value)
+        inOrderTraversal(node.left, result)
+        inOrderTraversal(node.right, result)
+    }
+    return result
+
+}
+
+const postorderTraversal = (node, result = []) => {
+    if (node) {
+        inOrderTraversal(node.left, result)
+        inOrderTraversal(node.right, result)
+        result.push(node.value)
+    }
+    return result
+
+}
+
+// Create a binary tree
+const root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+root.right.left = new TreeNode(6);
+root.right.right = new TreeNode(7);
+
+// Perform traversals
+console.log("Inorder:", inOrderTraversal(root)); // Output: [4, 2, 5, 1, 6, 3, 7]
+console.log("Preorder:", preorderTraversal(root)); // Output: [1, 2, 4, 5, 3, 6, 7]
+console.log("Postorder:", postorderTraversal(root)); // Output: [4, 5, 2, 6, 7, 3, 1]
 
