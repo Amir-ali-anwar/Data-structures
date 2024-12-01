@@ -147,3 +147,28 @@ const arr = [1, 2, 3, 4, 5];
 const positions = 2;
 
 console.log(leftRotate(arr,positions));
+
+
+
+
+function bob() {
+    let a = 12;
+    let b = 13
+    var c = 123
+
+    if (true) {
+        let a = 12;
+        let b = 24
+        var c = 25
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+}
+
+bob()
