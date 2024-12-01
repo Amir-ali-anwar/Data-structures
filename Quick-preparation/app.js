@@ -100,4 +100,31 @@ let head = new SinglyLinkedListNode(16)
 head.next = new SinglyLinkedListNode(13)
 
 
-printLinkedList(head)
+// printLinkedList(head)
+
+
+// Third template
+
+// Find the longest substring without repeating characters in javascript
+
+function findLongestSubstring(s) {
+    let start = 0;
+    let max_length = 0;
+    let charIndexMap = {};
+    for (let end = 0; end < s.length; end++) {
+        const char = s[end];
+        if (charIndexMap[char] !== undefined && charIndexMap[char] >= start) {
+            start = charIndexMap[char] + 1
+        }
+        charIndexMap = end
+        max_length = Math.max(max_length, end - start + 1);
+
+    }
+    return max_length
+}
+
+
+
+// Example usage
+const input = "abcabcbb";
+console.log(findLongestSubstring(input)); // Output: 3 ("abc")
