@@ -240,3 +240,67 @@ console.log("Inorder:", inOrderTraversal(root)); // Output: [4, 2, 5, 1, 6, 3, 7
 console.log("Preorder:", preorderTraversal(root)); // Output: [1, 2, 4, 5, 3, 6, 7]
 console.log("Postorder:", postorderTraversal(root)); // Output: [4, 5, 2, 6, 7, 3, 1]
 
+
+
+// Valid Parentheses
+
+
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+// An input string is valid if:
+
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+// Example 1:
+// Input: s = "()"
+// Output: valid
+// Example 2:
+// Input: s = "()[]{}"
+// Output: valid
+// Example 3:
+// Input: s = "(]"
+// Output: invalid
+// Example 4:
+// Input: s = "([)]"
+// Output: invalid
+// Example 5:
+// Input: s = "{[]}"
+// Output: valid
+// Constraints:
+// 1 <= s.length <= 104
+// s consists of parentheses only '()[]{}'
+
+
+ function isValid(s){
+    // const separateString=s.join(",")
+    // console.log(separateString);
+    let valuestatus= ''
+    for (let i = 0; i < s.length; i++) {
+        const currentParentheses= s[i].split(',') 
+        if(currentParentheses[i].startsWith()===currentParentheses[i].endsWith()){
+            return valuestatus = 'valid'
+        }
+        return valuestatus='Invalid'
+    }
+    
+ }
+
+
+const inputs = [
+    "()",
+    "()[]{}",
+    "(]",
+    "([)]",
+    "{[]}",
+    "(",
+    "((((()))))",
+    "[{()}]",
+    "]{",
+    "[(])"
+  ];
+  
+
+
+
+  console.log(isValid(inputs));
+  
