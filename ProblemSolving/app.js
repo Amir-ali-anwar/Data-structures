@@ -514,4 +514,29 @@ const matrix = [
   [10, 8, -12],
 ];
 
-console.log(diagonalDifference(matrix));
+// console.log(diagonalDifference(matrix));
+
+// Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
+
+// nums = [2, 7, 11, 15], target = 9
+
+function twoSum(nums, target) {
+  const prevMap = {}
+  for (let index = 0; index < nums.length; index++) {
+    const diff = target - nums[index]
+    if (diff in prevMap) {
+      return [prevMap[diff], index]
+    }
+    prevMap[nums[index]] = index
+
+  }
+  return []
+
+}
+
+const nums = [2, 7, 11, 15];
+const target = 9;
+
+const result = twoSum(nums, target);
+
+console.log(result);
