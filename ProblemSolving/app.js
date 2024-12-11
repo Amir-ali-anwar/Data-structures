@@ -540,3 +540,38 @@ const target = 9;
 const result = twoSum(nums, target);
 
 console.log(result);
+
+
+
+// Problem Statement: Two Sum II - Input Array Is Sorted
+
+// You are given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, and an integer target. Write a function to find two numbers in the array such that they add up to the target number. Return the indices of the two numbers as an array [index1, index2], where:
+
+// 1 <= index1 < index2 <= numbers.length.
+// The returned array must consist of exactly two indices.
+// The indices should be in ascending order.
+
+function twoSumV2(nums, target) {
+  let left = 0  
+  let right = nums.length - 1
+  while (left < right) {
+    let currentSum = nums[left] + nums[right]
+    if (currentSum < target) {
+      left++
+    }else
+    if (currentSum > target) {
+      right--
+    }else if  (currentSum === target) {
+      return [left + 1, right + 1]
+    }
+  }
+
+
+}
+
+const numsv2 = [2, 7, 11, 15];
+const targetv2 = 9;
+
+const resultv2 = twoSumV2(numsv2, targetv2);
+
+console.log(resultv2);
