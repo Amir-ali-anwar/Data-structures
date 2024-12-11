@@ -304,3 +304,123 @@ const inputs = [
 
   console.log(isValid(inputs));
   
+
+
+
+  // Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
+
+// nums = [2, 7, 11, 15], target = 9
+
+function twoSum(nums, target) {
+    const prevMap = {}
+    for (let index = 0; index < nums.length; index++) {
+      const diff = target - nums[index]
+      if (diff in prevMap) {
+        return [prevMap[diff], index]
+      }
+      prevMap[nums[index]] = index
+  
+    }
+    return []
+  
+  }
+  
+  const nums = [2, 7, 11, 15];
+  const target = 9;
+  
+  const result = twoSum(nums, target);
+  
+  console.log(result);
+  
+  
+  
+  // Problem Statement: Two Sum II - Input Array Is Sorted
+  
+  // You are given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, and an integer target. Write a function to find two numbers in the array such that they add up to the target number. Return the indices of the two numbers as an array [index1, index2], where:
+  
+  // 1 <= index1 < index2 <= numbers.length.
+  // The returned array must consist of exactly two indices.
+  // The indices should be in ascending order.
+  
+  function twoSumV2(nums, target) {
+    let left = 0  
+    let right = nums.length - 1
+    while (left < right) {
+      let currentSum = nums[left] + nums[right]
+      if (currentSum < target) {
+        left++
+      }else
+      if (currentSum > target) {
+        right--
+      }else if  (currentSum === target) {
+        return [left + 1, right + 1]
+      }
+    }
+  
+  
+  }
+  
+  const numsv2 = [2, 7, 11, 15];
+  const targetv2 = 9;
+  
+  const resultv2 = twoSumV2(numsv2, targetv2);
+  
+  console.log(resultv2);
+  
+  
+  
+  // Add Two Numbers
+  // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order,
+  // and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+  
+class NodeListV2 {
+    constructor(value = 0, next = null) {
+        this.value = value;
+        this.next = next;
+    }
+}
+function ArrayToLinkList(arr) {
+    const head = new NodeListV2();
+    let current = head;
+    for (const val of arr) {
+        current.next = new NodeListV2(val)
+        current = current.next
+    }
+    return head.next
+}
+function addTwoNumbers(l1, l2) {
+    let l1Node = ArrayToLinkList(l1);
+    let l2Node = ArrayToLinkList(l2);
+    let carry = 0
+    let resultHead = new NodeListV2(); // To store the result
+    let current = resultHead;
+    while (l1Node || l2Node || carry > 0) {
+        let v1 = (l1Node) ? l1Node.value : 0;
+        let v2 = (l2Node) ? l2Node.value : 0;
+        let sum = v1 + v2 + carry
+        carry = Math.floor(sum / 10);
+        const digit = sum % 10
+        current.next = new NodeListV2(digit);
+        current = current.next
+        if (l1Node) l1Node = l1Node.next
+        if (l2Node) l2Node = l2Node.next
+
+    }
+    return resultHead.next
+
+}
+function linkedListToArray(node) {
+    let result = []
+    while (node) {
+        result.push(node.value)
+        node = node.next
+    }
+    return result
+}
+const l1 = [2, 4, 3]
+const l2 = [5, 6, 4]
+
+const numberResult = addTwoNumbers(l1, l2);
+
+  console.log(linkedListToArray(numberResult));
+  
