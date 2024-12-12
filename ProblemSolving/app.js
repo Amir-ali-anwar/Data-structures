@@ -434,3 +434,172 @@ function findRepeatingElements(arr) {
 }
 
 console.log(findRepeatingElements(a));
+
+
+
+// Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+// For example, the square matrix  is shown below:
+
+// 1 2 3
+// 4 5 6
+// 9 8 9  
+// The left-to-right diagonal = . The right to left diagonal = . Their absolute difference is .
+
+// Function description
+
+// Complete the  function in the editor below.
+
+// diagonalDifference takes the following parameter:
+
+// int arr[n][m]: an array of integers
+// Return
+
+// int: the absolute diagonal difference
+// Input Format
+
+// The first line contains a single integer, , the number of rows and columns in the square matrix .
+// Each of the next  lines describes a row, , and consists of  space-separated integers .
+
+// Constraints
+
+// Output Format
+
+// Return the absolute difference between the sums of the matrix's two diagonals as a single integer.
+
+// Sample Input
+
+// 3
+// 11 2 4
+// 4 5 6
+// 10 8 -12
+// Sample Output
+
+// 15
+// Explanation
+
+// The primary diagonal is:
+
+// 11
+//    5
+//      -12
+// Sum across the primary diagonal: 11 + 5 - 12 = 4
+
+// The secondary diagonal is:
+
+//      4
+//    5
+// 10
+// Sum across the secondary diagonal: 4 + 5 + 10 = 19
+// Difference: |4 - 19| = 15
+
+
+
+const diagonalDifference = (matrix) => {
+  for (let i = 0; i < matrix.length; i++) {
+    console.log({ i });
+    for (let j = 0; j < matrix.length-1; j++) {
+      console.log({ j });
+
+
+    }
+  }
+
+}
+
+
+const matrix = [
+  [11, 2, 4],
+  [4, 5, 6],
+  [10, 8, -12],
+];
+
+// console.log(diagonalDifference(matrix));
+
+// Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
+
+// nums = [2, 7, 11, 15], target = 9
+
+function twoSum(nums, target) {
+  const prevMap = {}
+  for (let index = 0; index < nums.length; index++) {
+    const diff = target - nums[index]
+    if (diff in prevMap) {
+      return [prevMap[diff], index]
+    }
+    prevMap[nums[index]] = index
+
+  }
+  return []
+
+}
+
+const nums = [2, 7, 11, 15];
+const target = 9;
+
+const result = twoSum(nums, target);
+
+console.log(result);
+
+
+
+// Problem Statement: Two Sum II - Input Array Is Sorted
+
+// You are given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, and an integer target. Write a function to find two numbers in the array such that they add up to the target number. Return the indices of the two numbers as an array [index1, index2], where:
+
+// 1 <= index1 < index2 <= numbers.length.
+// The returned array must consist of exactly two indices.
+// The indices should be in ascending order.
+
+function twoSumV2(nums, target) {
+  let left = 0  
+  let right = nums.length - 1
+  while (left < right) {
+    let currentSum = nums[left] + nums[right]
+    if (currentSum < target) {
+      left++
+    }else
+    if (currentSum > target) {
+      right--
+    }else if  (currentSum === target) {
+      return [left + 1, right + 1]
+    }
+  }
+
+
+}
+
+const numsv2 = [2, 7, 11, 15];
+const targetv2 = 9;
+
+const resultv2 = twoSumV2(numsv2, targetv2);
+
+console.log(resultv2);
+
+
+
+// Problem Statement:
+// Given a string, find the length of the longest substring that does not contain any repeating characters.
+
+
+function repeatingCharacters(str) {
+  let characters = new Set()
+  let left=0,right = 0
+  let result=0
+
+    while (right<str.length) {
+      if(!characters.has(str[right])){
+        characters.add(str[right])
+        result= Math.max(result, right - left + 1)
+        right++
+      }else{
+        characters.delete(str[left])
+        left++
+      }
+    }
+     
+  return result
+}
+const longestSubstring= 'abcabcbb'
+
+console.log(repeatingCharacters(longestSubstring));
