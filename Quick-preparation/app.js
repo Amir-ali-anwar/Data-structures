@@ -421,6 +421,33 @@ const l1 = [2, 4, 3]
 const l2 = [5, 6, 4]
 
 const numberResult = addTwoNumbers(l1, l2);
+console.log(linkedListToArray(numberResult));
+  
 
-  console.log(linkedListToArray(numberResult));
+
+// Problem Statement:
+// Given a string, find the length of the longest substring that does not contain any repeating characters.
+
+
+function repeatingCharacters(str) {
+    let characters = new Set()
+    let left=0,right = 0
+    let result=0
+  
+      while (right<str.length) {
+        if(!characters.has(str[right])){
+          characters.add(str[right])
+          result= Math.max(result, right - left + 1)
+          right++
+        }else{
+          characters.delete(str[left])
+          left++
+        }
+      }
+       
+    return result
+  }
+  const longestSubstring= 'abcabcbb'
+  
+  console.log(repeatingCharacters(longestSubstring));
   
