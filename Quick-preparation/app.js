@@ -474,3 +474,30 @@ function isDuplicates(array) {
 }
 
 console.log(isDuplicates(duplicateSArray));
+
+
+// Given an integer array nums, return an array such that each element output[i] is equal to the product of all the elements of nums except nums[i].
+// You must solve it without using division.
+// You should not use extra space except for the output array.
+// The solution should be completed in O(n) time complexity, where n is the length of the array.
+
+function productExceptSelf(array) {
+    let result = new Array(array.length).fill(1);
+    let prefix = 1;
+    let postfix = 1;
+    for (let index = 0; index < array.length; index++) {
+        result[index]*= prefix
+        prefix *= array[index]
+
+    }
+    for (let index = array.length - 1; index >= 0; index--) {
+        result[index]*= postfix
+        postfix *= array[index]
+
+    }
+    console.log(result);
+
+}
+
+const productExceptSelfArray=[1,2,3,4]
+console.log(productExceptSelf(productExceptSelfArray));
