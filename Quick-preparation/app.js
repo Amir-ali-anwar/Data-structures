@@ -421,6 +421,83 @@ const l1 = [2, 4, 3]
 const l2 = [5, 6, 4]
 
 const numberResult = addTwoNumbers(l1, l2);
-
-  console.log(linkedListToArray(numberResult));
+console.log(linkedListToArray(numberResult));
   
+
+
+// Problem Statement:
+// Given a string, find the length of the longest substring that does not contain any repeating characters.
+
+
+function repeatingCharacters(str) {
+    let characters = new Set()
+    let left=0,right = 0
+    let result=0
+  
+      while (right<str.length) {
+        if(!characters.has(str[right])){
+          characters.add(str[right])
+          result= Math.max(result, right - left + 1)
+          right++
+        }else{
+          characters.delete(str[left])
+          left++
+        }
+      }
+       
+    return result
+  }
+  const longestSubstring= 'abcabcbb'
+  
+  console.log(repeatingCharacters(longestSubstring));
+  
+
+  // Contains Duplicate
+
+  //  Given an array of integers nums, determine whether any value appears at least twice in the array. 
+  //  Your function should return true if any value appears at least twice in the array, and false if every element is distinct.
+
+
+const duplicateSArray = [1, 2, 3, 1]
+
+function isDuplicates(array) {
+    let duplicatesSet = new Set();
+     for (let index = 0; index < array.length; index++) {
+        const currentElement = array[index];
+        if (!duplicatesSet.has(currentElement)) {
+            duplicatesSet.add(currentElement)
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
+console.log(isDuplicates(duplicateSArray));
+
+
+// Given an integer array nums, return an array such that each element output[i] is equal to the product of all the elements of nums except nums[i].
+// You must solve it without using division.
+// You should not use extra space except for the output array.
+// The solution should be completed in O(n) time complexity, where n is the length of the array.
+
+function productExceptSelf(array) {
+    let result = new Array(array.length).fill(1);
+    let prefix = 1;
+    let postfix = 1;
+    for (let index = 0; index < array.length; index++) {
+        result[index]*= prefix
+        prefix *= array[index]
+
+    }
+    for (let index = array.length - 1; index >= 0; index--) {
+        result[index]*= postfix
+        postfix *= array[index]
+
+    }
+    console.log(result);
+
+}
+
+const productExceptSelfArray=[1,2,3,4]
+console.log(productExceptSelf(productExceptSelfArray));
