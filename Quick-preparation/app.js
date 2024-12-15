@@ -501,3 +501,25 @@ function productExceptSelf(array) {
 
 const productExceptSelfArray=[1,2,3,4]
 console.log(productExceptSelf(productExceptSelfArray));
+
+
+
+
+const assendingArray = (arr) => {
+    let unsortedArray = []
+    let sortedArray = []
+    for (let index = 0; index < array.length; index++) {
+        if (arr[index] > arr[index + 1]) {
+            unsortedArray.push(arr[index])
+        } else {
+            sortedArray.push(arr[index])
+
+        }
+
+    }
+    return sortedArray
+}
+
+const array=[7,1,2,3,5,4]
+
+console.log(assendingArray(array));
