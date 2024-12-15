@@ -451,3 +451,26 @@ function repeatingCharacters(str) {
   
   console.log(repeatingCharacters(longestSubstring));
   
+
+  // Contains Duplicate
+
+  //  Given an array of integers nums, determine whether any value appears at least twice in the array. 
+  //  Your function should return true if any value appears at least twice in the array, and false if every element is distinct.
+
+
+const duplicateSArray = [1, 2, 3, 1]
+
+function isDuplicates(array) {
+    let duplicatesSet = new Set();
+     for (let index = 0; index < array.length; index++) {
+        const currentElement = array[index];
+        if (!duplicatesSet.has(currentElement)) {
+            duplicatesSet.add(currentElement)
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
+console.log(isDuplicates(duplicateSArray));

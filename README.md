@@ -4,3 +4,5 @@ In this repository we are going to cover the important topics in data structures
 
 https://www.youtube.com/@algo.monster/playlists
 https://www.youtube.com/@NeetCode
+
+https://www.youtube.com/watch?v=F-ao3Q6I2Fc
