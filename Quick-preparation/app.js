@@ -495,6 +495,7 @@ function productExceptSelf(array) {
         postfix *= array[index]
 
     }
+    return result
     console.log(result);
 
 }
