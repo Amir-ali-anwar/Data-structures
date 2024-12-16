@@ -505,21 +505,55 @@ console.log(productExceptSelf(productExceptSelfArray));
 
 
 
-const assendingArray = (arr) => {
-    let unsortedArray = []
-    let sortedArray = []
-    for (let index = 0; index < array.length; index++) {
-        if (arr[index] > arr[index + 1]) {
-            unsortedArray.push(arr[index])
-        } else {
-            sortedArray.push(arr[index])
+// const assendingArray = (arr) => {
+//     let unsortedArray = []
+//     let sortedArray = []
+//     for (let index = 0; index < array.length; index++) {
+       
 
+//     }
+//     return sortedArray
+// }
+
+// const array=[7,1,2,3,5,4]
+
+// console.log(assendingArray(array));
+
+
+
+// Given two strings s and t, return true if t is an anagram of s and false otherwise.
+
+// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+
+let s = "anagram"; 
+let t = "nagaram";
+
+
+const isAnagram = (s, t) => {
+    if (s.length !== t.length) return false
+    const HashMap1 = {}
+    for (const char in s) {
+        HashMap1[char] = (HashMap1[char] || 0) + 1;
+
+    }
+
+    for (const key in t) {
+        if (!HashMap1[t[key]]) {
+            return false
+        }
+        HashMap1[char]--;
+    }
+    console.log(HashMap1);
+    let allzero = true
+    for (const key in HashMap1) {
+        if (HashMap1[key] !== 0) {
+            return false
         }
 
     }
-    return sortedArray
+    return true
 }
 
-const array=[7,1,2,3,5,4]
 
-console.log(assendingArray(array));
+console.log(isAnagram(s, t));
