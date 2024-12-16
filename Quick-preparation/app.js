@@ -545,8 +545,6 @@ const isAnagram = (s, t) => {
         }
         HashMap1[char]--;
     }
-    console.log(HashMap1);
-    let allzero = true
     for (const key in HashMap1) {
         if (HashMap1[key] !== 0) {
             return false
