@@ -23,7 +23,7 @@
 // The first line contains an integer, , the number of integers in .
 // The second line contains  space-separated integers that make up .
 
-
+import {NodeListV2,ArrayToLinkList,linkedListToArray} from './utils.js'
 function reverseArray(a) {
     // Write your code here
     let reverseArray = []
@@ -373,21 +373,21 @@ function twoSum(nums, target) {
   // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order,
   // and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
   
-class NodeListV2 {
-    constructor(value = 0, next = null) {
-        this.value = value;
-        this.next = next;
-    }
-}
-function ArrayToLinkList(arr) {
-    const head = new NodeListV2();
-    let current = head;
-    for (const val of arr) {
-        current.next = new NodeListV2(val)
-        current = current.next
-    }
-    return head.next
-}
+// class NodeListV2 {
+//     constructor(value = 0, next = null) {
+//         this.value = value;
+//         this.next = next;
+//     }
+// }
+// function ArrayToLinkList(arr) {
+//     const head = new NodeListV2();
+//     let current = head;
+//     for (const val of arr) {
+//         current.next = new NodeListV2(val)
+//         current = current.next
+//     }
+//     return head.next
+// }
 function addTwoNumbers(l1, l2) {
     let l1Node = ArrayToLinkList(l1);
     let l2Node = ArrayToLinkList(l2);
@@ -409,14 +409,7 @@ function addTwoNumbers(l1, l2) {
     return resultHead.next
 
 }
-function linkedListToArray(node) {
-    let result = []
-    while (node) {
-        result.push(node.value)
-        node = node.next
-    }
-    return result
-}
+
 const l1 = [2, 4, 3]
 const l2 = [5, 6, 4]
 
@@ -495,8 +488,7 @@ function productExceptSelf(array) {
         postfix *= array[index]
 
     }
-    console.log(result);
-
+    return result
 }
 
 const productExceptSelfArray=[1,2,3,4]
@@ -505,21 +497,127 @@ console.log(productExceptSelf(productExceptSelfArray));
 
 
 
-const assendingArray = (arr) => {
-    let unsortedArray = []
-    let sortedArray = []
-    for (let index = 0; index < array.length; index++) {
-        if (arr[index] > arr[index + 1]) {
-            unsortedArray.push(arr[index])
-        } else {
-            sortedArray.push(arr[index])
+// const assendingArray = (arr) => {
+//     let unsortedArray = []
+//     let sortedArray = []
+//     for (let index = 0; index < array.length; index++) {
+       
 
+//     }
+//     return sortedArray
+// }
+
+// const array=[7,1,2,3,5,4]
+
+// console.log(assendingArray(array));
+
+
+
+// Given two strings s and t, return true if t is an anagram of s and false otherwise.
+
+// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+
+let s = "anagram"; 
+let t = "nagaram";
+
+
+const isAnagram = (s, t) => {
+    if (s.length !== t.length) return false
+    const HashMap1 = {}
+    for (const char in s) {
+        HashMap1[char] = (HashMap1[char] || 0) + 1;
+
+    }
+
+    for (const key in t) {
+        if (!HashMap1[t[key]]) {
+            return false
+        }
+        HashMap1[char]--;
+    }
+    for (const key in HashMap1) {
+        if (HashMap1[key] !== 0) {
+            return false
         }
 
     }
-    return sortedArray
+    return true
 }
 
-const array=[7,1,2,3,5,4]
 
-console.log(assendingArray(array));
+console.log(isAnagram(s, t));
+
+// Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum, and return its sum.
+
+//nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4] outout=6
+
+function max_subarray(nums) {
+    let maxSum = -Infinity;
+    let currentSum = 0;
+    for (const key in nums) {
+        currentSum = Math.max(nums[key], currentSum + nums[key])
+        maxSum = Math.max(maxSum, currentSum)
+
+    }
+    return maxSum
+}
+
+const contiguousArray = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+console.log(max_subarray(contiguousArray));
+
+const contiguousArray1 = [5, 4, -1, 7, 8]
+console.log(max_subarray(contiguousArray1 ));
+
+
+
+// You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, and the only constraint stopping you from robbing all of them is that adjacent houses have security systems connected, so robbing two adjacent houses will trigger an alarm.
+
+// Given an integer array nums representing the amount of money in each house, return the maximum amount of money you can rob without robbing two adjacent houses.
+
+function rob(arr) {
+    if (arr.length === 0) return 0;
+    if (arr.length === 1) return arr[0];
+    for (let i = 2; i < arr.length; i++) {
+        arr[i] = Math.max(arr[i - 2] + arr[i], arr[i - 1])
+
+    }
+    return arr[arr.length - 1]
+}   
+
+const roBnums = [2, 7, 9, 3, 1]
+
+console.log(rob(roBnums));
+
+
+// Merge Two Sorted Lists - Leetcode 21 - Python
+
+const mergeTwoList = (l1, l2) => {
+    let l1Node = ArrayToLinkList(l1);
+    let l2Node = ArrayToLinkList(l2);
+    let resultHead = new NodeListV2(); // To store the result
+    let current = resultHead;
+
+    while (l1Node && l2Node) {
+        if (l1Node.value < l2Node.value) {
+            current.next = l1Node
+            l1Node = l1Node.next
+        } else {
+            current.next = l2Node
+            l2Node = l2Node.next
+        }
+        current = current.next
+    }
+    if (l1Node !== null) current.next = l1Node;
+    if (l2Node !== null) current.next = l2Node;
+
+    return resultHead.next
+
+}
+const list1 = [1, 3, 5];
+const list2 = [2, 4, 6];
+
+const mergedResult = mergeTwoList(list1, list2);
+console.log(linkedListToArray(mergedResult));
+
+
