@@ -574,4 +574,25 @@ const contiguousArray = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 console.log(max_subarray(contiguousArray));
 
 const contiguousArray1 = [5, 4, -1, 7, 8]
-console.log(max_subarray(contiguousArray1));
+console.log(max_subarray(contiguousArray1 ));
+
+
+
+// You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, and the only constraint stopping you from robbing all of them is that adjacent houses have security systems connected, so robbing two adjacent houses will trigger an alarm.
+
+// Given an integer array nums representing the amount of money in each house, return the maximum amount of money you can rob without robbing two adjacent houses.
+
+function rob(arr) {
+    if (arr.length === 0) return 0;
+    if (arr.length === 1) return arr[0];
+    for (let i = 2; i < arr.length; i++) {
+        arr[i] = Math.max(arr[i - 2] + arr[i], arr[i - 1])
+
+    }
+    return arr[arr.length - 1]
+}   
+
+const roBnums = [2, 7, 9, 3, 1]
+
+console.log(rob(roBnums));
+
