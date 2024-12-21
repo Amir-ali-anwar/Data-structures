@@ -496,8 +496,6 @@ function productExceptSelf(array) {
 
     }
     return result
-    console.log(result);
-
 }
 
 const productExceptSelfArray=[1,2,3,4]
@@ -556,3 +554,24 @@ const isAnagram = (s, t) => {
 
 
 console.log(isAnagram(s, t));
+
+// Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum, and return its sum.
+
+//nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4] outout=6
+
+function max_subarray(nums) {
+    let maxSum = -Infinity;
+    let currentSum = 0;
+    for (const key in nums) {
+        currentSum = Math.max(nums[key], currentSum + nums[key])
+        maxSum = Math.max(maxSum, currentSum)
+
+    }
+    return maxSum
+}
+
+const contiguousArray = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+console.log(max_subarray(contiguousArray));
+
+const contiguousArray1 = [5, 4, -1, 7, 8]
+console.log(max_subarray(contiguousArray1));
