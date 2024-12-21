@@ -23,7 +23,7 @@
 // The first line contains an integer, , the number of integers in .
 // The second line contains  space-separated integers that make up .
 
-
+import {NodeListV2,ArrayToLinkList,linkedListToArray} from './utils.js'
 function reverseArray(a) {
     // Write your code here
     let reverseArray = []
@@ -373,21 +373,21 @@ function twoSum(nums, target) {
   // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order,
   // and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
   
-class NodeListV2 {
-    constructor(value = 0, next = null) {
-        this.value = value;
-        this.next = next;
-    }
-}
-function ArrayToLinkList(arr) {
-    const head = new NodeListV2();
-    let current = head;
-    for (const val of arr) {
-        current.next = new NodeListV2(val)
-        current = current.next
-    }
-    return head.next
-}
+// class NodeListV2 {
+//     constructor(value = 0, next = null) {
+//         this.value = value;
+//         this.next = next;
+//     }
+// }
+// function ArrayToLinkList(arr) {
+//     const head = new NodeListV2();
+//     let current = head;
+//     for (const val of arr) {
+//         current.next = new NodeListV2(val)
+//         current = current.next
+//     }
+//     return head.next
+// }
 function addTwoNumbers(l1, l2) {
     let l1Node = ArrayToLinkList(l1);
     let l2Node = ArrayToLinkList(l2);
@@ -409,14 +409,7 @@ function addTwoNumbers(l1, l2) {
     return resultHead.next
 
 }
-function linkedListToArray(node) {
-    let result = []
-    while (node) {
-        result.push(node.value)
-        node = node.next
-    }
-    return result
-}
+
 const l1 = [2, 4, 3]
 const l2 = [5, 6, 4]
 
@@ -595,4 +588,36 @@ function rob(arr) {
 const roBnums = [2, 7, 9, 3, 1]
 
 console.log(rob(roBnums));
+
+
+// Merge Two Sorted Lists - Leetcode 21 - Python
+
+const mergeTwoList = (l1, l2) => {
+    let l1Node = ArrayToLinkList(l1);
+    let l2Node = ArrayToLinkList(l2);
+    let resultHead = new NodeListV2(); // To store the result
+    let current = resultHead;
+
+    while (l1Node && l2Node) {
+        if (l1Node.value < l2Node.value) {
+            current.next = l1Node
+            l1Node = l1Node.next
+        } else {
+            current.next = l2Node
+            l2Node = l2Node.next
+        }
+        current = current.next
+    }
+    if (l1Node !== null) current.next = l1Node;
+    if (l2Node !== null) current.next = l2Node;
+
+    return resultHead.next
+
+}
+const list1 = [1, 3, 5];
+const list2 = [2, 4, 6];
+
+const mergedResult = mergeTwoList(list1, list2);
+console.log(linkedListToArray(mergedResult));
+
 
