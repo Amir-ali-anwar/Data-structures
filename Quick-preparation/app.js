@@ -649,4 +649,27 @@ const buySellArr= [7, 1, 5, 3, 6, 4]
 
 console.log(maxProfit(buySellArr));
 
+// You are climbing a staircase. It takes 
+// 𝑛
+// n steps to reach the top.
 
+// Each time you can either climb 1 step or 2 steps. In how many distinct ways can you climb to the top?
+
+function climbStairs(n) {
+    if (n === 1) return 1
+    let step1 = 1
+    let step2 = 2;
+    for (let index = 3; index <= n; index++) {
+        let current = step1 + step2;
+        step1=step2
+        step2= current;
+
+    }
+    return step2
+    // console.log(current);
+
+    // return steps
+}
+
+
+console.log(climbStairs(5));
