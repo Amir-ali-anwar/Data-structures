@@ -1,4 +1,4 @@
-// An array is a type of data structure that stores elements of the same type in a contiguous block of memory. In an array, , of size , each memory location has some unique index,  (where ), that can be referenced as  or .
+// An array is a type of data structure that stores elements of the same type in a contiguous block of memory. In an array, , of size , each memory location has some unique i,  (where ), that can be referenced as  or .
 
 // Reverse an array of integers.
 
@@ -621,3 +621,55 @@ const mergedResult = mergeTwoList(list1, list2);
 console.log(linkedListToArray(mergedResult));
 
 
+
+// You are given an array of stock prices where prices[i] is the price of a given stock on day i. You need to find the maximum profit you can achieve by choosing a single day to buy one stock and a different day to sell it. Return the maximum profit or 0 if no profit can be made.
+
+
+function maxProfit(arr) {
+    if(arr.length<2) return 0;
+
+    let buyPrice = arr[0]
+    let maxProfit = 0;
+    let currentProfit = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < buyPrice) {
+            buyPrice = arr[i]
+        } else {
+            currentProfit = arr[i] - buyPrice
+            maxProfit = Math.max(currentProfit, maxProfit)
+        }
+
+    }
+    return maxProfit
+}
+
+
+
+const buySellArr= [7, 1, 5, 3, 6, 4]
+
+console.log(maxProfit(buySellArr));
+
+// You are climbing a staircase. It takes 
+// 𝑛
+// n steps to reach the top.
+
+// Each time you can either climb 1 step or 2 steps. In how many distinct ways can you climb to the top?
+
+function climbStairs(n) {
+    if (n === 1) return 1
+    let step1 = 1
+    let step2 = 2;
+    for (let index = 3; index <= n; index++) {
+        let current = step1 + step2;
+        step1=step2
+        step2= current;
+
+    }
+    return step2
+    // console.log(current);
+
+    // return steps
+}
+
+
+console.log(climbStairs(5));
