@@ -743,3 +743,22 @@ function printTree(node) {
     const toBeReplacedArray = [17, 18, 5, 4, 6, 1];
     console.log(replaceElements(toBeReplacedArray));
     
+
+// you are given a non-empty array of integers, nums, where every element appears twice except for one. Find the single element that does not appear twice.
+
+// You must implement a solution with a linear runtime complexity (O(n)) and use only constant extra space (O(1)).
+
+
+
+const singleNumber = (array) => {
+    let sing = 0;
+    for (let index = 0; index < array.length; index++) {
+        sing = sing ^ array[index];
+
+    }
+    return sing
+}
+
+const ArrayOfDuplicates = [4, 1, 2, 1, 2]
+
+console.log(singleNumber(ArrayOfDuplicates));
