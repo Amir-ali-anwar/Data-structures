@@ -728,4 +728,18 @@ function printTree(node) {
  const treeRoot =arrayToTree(rootArray);
  printTree(treeRoot);
  
+    // You are given an integer array arr. You need to replace each element in the array with the greatest element that is to its right. The last element should be replaced by -1 because there is no element to its right.
 
+    const replaceElements = (arr) => {
+        let max_value = -1;
+        for (let index = arr.length - 1; index >= 0; index--) {
+            let temp = arr[index];
+            arr[index] = max_value;
+            max_value = Math.max(max_value, temp);
+        }
+        return arr;
+    }
+    
+    const toBeReplacedArray = [17, 18, 5, 4, 6, 1];
+    console.log(replaceElements(toBeReplacedArray));
+    
