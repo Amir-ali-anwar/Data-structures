@@ -669,7 +669,63 @@ function climbStairs(n) {
     // console.log(current);
 
     // return steps
+    
 }
 
+// console.log(climbStairs(5));
 
-console.log(climbStairs(5));
+// invert the Binary Tree
+
+// Given the root of a binary tree, invert the tree and return its root.
+
+// Definition: Inverting a binary tree means swapping the left and right subtrees of all nodes in the tree.
+
+
+//  const invertTree=(arr)=>{
+//    if(arr.length===0) return null
+//     for (let index = 1; index < arr.length; index++) {
+
+//     }
+// }
+
+function ArrayTOTree(value) {
+    this.value = value
+    this.left = null
+    this.right = null
+}
+function arrayToTree(arr) {
+    if (!arr.length) return null
+    const Nodes= arr?.map((value)=>{
+       return  value !== null ? new ArrayTOTree(value): null 
+    })
+   for (let index = 0; index < arr.length; index++) {
+       if (Nodes[index] !== null) {
+           const leftIndex = 2 * index + 1;
+           const rightIndex = 2 * index + 2;
+           if (leftIndex < arr.length && Nodes[leftIndex] !== null) {
+            Nodes[index].left = Nodes[leftIndex];
+        }
+        
+        // Set right child if it exists
+        if (rightIndex < arr.length && Nodes[rightIndex] !== null) {
+            Nodes[index].right = Nodes[rightIndex];
+        }
+       }
+    
+   }
+   return Nodes[0]
+    
+}
+function printTree(node) {
+    if (!node) return;
+    printTree(node.left);  // Traverse left subtree
+    console.log(node.value); // Print root value
+    printTree(node.right);  // Traverse right subtree
+  }
+
+ const rootArray = [4,2,7,1,3,6,9]
+
+ const treeRoot =arrayToTree(rootArray);
+ printTree(treeRoot);
+ 
+
