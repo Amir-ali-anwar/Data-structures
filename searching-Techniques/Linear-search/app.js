@@ -1,3 +1,9 @@
+// Linear search is one of the simplest searching techniques, and its use cases generally revolve around scenarios
+// where more sophisticated searching algorithms are either unnecessary or cannot be applied due to constraints. Below are the primary use cases:
+// Small Datasets
+// Unsorted or Unordered Data
+// Searching in Linked Lists
+
 function linearSearch(array, target) {
     for (let index = 0; index < array.length; index++) {
         const element = array[index];
