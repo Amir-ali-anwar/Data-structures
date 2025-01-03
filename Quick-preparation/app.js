@@ -796,7 +796,7 @@ console.log(singleNumber(ArrayOfDuplicates));
 // Follow up: Could you solve it without converting the integer to a string?
 
 
-function isPalindrome(number) {
+function isPalindrome(x) {
     if (x < 0 || (x !== 0 && x % 10 === 0)) return false;
 
     let half = 0;
