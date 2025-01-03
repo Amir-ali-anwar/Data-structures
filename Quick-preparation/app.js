@@ -23,7 +23,7 @@
 // The first line contains an integer, , the number of integers in .
 // The second line contains  space-separated integers that make up .
 
-import {NodeListV2,ArrayToLinkList,linkedListToArray} from './utils.js'
+import { NodeListV2, ArrayToLinkList, linkedListToArray } from './utils.js'
 function reverseArray(a) {
     // Write your code here
     let reverseArray = []
@@ -271,19 +271,19 @@ console.log("Postorder:", postorderTraversal(root)); // Output: [4, 5, 2, 6, 7, 
 // s consists of parentheses only '()[]{}'
 
 
- function isValid(s){
+function isValid(s) {
     // const separateString=s.join(",")
     // console.log(separateString);
-    let valuestatus= ''
+    let valuestatus = ''
     for (let i = 0; i < s.length; i++) {
-        const currentParentheses= s[i].split(',') 
-        if(currentParentheses[i].startsWith()===currentParentheses[i].endsWith()){
+        const currentParentheses = s[i].split(',')
+        if (currentParentheses[i].startsWith() === currentParentheses[i].endsWith()) {
             return valuestatus = 'valid'
         }
-        return valuestatus='Invalid'
+        return valuestatus = 'Invalid'
     }
-    
- }
+
+}
 
 
 const inputs = [
@@ -297,82 +297,82 @@ const inputs = [
     "[{()}]",
     "]{",
     "[(])"
-  ];
-  
+];
 
 
 
-  console.log(isValid(inputs));
-  
+
+console.log(isValid(inputs));
 
 
 
-  // Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
+
+// Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
 
 // nums = [2, 7, 11, 15], target = 9
 
 function twoSum(nums, target) {
     const prevMap = {}
     for (let index = 0; index < nums.length; index++) {
-      const diff = target - nums[index]
-      if (diff in prevMap) {
-        return [prevMap[diff], index]
-      }
-      prevMap[nums[index]] = index
-  
+        const diff = target - nums[index]
+        if (diff in prevMap) {
+            return [prevMap[diff], index]
+        }
+        prevMap[nums[index]] = index
+
     }
     return []
-  
-  }
-  
-  const nums = [2, 7, 11, 15];
-  const target = 9;
-  
-  const result = twoSum(nums, target);
-  
-  console.log(result);
-  
-  
-  
-  // Problem Statement: Two Sum II - Input Array Is Sorted
-  
-  // You are given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, and an integer target. Write a function to find two numbers in the array such that they add up to the target number. Return the indices of the two numbers as an array [index1, index2], where:
-  
-  // 1 <= index1 < index2 <= numbers.length.
-  // The returned array must consist of exactly two indices.
-  // The indices should be in ascending order.
-  
-  function twoSumV2(nums, target) {
-    let left = 0  
+
+}
+
+const nums = [2, 7, 11, 15];
+const target = 9;
+
+const result = twoSum(nums, target);
+
+console.log(result);
+
+
+
+// Problem Statement: Two Sum II - Input Array Is Sorted
+
+// You are given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, and an integer target. Write a function to find two numbers in the array such that they add up to the target number. Return the indices of the two numbers as an array [index1, index2], where:
+
+// 1 <= index1 < index2 <= numbers.length.
+// The returned array must consist of exactly two indices.
+// The indices should be in ascending order.
+
+function twoSumV2(nums, target) {
+    let left = 0
     let right = nums.length - 1
     while (left < right) {
-      let currentSum = nums[left] + nums[right]
-      if (currentSum < target) {
-        left++
-      }else
-      if (currentSum > target) {
-        right--
-      }else if  (currentSum === target) {
-        return [left + 1, right + 1]
-      }
+        let currentSum = nums[left] + nums[right]
+        if (currentSum < target) {
+            left++
+        } else
+            if (currentSum > target) {
+                right--
+            } else if (currentSum === target) {
+                return [left + 1, right + 1]
+            }
     }
-  
-  
-  }
-  
-  const numsv2 = [2, 7, 11, 15];
-  const targetv2 = 9;
-  
-  const resultv2 = twoSumV2(numsv2, targetv2);
-  
-  console.log(resultv2);
-  
-  
-  
-  // Add Two Numbers
-  // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order,
-  // and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
-  
+
+
+}
+
+const numsv2 = [2, 7, 11, 15];
+const targetv2 = 9;
+
+const resultv2 = twoSumV2(numsv2, targetv2);
+
+console.log(resultv2);
+
+
+
+// Add Two Numbers
+// You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order,
+// and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
 // class NodeListV2 {
 //     constructor(value = 0, next = null) {
 //         this.value = value;
@@ -415,7 +415,7 @@ const l2 = [5, 6, 4]
 
 const numberResult = addTwoNumbers(l1, l2);
 console.log(linkedListToArray(numberResult));
-  
+
 
 
 // Problem Statement:
@@ -424,38 +424,38 @@ console.log(linkedListToArray(numberResult));
 
 function repeatingCharacters(str) {
     let characters = new Set()
-    let left=0,right = 0
-    let result=0
-  
-      while (right<str.length) {
-        if(!characters.has(str[right])){
-          characters.add(str[right])
-          result= Math.max(result, right - left + 1)
-          right++
-        }else{
-          characters.delete(str[left])
-          left++
+    let left = 0, right = 0
+    let result = 0
+
+    while (right < str.length) {
+        if (!characters.has(str[right])) {
+            characters.add(str[right])
+            result = Math.max(result, right - left + 1)
+            right++
+        } else {
+            characters.delete(str[left])
+            left++
         }
-      }
-       
+    }
+
     return result
-  }
-  const longestSubstring= 'abcabcbb'
-  
-  console.log(repeatingCharacters(longestSubstring));
-  
+}
+const longestSubstring = 'abcabcbb'
 
-  // Contains Duplicate
+console.log(repeatingCharacters(longestSubstring));
 
-  //  Given an array of integers nums, determine whether any value appears at least twice in the array. 
-  //  Your function should return true if any value appears at least twice in the array, and false if every element is distinct.
+
+// Contains Duplicate
+
+//  Given an array of integers nums, determine whether any value appears at least twice in the array. 
+//  Your function should return true if any value appears at least twice in the array, and false if every element is distinct.
 
 
 const duplicateSArray = [1, 2, 3, 1]
 
 function isDuplicates(array) {
     let duplicatesSet = new Set();
-     for (let index = 0; index < array.length; index++) {
+    for (let index = 0; index < array.length; index++) {
         const currentElement = array[index];
         if (!duplicatesSet.has(currentElement)) {
             duplicatesSet.add(currentElement)
@@ -479,19 +479,19 @@ function productExceptSelf(array) {
     let prefix = 1;
     let postfix = 1;
     for (let index = 0; index < array.length; index++) {
-        result[index]*= prefix
+        result[index] *= prefix
         prefix *= array[index]
 
     }
     for (let index = array.length - 1; index >= 0; index--) {
-        result[index]*= postfix
+        result[index] *= postfix
         postfix *= array[index]
 
     }
     return result
 }
 
-const productExceptSelfArray=[1,2,3,4]
+const productExceptSelfArray = [1, 2, 3, 4]
 console.log(productExceptSelf(productExceptSelfArray));
 
 
@@ -501,7 +501,7 @@ console.log(productExceptSelf(productExceptSelfArray));
 //     let unsortedArray = []
 //     let sortedArray = []
 //     for (let index = 0; index < array.length; index++) {
-       
+
 
 //     }
 //     return sortedArray
@@ -518,7 +518,7 @@ console.log(productExceptSelf(productExceptSelfArray));
 // An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
 
-let s = "anagram"; 
+let s = "anagram";
 let t = "nagaram";
 
 
@@ -567,7 +567,7 @@ const contiguousArray = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 console.log(max_subarray(contiguousArray));
 
 const contiguousArray1 = [5, 4, -1, 7, 8]
-console.log(max_subarray(contiguousArray1 ));
+console.log(max_subarray(contiguousArray1));
 
 
 
@@ -583,7 +583,7 @@ function rob(arr) {
 
     }
     return arr[arr.length - 1]
-}   
+}
 
 const roBnums = [2, 7, 9, 3, 1]
 
@@ -626,7 +626,7 @@ console.log(linkedListToArray(mergedResult));
 
 
 function maxProfit(arr) {
-    if(arr.length<2) return 0;
+    if (arr.length < 2) return 0;
 
     let buyPrice = arr[0]
     let maxProfit = 0;
@@ -645,7 +645,7 @@ function maxProfit(arr) {
 
 
 
-const buySellArr= [7, 1, 5, 3, 6, 4]
+const buySellArr = [7, 1, 5, 3, 6, 4]
 
 console.log(maxProfit(buySellArr));
 
@@ -661,15 +661,15 @@ function climbStairs(n) {
     let step2 = 2;
     for (let index = 3; index <= n; index++) {
         let current = step1 + step2;
-        step1=step2
-        step2= current;
+        step1 = step2
+        step2 = current;
 
     }
     return step2
     // console.log(current);
 
     // return steps
-    
+
 }
 
 // console.log(climbStairs(5));
@@ -695,54 +695,54 @@ function ArrayTOTree(value) {
 }
 function arrayToTree(arr) {
     if (!arr.length) return null
-    const Nodes= arr?.map((value)=>{
-       return  value !== null ? new ArrayTOTree(value): null 
+    const Nodes = arr?.map((value) => {
+        return value !== null ? new ArrayTOTree(value) : null
     })
-   for (let index = 0; index < arr.length; index++) {
-       if (Nodes[index] !== null) {
-           const leftIndex = 2 * index + 1;
-           const rightIndex = 2 * index + 2;
-           if (leftIndex < arr.length && Nodes[leftIndex] !== null) {
-            Nodes[index].left = Nodes[leftIndex];
+    for (let index = 0; index < arr.length; index++) {
+        if (Nodes[index] !== null) {
+            const leftIndex = 2 * index + 1;
+            const rightIndex = 2 * index + 2;
+            if (leftIndex < arr.length && Nodes[leftIndex] !== null) {
+                Nodes[index].left = Nodes[leftIndex];
+            }
+
+            // Set right child if it exists
+            if (rightIndex < arr.length && Nodes[rightIndex] !== null) {
+                Nodes[index].right = Nodes[rightIndex];
+            }
         }
-        
-        // Set right child if it exists
-        if (rightIndex < arr.length && Nodes[rightIndex] !== null) {
-            Nodes[index].right = Nodes[rightIndex];
-        }
-       }
-    
-   }
-   return Nodes[0]
-    
+
+    }
+    return Nodes[0]
+
 }
 function printTree(node) {
     if (!node) return;
     printTree(node.left);  // Traverse left subtree
     console.log(node.value); // Print root value
     printTree(node.right);  // Traverse right subtree
-  }
+}
 
- const rootArray = [4,2,7,1,3,6,9]
+const rootArray = [4, 2, 7, 1, 3, 6, 9]
 
- const treeRoot =arrayToTree(rootArray);
- printTree(treeRoot);
- 
-    // You are given an integer array arr. You need to replace each element in the array with the greatest element that is to its right. The last element should be replaced by -1 because there is no element to its right.
+const treeRoot = arrayToTree(rootArray);
+printTree(treeRoot);
 
-    const replaceElements = (arr) => {
-        let max_value = -1;
-        for (let index = arr.length - 1; index >= 0; index--) {
-            let temp = arr[index];
-            arr[index] = max_value;
-            max_value = Math.max(max_value, temp);
-        }
-        return arr;
+// You are given an integer array arr. You need to replace each element in the array with the greatest element that is to its right. The last element should be replaced by -1 because there is no element to its right.
+
+const replaceElements = (arr) => {
+    let max_value = -1;
+    for (let index = arr.length - 1; index >= 0; index--) {
+        let temp = arr[index];
+        arr[index] = max_value;
+        max_value = Math.max(max_value, temp);
     }
-    
-    const toBeReplacedArray = [17, 18, 5, 4, 6, 1];
-    console.log(replaceElements(toBeReplacedArray));
-    
+    return arr;
+}
+
+const toBeReplacedArray = [17, 18, 5, 4, 6, 1];
+console.log(replaceElements(toBeReplacedArray));
+
 
 // you are given a non-empty array of integers, nums, where every element appears twice except for one. Find the single element that does not appear twice.
 
@@ -762,3 +762,52 @@ const singleNumber = (array) => {
 const ArrayOfDuplicates = [4, 1, 2, 1, 2]
 
 console.log(singleNumber(ArrayOfDuplicates));
+
+
+// Palindrome Number
+// Given an integer x, return true if x is a 
+// palindrome
+// , and false otherwise.
+
+
+
+// Example 1:
+
+// Input: x = 121
+// Output: true
+// Explanation: 121 reads as 121 from left to right and from right to left.
+// Example 2:
+
+// Input: x = -121
+// Output: false
+// Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+// Example 3:
+
+// Input: x = 10
+// Output: false
+// Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+
+
+// Constraints:
+
+// -231 <= x <= 231 - 1
+
+
+// Follow up: Could you solve it without converting the integer to a string?
+
+
+function isPalindrome(number) {
+    if (x < 0 || (x !== 0 && x % 10 === 0)) return false;
+
+    let half = 0;
+    while (x > half) {
+        half = half * 10 + (x % 10);  // Extract the last digit of x
+        x = Math.floor(x / 10);  // Remove the last digit from x
+    }
+
+    // Compare the reversed half with the remaining part of x
+    return x === half || x === Math.floor(half / 10);
+}
+
+
+console.log(isPalindrome(121));
