@@ -833,7 +833,7 @@ console.log(isPalindrome(121));
 // C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
 
- 
+
 
 // Example 1:
 
@@ -850,7 +850,7 @@ console.log(isPalindrome(121));
 // Input: s = "MCMXCIV"
 // Output: 1994
 // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
- 
+
 
 // Constraints:
 
@@ -858,7 +858,7 @@ console.log(isPalindrome(121));
 // s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 // It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
-const RomanToInt=(romanInput)=>{
+const RomanToInt = (romanInput) => {
     const romans = {
         I: 1,
         V: 5,
@@ -867,23 +867,23 @@ const RomanToInt=(romanInput)=>{
         C: 100,
         D: 500,
         M: 1000
-      };
-      let total=0
-      for (let index = 0; index < romanInput.length; index++) {
+    };
+    let total = 0
+    for (let index = 0; index < romanInput.length; index++) {
         if (romans[romanInput[index]] < romans[romanInput[index + 1]]) {
-            total-= romans[romanInput[index]]
+            total -= romans[romanInput[index]]
         } else {
-            total+= romans[romanInput[index]]
+            total += romans[romanInput[index]]
         }
 
-    
+
     }
-    
-      return total
-      
+
+    return total
+
 }
 
-let romanInput= "MCMXCIV" 
+let romanInput = "MCMXCIV"
 
 console.log(RomanToInt(romanInput));
 
@@ -894,7 +894,7 @@ console.log(RomanToInt(romanInput));
 
 // If there is no common prefix, return an empty string "".
 
- 
+
 
 // Example 1:
 
@@ -905,7 +905,7 @@ console.log(RomanToInt(romanInput));
 // Input: strs = ["dog","racecar","car"]
 // Output: ""
 // Explanation: There is no common prefix among the input strings.
- 
+
 
 // Constraints:
 
@@ -919,7 +919,7 @@ function longestCommonPrefix(strs) {
     for (let i = 0; i < base.length; i++) {
         for (let j = 0; j < strs.length; j++) {
             if (i >= strs[j].length || base[i] !== strs[j][i]) {
-               return base.slice(0, i)
+                return base.slice(0, i)
             }
         }
     }
@@ -973,3 +973,69 @@ const removeDuplicatesV1 = (array) => {
 let ContainsDuplicates = [1, 1, 2]
 
 console.log(removeDuplicatesV1(ContainsDuplicates));
+
+
+
+// 27. Remove Element
+
+// let ContainsDuplicates = [1, 1, 2]
+
+// console.log(removeDuplicatesV1(ContainsDuplicates));
+
+
+// Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+
+// Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
+
+// Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+// Return k.
+// Custom Judge:
+
+// The judge will test your solution with the following code:
+
+// int[] nums = [...]; // Input array
+// int val = ...; // Value to remove
+// int[] expectedNums = [...]; // The expected answer with correct length.
+//                             // It is sorted with no values equaling val.
+
+// int k = removeElement(nums, val); // Calls your implementation
+
+// assert k == expectedNums.length;
+// sort(nums, 0, k); // Sort the first k elements of nums
+// for (int i = 0; i < actualLength; i++) {
+//     assert nums[i] == expectedNums[i];
+// }
+// If all assertions pass, then your solution will be accepted.
+
+
+
+// Example 1:
+
+// Input: nums = [3,2,2,3], val = 3
+// Output: 2, nums = [2,2,_,_]
+// Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
+// Example 2:
+
+// Input: nums = [0,1,2,2,3,0,4,2], val = 2
+// Output: 5, nums = [0,1,4,0,3,_,_,_]
+// Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+// Note that the five elements can be returned in any order.
+// It does not matter what you leave beyond the returned k (hence they are underscores).
+
+function removeElement(array, val) {
+    if (array.length === 0) return 0
+    let k = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== val) {
+            array[k]=array[i]
+            k++
+        }
+
+    }
+   return k
+}
+
+let Duplicatednums = [3, 2, 2, 3]
+let val = 2
+console.log(removeElement(Duplicatednums,val));
