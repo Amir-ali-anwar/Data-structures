@@ -123,7 +123,20 @@ function findLongestSubstring(s) {
     return max_length
 }
 
+// const findLongestSubstring = (s) => {
+//     let start = 0
+//     let hashmap = {};
+//     let maxLength = 0
+//     for (let end = 0; end < s.length; end++) {
+//         let char = s[end]
+//         if (hashmap[char] !== undefined) {
+//             start = hashmap[char] + 1;
+//         }
 
+//         hashmap[end] = char
+//         maxLength = Math.max(maxLength, end - start + 1)
+//     }
+// }   
 
 // Example usage
 const input = "abcabcbb";
