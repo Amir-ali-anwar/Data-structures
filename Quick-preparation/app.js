@@ -123,6 +123,7 @@ function findLongestSubstring(s) {
     return max_length
 }
 
+
 // const findLongestSubstring = (s) => {
 //     let start = 0
 //     let hashmap = {};
@@ -1052,3 +1053,19 @@ function removeElement(array, val) {
 let Duplicatednums = [3, 2, 2, 3]
 let val = 2
 console.log(removeElement(Duplicatednums,val));
+
+
+// truthniess and logical operators
+
+if (unserInput !== null && unserInput !== '') {
+
+}
+
+// above statement can be written as shorten 
+
+if(unserInput){
+
+}
+
+
+// but the second case didn't accept if we pass zero .
