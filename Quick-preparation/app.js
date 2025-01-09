@@ -124,6 +124,20 @@ function findLongestSubstring(s) {
 }
 
 
+// const findLongestSubstring = (s) => {
+//     let start = 0
+//     let hashmap = {};
+//     let maxLength = 0
+//     for (let end = 0; end < s.length; end++) {
+//         let char = s[end]
+//         if (hashmap[char] !== undefined) {
+//             start = hashmap[char] + 1;
+//         }
+
+//         hashmap[end] = char
+//         maxLength = Math.max(maxLength, end - start + 1)
+//     }
+// }   
 
 // Example usage
 const input = "abcabcbb";
@@ -1039,3 +1053,90 @@ function removeElement(array, val) {
 let Duplicatednums = [3, 2, 2, 3]
 let val = 2
 console.log(removeElement(Duplicatednums,val));
+
+
+// truthniess and logical operators
+
+// if (unserInput !== null && unserInput !== '') {
+
+// }
+
+// above statement can be written as shorten 
+
+// if(unserInput){
+
+// }
+
+
+// but the second case didn't accept if we pass zero .
+
+
+
+// Write a function createHelloWorld. It should return a new function that always returns "Hello World".
+ 
+
+// Example 1:
+
+// Input: args = []
+// Output: "Hello World"
+// Explanation:
+// const f = createHelloWorld();
+// f(); // "Hello World"
+
+// The function returned by createHelloWorld should always return "Hello World".
+// Example 2:
+
+// Input: args = [{},null,42]
+// Output: "Hello World"
+// Explanation:
+// const f = createHelloWorld();
+// f({}, null, 42); // "Hello World"
+
+// Any arguments could be passed to the function but it should still always return "Hello World".
+ 
+
+// Constraints:
+
+// 0 <= args.length <= 10
+
+var createHelloWorld = function() {
+    
+    return function(...args) {
+        // console.log('Hello World')  
+        return 'Hello World'
+    }   
+};
+
+createHelloWorld()
+
+// Given an integer n, return a counter function. This counter function initially returns n and then returns 1 more than the previous value every subsequent time it is called (n, n + 1, n + 2, etc).
+
+ 
+
+// Example 1:
+
+// Input: 
+// n = 10 
+// ["call","call","call"]
+// Output: [10,11,12]
+// Explanation: 
+// counter() = 10 // The first time counter() is called, it returns n.
+// counter() = 11 // Returns 1 more than the previous time.
+// counter() = 12 // Returns 1 more than the previous time.
+// Example 2:
+
+// Input: 
+// n = -2
+// ["call","call","call","call","call"]
+// Output: [-2,-1,0,1,2]
+// Explanation: counter() initially returns -2. Then increases after each sebsequent call.
+
+const counter= function(n) {
+    return function() {
+        return n++
+    };
+};
+
+counter(1)
+counter(2)
+counter(3)
