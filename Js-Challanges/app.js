@@ -110,11 +110,16 @@ const expect = (val) => {
 
 
 const createCounter = (init) => {
+    let initialValue= init
     return {
         increment: () => ++init,
         decrement: () => --init,
-        reset: () => init = 0
+        reset: () => init = initialValue
     }
 }
 
-const counter = createCounter(5)
+const counter1 = createCounter(5)
+console.log(counter1.increment());
+console.log(counter1.decrement());
+console.log(counter1.reset());
+
