@@ -1318,6 +1318,39 @@ const addTwoPromises = async function (promise1, promise2) {
    .then(console.log); // 4
 
 
+//    Given a positive integer millis, write an asynchronous function that sleeps for millis milliseconds. It can resolve any value.
+
+ 
+
+//    Example 1:
+   
+//    Input: millis = 100
+//    Output: 100
+//    Explanation: It should return a promise that resolves after 100ms.
+//    let t = Date.now();
+//    sleep(100).then(() => {
+//      console.log(Date.now() - t); // 100
+//    });
+//    Example 2:
+   
+//    Input: millis = 200
+//    Output: 200
+//    Explanation: It should return a promise that resolves after 200ms.
+    
+   
+//    Constraints:
+   
+//    1 <= millis <= 1000
+
+async function sleep(millis) {
+    await new Promise((resolve,reject)=>{
+        setTimeout(resolve,millis)
+    })
+}   
+
+let t = Date.now()
+sleep(100).then(() => console.log(Date.now() - t)) //
+
 //  Given a function fn, return a new function that is identical to the original function except that it ensures fn is called at most once.
 
 // The first time the returned function is called, it should return the same result as fn.
