@@ -1348,8 +1348,96 @@ async function sleep(millis) {
     })
 }   
 
-let t = Date.now()
-sleep(100).then(() => console.log(Date.now() - t)) //
+let time = Date.now()
+sleep(100).then(() => console.log(Date.now() - time)) //
+
+
+// Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+
+// You must not use any built-in exponent function or operator.
+
+// For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
+ 
+
+// Example 1:
+
+// Input: x = 4
+// Output: 2
+// Explanation: The square root of 4 is 2, so we return 2.
+// Example 2:
+
+// Input: x = 8
+// Output: 2
+// Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+
+const mySqrt = (x) => {
+  let left = 0;
+  let right = x
+  while (left <= right) {
+    let mid =  Math.floor((left + right) / 2)
+    if (mid * mid === x) {
+      return mid
+    }
+    else if (mid * mid < x) {
+      left = mid + 1
+    } else {
+      right = mid - 1
+   }
+  }
+  return right
+}
+
+
+console.log(mySqrt(4));
+
+// Given an object or an array, return if it is empty.
+
+// An empty object contains no key-value pairs.
+// An empty array contains no elements.
+// You may assume the object or array is the output of JSON.parse.
+
+ 
+
+// Example 1:
+
+// Input: obj = {"x": 5, "y": 42}
+// Output: false
+// Explanation: The object has 2 key-value pairs so it is not empty.
+// Example 2:
+
+// Input: obj = {}
+// Output: true
+// Explanation: The object doesn't have any key-value pairs so it is empty.
+// Example 3:
+
+// Input: obj = [null, false, 0]
+// Output: false
+// Explanation: The array has 3 elements so it is not empty.
+ 
+
+// Constraints:
+
+// obj is a valid JSON object or array
+// 2 <= JSON.stringify(obj).length <= 105
+ 
+
+// Can you solve it in O(1) time?
+const isEmpty = function (obj) {
+    let isObject = obj !== null && typeof obj === 'object'
+    if (isObject.length === 0) {
+        return true
+    } else {
+        return false
+    }
+
+};
+let obj = {"x": 5, "y": 42}
+
+console.log(isEmpty(obj));
+
+
+
+
 
 //  Given a function fn, return a new function that is identical to the original function except that it ensures fn is called at most once.
 
