@@ -1586,13 +1586,28 @@ const cancellable = function(fn, args, t) {
 // s consists of parentheses only '()[]{}'.
 
 
-const isValid=()=>{
-    const stack=[]
-    const matching = {
-        ')': '(',
-        '}': '{',
-        ']': '['
-    }; 
+const isValid = (char) => {
+  const stack = []
+  const matching = {
+    ')': '(',
+    '}': '{',
+    ']': '['
+  };
+  for (const element of char) {
+    if (element in matching) {
+      if (stack.length > 0 & stack[stack.length - 1] === matching[element]) {
+        stack.pop()
+      } else {
+        return false
+      }
+
+    } else {
+      stack.push(element)
+    }
+  }
+  return stack.length === 0
+
+
 }
 
 
