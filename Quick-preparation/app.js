@@ -285,7 +285,7 @@ console.log("Postorder:", postorderTraversal(root)); // Output: [4, 5, 2, 6, 7, 
 // s consists of parentheses only '()[]{}'
 
 
-function isValid(s) {
+function isValidV1(s) {
     // const separateString=s.join(",")
     // console.log(separateString);
     let valuestatus = ''
@@ -316,7 +316,7 @@ const inputs = [
 
 
 
-console.log(isValid(inputs));
+console.log(isValidV1(inputs));
 
 
 
@@ -1614,3 +1614,140 @@ const isValid = (char) => {
 
 console.log(isValid("()"));
 
+// Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
+
+// Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
+
+// The tests are generated such that there is exactly one solution. You may not use the same element twice.
+
+// Your solution must use only constant extra space.
+
+ 
+
+// Example 1:
+
+// Input: numbers = [2,7,11,15], target = 9
+// Output: [1,2]
+// Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
+// Example 2:
+
+// Input: numbers = [2,3,4], target = 6
+// Output: [1,3]
+// Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
+// Example 3:
+
+// Input: numbers = [-1,0], target = -1
+// Output: [1,2]
+// Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
+ 
+
+// Constraints:
+
+// 2 <= numbers.length <= 3 * 104
+// -1000 <= numbers[i] <= 1000
+// numbers is sorted in non-decreasing order.
+// -1000 <= target <= 1000
+// The tests are generated such that there is exactly one solution.
+
+
+function twoSumV3(nums, target) {
+    let left = 0
+    let right = nums.length - 1
+    while (left < right) {
+        let currentSum = nums[left] + nums[right]
+        if (currentSum < target) {
+            left++
+        } else
+            if (currentSum > target) {
+                right--
+            } else if (currentSum === target) {
+                return [left + 1, right + 1]
+            }
+    }
+
+}
+    
+    console.log(twoSumV3(numsv2,targetv2));
+    
+
+
+// 977. Squares of a Sorted Array
+
+// Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+
+// Example 1:
+
+// Input: nums = [-4,-1,0,3,10]
+// Output: [0,1,9,16,100]
+// Explanation: After squaring, the array becomes [16,1,0,9,100].
+// After sorting, it becomes [0,1,9,16,100].
+// Example 2:
+
+// Input: nums = [-7,-3,2,3,11]
+// Output: [4,9,9,49,121]
+
+
+const sortedSquares = function (nums) {
+    let left = 0;
+    let right = nums.length - 1;
+    let pos= nums.length - 1
+    const result = new Array(nums.length); // Create a new array to store the result
+    while (left <= right) {
+        if (Math.abs(nums[left]) > Math.abs(nums[right])) {
+            result[pos] = nums[left] * nums[left]
+            left++
+            pos--
+        } else {
+            result[pos] = nums[right] * nums[right]
+            right--
+            pos--
+        }
+    }
+    return result
+
+};
+
+const unsortedArray = [-4, -1, 0, 3, 10]
+
+
+console.log(sortedSquares(unsortedArray));
+
+
+// Find the Index of the First Occurrence in a String
+
+// Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+ 
+
+// Example 1:
+
+// Input: haystack = "sadbutsad", needle = "sad"
+// Output: 0
+// Explanation: "sad" occurs at index 0 and 6.
+// The first occurrence is at index 0, so we return 0.
+// Example 2:
+
+// Input: haystack = "leetcode", needle = "leeto"
+// Output: -1
+// Explanation: "leeto" did not occur in "leetcode", so we return -1.
+
+const strStr = function (haystack, needle) {
+    if (needle.length === 0) return 0
+    let left = 0;
+    let right = needle.length;
+    console.log(haystack[left]=== needle[right]);
+    
+    // while (left <= right) {
+    //     if (haystack[left]=== needle[right]) {
+    //         left++
+    //         return left
+    //     } 
+    // }
+    // return -1
+};
+
+
+const haystack ="sadbutsad"
+const needle ="sad"
+console.log(strStr(haystack,needle));
