@@ -285,7 +285,7 @@ console.log("Postorder:", postorderTraversal(root)); // Output: [4, 5, 2, 6, 7, 
 // s consists of parentheses only '()[]{}'
 
 
-function isValid(s) {
+function isValidV1(s) {
     // const separateString=s.join(",")
     // console.log(separateString);
     let valuestatus = ''
@@ -316,7 +316,7 @@ const inputs = [
 
 
 
-console.log(isValid(inputs));
+console.log(isValidV1(inputs));
 
 
 
@@ -1650,7 +1650,7 @@ console.log(isValid("()"));
 // The tests are generated such that there is exactly one solution.
 
 
-function twoSumV2(nums, target) {
+function twoSumV3(nums, target) {
     let left = 0
     let right = nums.length - 1
     while (left < right) {
@@ -1665,5 +1665,50 @@ function twoSumV2(nums, target) {
             }
     }
 
-
 }
+    
+    console.log(twoSumV3(numsv2,targetv2));
+    
+
+
+// 977. Squares of a Sorted Array
+
+// Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+
+// Example 1:
+
+// Input: nums = [-4,-1,0,3,10]
+// Output: [0,1,9,16,100]
+// Explanation: After squaring, the array becomes [16,1,0,9,100].
+// After sorting, it becomes [0,1,9,16,100].
+// Example 2:
+
+// Input: nums = [-7,-3,2,3,11]
+// Output: [4,9,9,49,121]
+
+
+const sortedSquares = function (nums) {
+    let left = 0;
+    let right = nums.length - 1;
+    let pos= nums.length - 1
+    const result = new Array(nums.length); // Create a new array to store the result
+    while (left <= right) {
+        if (Math.abs(nums[left]) > Math.abs(nums[right])) {
+            result[pos] = nums[left] * nums[left]
+            left++
+            pos--
+        } else {
+            result[pos] = nums[right] * nums[right]
+            right--
+            pos--
+        }
+    }
+    return result
+
+};
+
+const unsortedArray = [-4, -1, 0, 3, 10]
+
+
+console.log(sortedSquares(unsortedArray));
