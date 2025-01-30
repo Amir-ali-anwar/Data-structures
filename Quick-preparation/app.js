@@ -1349,7 +1349,7 @@ async function sleep(millis) {
 }   
 
 let time = Date.now()
-sleep(100).then(() => console.log(Date.now() - time)) //
+// sleep(100).then(() => console.log(Date.now() - time)) //
 
 
 // Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
@@ -1667,7 +1667,7 @@ function twoSumV3(nums, target) {
 
 }
     
-    console.log(twoSumV3(numsv2,targetv2));
+    // console.log(twoSumV3(numsv2,targetv2));
     
 
 
@@ -1711,7 +1711,7 @@ const sortedSquares = function (nums) {
 const unsortedArray = [-4, -1, 0, 3, 10]
 
 
-console.log(sortedSquares(unsortedArray));
+// console.log(sortedSquares(unsortedArray));
 
 
 // Find the Index of the First Occurrence in a String
@@ -1733,18 +1733,15 @@ console.log(sortedSquares(unsortedArray));
 // Explanation: "leeto" did not occur in "leetcode", so we return -1.
 
 const strStr = function (haystack, needle) {
-    if (needle.length === 0) return 0
-    let left = 0;
-    let right = needle.length;
-    console.log(haystack[left]=== needle[right]);
-    
-    // while (left <= right) {
-    //     if (haystack[left]=== needle[right]) {
-    //         left++
-    //         return left
-    //     } 
-    // }
-    // return -1
+  if (needle.length === 0) return 0
+  for (let left = 0; left < haystack.length - needle.length + 1; left++) {
+    let right = needle.length + left;
+    if (haystack.slice(left, right)===needle) {
+      return left
+    }
+  }
+  return -1
+
 };
 
 
