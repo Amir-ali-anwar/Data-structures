@@ -1800,6 +1800,19 @@ console.log(MultiDimensionalFn(apartmentBuilding));
 
 
 
+function MultiDimensionalFnv2(matrix) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+           if(matrix[i][j]==="Apt 202"){
+               matrix[i][j] = 'Renovated Apt 202';
+               return matrix; // Exits both loops immediately
+           }
+        }
+    }
+    return matrix;
+}
+
+console.log(MultiDimensionalFnv2(apartmentBuilding));
 
 
 
