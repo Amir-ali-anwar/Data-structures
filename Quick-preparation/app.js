@@ -1748,3 +1748,27 @@ const strStr = function (haystack, needle) {
 const haystack ="sadbutsad"
 const needle ="sad"
 console.log(strStr(haystack,needle));
+
+
+// To remove a column from a 2D array, you can directly modify each row using the splice method.
+
+
+function removeColumn(matrix, colIndex) {
+    for (const element of matrix) {
+        element.splice(colIndex, 1)
+
+    }
+    return matrix
+}
+
+
+let twoDarray = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+let colIndex = 2; // Removing the 3rd column (index 2)
+console.log(removeColumn(twoDarray, colIndex));
+
+
