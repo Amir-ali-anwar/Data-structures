@@ -1769,6 +1769,31 @@ let twoDarray = [
 ];
 
 let colIndex = 2; // Removing the 3rd column (index 2)
-console.log(removeColumn(twoDarray, colIndex));
+// console.log(removeColumn(twoDarray, colIndex));
+
+
+// Traversing the multi dimensional Arrays
+
+
+
+function MultiDimensionalFn(matrix) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            console.log(matrix[i][j]);
+
+        }
+
+    }
+}
+
+let apartmentBuilding = [
+    ["Apt 101", "Apt 102", "Apt 103"],
+    ["Apt 201", "Apt 202", "Apt 203"],
+    ["Apt 301", "Apt 302", "Apt 303"]
+];
+
+
+console.log(MultiDimensionalFn(apartmentBuilding));
+
 
 
