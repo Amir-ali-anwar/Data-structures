@@ -1815,5 +1815,34 @@ function MultiDimensionalFnv2(matrix) {
 console.log(MultiDimensionalFnv2(apartmentBuilding));
 
 
+// The JavaScript code provided is supposed to list all the unoccupied apartments in an apartment building. Each apartment has a number and an occupancy status; however, the code isn't working correctly just yet. Your mission is to sprinkle some of your magic and fix the code so it shines and functions perfectly.
+
+// Happy coding! 🌟
+
+
+
+function buildingTraversing(building){
+    for (let i = 0; i < building.length; i++) {
+        for (let j = 0; j < building[i].length; j++) {
+            let parts = building[i][j].split(" ");
+            let number = parts[0];
+            let occupied = parts[1] === "true";
+            if (!occupied) {
+                console.log("Apartment " + number + " is unoccupied.");
+            }
+        }
+    }
+}
+
+let building = [
+    ["101 true", "102 false", "103 false"],
+    ["201 true", "202 true", "203 false"]
+];
+console.log(buildingTraversing(building));
+
+
+
+
+
 
 
