@@ -1349,7 +1349,7 @@ async function sleep(millis) {
 }   
 
 let time = Date.now()
-sleep(100).then(() => console.log(Date.now() - time)) //
+// sleep(100).then(() => console.log(Date.now() - time)) //
 
 
 // Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
@@ -1667,7 +1667,7 @@ function twoSumV3(nums, target) {
 
 }
     
-    console.log(twoSumV3(numsv2,targetv2));
+    // console.log(twoSumV3(numsv2,targetv2));
     
 
 
@@ -1711,7 +1711,7 @@ const sortedSquares = function (nums) {
 const unsortedArray = [-4, -1, 0, 3, 10]
 
 
-console.log(sortedSquares(unsortedArray));
+// console.log(sortedSquares(unsortedArray));
 
 
 // Find the Index of the First Occurrence in a String
@@ -1733,21 +1733,87 @@ console.log(sortedSquares(unsortedArray));
 // Explanation: "leeto" did not occur in "leetcode", so we return -1.
 
 const strStr = function (haystack, needle) {
-    if (needle.length === 0) return 0
-    let left = 0;
-    let right = needle.length;
-    console.log(haystack[left]=== needle[right]);
-    
-    // while (left <= right) {
-    //     if (haystack[left]=== needle[right]) {
-    //         left++
-    //         return left
-    //     } 
-    // }
-    // return -1
+  if (needle.length === 0) return 0
+  for (let left = 0; left < haystack.length - needle.length + 1; left++) {
+    let right = needle.length + left;
+    if (haystack.slice(left, right)===needle) {
+      return left
+    }
+  }
+  return -1
+
 };
 
 
 const haystack ="sadbutsad"
 const needle ="sad"
 console.log(strStr(haystack,needle));
+
+
+// To remove a column from a 2D array, you can directly modify each row using the splice method.
+
+
+function removeColumn(matrix, colIndex) {
+    for (const element of matrix) {
+        element.splice(colIndex, 1)
+
+    }
+    return matrix
+}
+
+
+let twoDarray = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+let colIndex = 2; // Removing the 3rd column (index 2)
+// console.log(removeColumn(twoDarray, colIndex));
+
+
+// Traversing the multi dimensional Arrays
+
+
+
+function MultiDimensionalFn(matrix) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            console.log(matrix[i][j]);
+
+        }
+
+    }
+}
+
+let apartmentBuilding = [
+    ["Apt 101", "Apt 102", "Apt 103"],
+    ["Apt 201", "Apt 202", "Apt 203"],
+    ["Apt 301", "Apt 302", "Apt 303"]
+];
+
+
+console.log(MultiDimensionalFn(apartmentBuilding));
+
+
+// Your job is to update the second apartment on the second floor of the apartmentBuilding from "Apt 202" to "Renovated Apt 202" in the provided JavaScript 2D array. Make sure not to alter the original array initialization; perform the update after the array has been created.
+
+
+
+function MultiDimensionalFnv2(matrix) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+           if(matrix[i][j]==="Apt 202"){
+               matrix[i][j] = 'Renovated Apt 202';
+               return matrix; // Exits both loops immediately
+           }
+        }
+    }
+    return matrix;
+}
+
+console.log(MultiDimensionalFnv2(apartmentBuilding));
+
+
+
+
