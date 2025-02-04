@@ -1796,4 +1796,11 @@ let apartmentBuilding = [
 console.log(MultiDimensionalFn(apartmentBuilding));
 
 
+// Your job is to update the second apartment on the second floor of the apartmentBuilding from "Apt 202" to "Renovated Apt 202" in the provided JavaScript 2D array. Make sure not to alter the original array initialization; perform the update after the array has been created.
+
+
+
+
+
+
 
