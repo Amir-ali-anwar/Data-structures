@@ -23,25 +23,20 @@
 // The first line contains an integer, , the number of integers in .
 // The second line contains  space-separated integers that make up .
 
-import { NodeListV2, ArrayToLinkList, linkedListToArray } from './utils.js'
+import { NodeListV2, ArrayToLinkList, linkedListToArray } from "./utils.js";
 function reverseArray(a) {
-    // Write your code here
-    let reverseArray = []
-    for (let i = a.length - 1; i >= 0; i--) {
-        a[i];
-        reverseArray.push(a[i])
-
-
-    }
-    return reverseArray
+  // Write your code here
+  let reverseArray = [];
+  for (let i = a.length - 1; i >= 0; i--) {
+    a[i];
+    reverseArray.push(a[i]);
+  }
+  return reverseArray;
 }
-
 
 // console.log(reverseArray([1, 2, 3]));
 
-
 // Second Problem
-
 
 // This is an to practice traversing a linked list. Given a pointer to the head node of a linked list, print each node's  element, one per line. If the head pointer is null (indicating the list is empty), there is nothing to print.
 
@@ -78,51 +73,44 @@ function reverseArray(a) {
 
 // There are two elements in the linked list. They are represented as 16 -> 13 -> NULL. So, the printLinkedList function should print 16 and 13 each on a new line
 
-
-
 class SinglyLinkedListNode {
-    constructor(data) {
-        this.data = data;  // The value of the node
-        this.next = null;  // Pointer to the next node
-    }
+  constructor(data) {
+    this.data = data; // The value of the node
+    this.next = null; // Pointer to the next node
+  }
 }
 function printLinkedList(head) {
+  let currentNode = head;
+  while (currentNode) {
+    console.log(currentNode.data); // Print the data of the current node
 
-    let currentNode = head
-    while (currentNode) {
-        console.log(currentNode.data); // Print the data of the current node
-
-        currentNode = currentNode.next
-    }
+    currentNode = currentNode.next;
+  }
 }
 
-let head = new SinglyLinkedListNode(16)
-head.next = new SinglyLinkedListNode(13)
-
+let head = new SinglyLinkedListNode(16);
+head.next = new SinglyLinkedListNode(13);
 
 // printLinkedList(head)
-
 
 // Third template
 
 // Find the longest substring without repeating characters in javascript
 
 function findLongestSubstring(s) {
-    let start = 0;
-    let max_length = 0;
-    let charIndexMap = {};
-    for (let end = 0; end < s.length; end++) {
-        const char = s[end];
-        if (charIndexMap[char] !== undefined && charIndexMap[char] >= start) {
-            start = charIndexMap[char] + 1
-        }
-        charIndexMap = end
-        max_length = Math.max(max_length, end - start + 1);
-
+  let start = 0;
+  let max_length = 0;
+  let charIndexMap = {};
+  for (let end = 0; end < s.length; end++) {
+    const char = s[end];
+    if (charIndexMap[char] !== undefined && charIndexMap[char] >= start) {
+      start = charIndexMap[char] + 1;
     }
-    return max_length
+    charIndexMap = end;
+    max_length = Math.max(max_length, end - start + 1);
+  }
+  return max_length;
 }
-
 
 // const findLongestSubstring = (s) => {
 //     let start = 0
@@ -137,108 +125,95 @@ function findLongestSubstring(s) {
 //         hashmap[end] = char
 //         maxLength = Math.max(maxLength, end - start + 1)
 //     }
-// }   
+// }
 
 // Example usage
 const input = "abcabcbb";
 console.log(findLongestSubstring(input)); // Output: 3 ("abc")
 
-
-// Rotate an array by a certain number of positions. 
+// Rotate an array by a certain number of positions.
 
 const leftRotate = (arr, positions) => {
-    const n = arr.length
-    positions %= n
-    console.log(arr.slice(0, positions));
+  const n = arr.length;
+  positions %= n;
+  console.log(arr.slice(0, positions));
 
-
-    return arr.slice(positions).concat(arr.slice(0, positions))
-
-
-}
+  return arr.slice(positions).concat(arr.slice(0, positions));
+};
 
 const arr = [1, 2, 3, 4, 5];
 const positions = 2;
 
 console.log(leftRotate(arr, positions));
 
-
-
-
 function bob() {
+  let a = 12;
+  let b = 13;
+  var c = 123;
+
+  if (true) {
     let a = 12;
-    let b = 13
-    var c = 123
-
-    if (true) {
-        let a = 12;
-        let b = 24
-        var c = 25
-        console.log(a);
-        console.log(b);
-        console.log(c);
-    }
-
+    let b = 24;
+    var c = 25;
     console.log(a);
     console.log(b);
     console.log(c);
+  }
 
+  console.log(a);
+  console.log(b);
+  console.log(c);
 }
 
-bob()
-
+bob();
 
 // Merge two sorted arrays.
 
 const mergeArrays = (arr1, arr2) => {
-    return arr1.concat(arr2).sort((a, b) => a - b)
-}
+  return arr1.concat(arr2).sort((a, b) => a - b);
+};
 
-
-const arr1 = [1, 3, 5, 7, 9]
-const arr2 = [2, 4, 6, 8, 10]
+const arr1 = [1, 3, 5, 7, 9];
+const arr2 = [2, 4, 6, 8, 10];
 
 //Inorder, Preorder, Postorder traversals. In javascript
 
 class TreeNode {
-    constructor(value) {
-        this.value = value;
-        this.left = null;
-        this.right = null
-    }
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
 }
 
 // 1. Inorder Traversal (Left → Root → Right):
 
 const inOrderTraversal = (node, result = []) => {
-    if (node) {
-        inOrderTraversal(node.left, result)
-        result.push(node.value)
-        inOrderTraversal(node.right, result)
-    }
-    return result
-
-}
+  if (node) {
+    inOrderTraversal(node.left, result);
+    result.push(node.value);
+    inOrderTraversal(node.right, result);
+  }
+  return result;
+};
 
 const preorderTraversal = (node, result = []) => {
-    if (node) {
-        result.push(node.value)
-        inOrderTraversal(node.left, result)
-        inOrderTraversal(node.right, result)
-    }
-    return result
-
-}
+  if (node) {
+    result.push(node.value);
+    inOrderTraversal(node.left, result);
+    inOrderTraversal(node.right, result);
+  }
+  return result;
+};
 
 const postorderTraversal = (node, result = []) => {
-    if (node) {
-        inOrderTraversal(node.left, result)
-        inOrderTraversal(node.right, result)
-        result.push(node.value)
-    }
-    return result
-
-}
+  if (node) {
+    inOrderTraversal(node.left, result);
+    inOrderTraversal(node.right, result);
+    result.push(node.value);
+  }
+  return result;
+};
 
 // Create a binary tree
 const root = new TreeNode(1);
@@ -254,10 +229,7 @@ console.log("Inorder:", inOrderTraversal(root)); // Output: [4, 2, 5, 1, 6, 3, 7
 console.log("Preorder:", preorderTraversal(root)); // Output: [1, 2, 4, 5, 3, 6, 7]
 console.log("Postorder:", postorderTraversal(root)); // Output: [4, 5, 2, 6, 7, 3, 1]
 
-
-
 // Valid Parentheses
-
 
 // Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
@@ -284,59 +256,50 @@ console.log("Postorder:", postorderTraversal(root)); // Output: [4, 5, 2, 6, 7, 
 // 1 <= s.length <= 104
 // s consists of parentheses only '()[]{}'
 
-
 function isValidV1(s) {
-    // const separateString=s.join(",")
-    // console.log(separateString);
-    let valuestatus = ''
-    for (let i = 0; i < s.length; i++) {
-        const currentParentheses = s[i].split(',')
-        if (currentParentheses[i].startsWith() === currentParentheses[i].endsWith()) {
-            return valuestatus = 'valid'
-        }
-        return valuestatus = 'Invalid'
+  // const separateString=s.join(",")
+  // console.log(separateString);
+  let valuestatus = "";
+  for (let i = 0; i < s.length; i++) {
+    const currentParentheses = s[i].split(",");
+    if (
+      currentParentheses[i].startsWith() === currentParentheses[i].endsWith()
+    ) {
+      return (valuestatus = "valid");
     }
-
+    return (valuestatus = "Invalid");
+  }
 }
 
-
 const inputs = [
-    "()",
-    "()[]{}",
-    "(]",
-    "([)]",
-    "{[]}",
-    "(",
-    "((((()))))",
-    "[{()}]",
-    "]{",
-    "[(])"
+  "()",
+  "()[]{}",
+  "(]",
+  "([)]",
+  "{[]}",
+  "(",
+  "((((()))))",
+  "[{()}]",
+  "]{",
+  "[(])",
 ];
 
-
-
-
 console.log(isValidV1(inputs));
-
-
-
 
 // Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
 
 // nums = [2, 7, 11, 15], target = 9
 
 function twoSum(nums, target) {
-    const prevMap = {}
-    for (let index = 0; index < nums.length; index++) {
-        const diff = target - nums[index]
-        if (diff in prevMap) {
-            return [prevMap[diff], index]
-        }
-        prevMap[nums[index]] = index
-
+  const prevMap = {};
+  for (let index = 0; index < nums.length; index++) {
+    const diff = target - nums[index];
+    if (diff in prevMap) {
+      return [prevMap[diff], index];
     }
-    return []
-
+    prevMap[nums[index]] = index;
+  }
+  return [];
 }
 
 const nums = [2, 7, 11, 15];
@@ -345,8 +308,6 @@ const target = 9;
 const result = twoSum(nums, target);
 
 console.log(result);
-
-
 
 // Problem Statement: Two Sum II - Input Array Is Sorted
 
@@ -357,21 +318,18 @@ console.log(result);
 // The indices should be in ascending order.
 
 function twoSumV2(nums, target) {
-    let left = 0
-    let right = nums.length - 1
-    while (left < right) {
-        let currentSum = nums[left] + nums[right]
-        if (currentSum < target) {
-            left++
-        } else
-            if (currentSum > target) {
-                right--
-            } else if (currentSum === target) {
-                return [left + 1, right + 1]
-            }
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    let currentSum = nums[left] + nums[right];
+    if (currentSum < target) {
+      left++;
+    } else if (currentSum > target) {
+      right--;
+    } else if (currentSum === target) {
+      return [left + 1, right + 1];
     }
-
-
+  }
 }
 
 const numsv2 = [2, 7, 11, 15];
@@ -380,8 +338,6 @@ const targetv2 = 9;
 const resultv2 = twoSumV2(numsv2, targetv2);
 
 console.log(resultv2);
-
-
 
 // Add Two Numbers
 // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order,
@@ -403,85 +359,78 @@ console.log(resultv2);
 //     return head.next
 // }
 function addTwoNumbers(l1, l2) {
-    let l1Node = ArrayToLinkList(l1);
-    let l2Node = ArrayToLinkList(l2);
-    let carry = 0
-    let resultHead = new NodeListV2(); // To store the result
-    let current = resultHead;
-    while (l1Node || l2Node || carry > 0) {
-        let v1 = (l1Node) ? l1Node.value : 0;
-        let v2 = (l2Node) ? l2Node.value : 0;
-        let sum = v1 + v2 + carry
-        carry = Math.floor(sum / 10);
-        const digit = sum % 10
-        current.next = new NodeListV2(digit);
-        current = current.next
-        if (l1Node) l1Node = l1Node.next
-        if (l2Node) l2Node = l2Node.next
-
-    }
-    return resultHead.next
-
+  let l1Node = ArrayToLinkList(l1);
+  let l2Node = ArrayToLinkList(l2);
+  let carry = 0;
+  let resultHead = new NodeListV2(); // To store the result
+  let current = resultHead;
+  while (l1Node || l2Node || carry > 0) {
+    let v1 = l1Node ? l1Node.value : 0;
+    let v2 = l2Node ? l2Node.value : 0;
+    let sum = v1 + v2 + carry;
+    carry = Math.floor(sum / 10);
+    const digit = sum % 10;
+    current.next = new NodeListV2(digit);
+    current = current.next;
+    if (l1Node) l1Node = l1Node.next;
+    if (l2Node) l2Node = l2Node.next;
+  }
+  return resultHead.next;
 }
 
-const l1 = [2, 4, 3]
-const l2 = [5, 6, 4]
+const l1 = [2, 4, 3];
+const l2 = [5, 6, 4];
 
 const numberResult = addTwoNumbers(l1, l2);
 console.log(linkedListToArray(numberResult));
 
-
-
 // Problem Statement:
 // Given a string, find the length of the longest substring that does not contain any repeating characters.
 
-
 function repeatingCharacters(str) {
-    let characters = new Set()
-    let left = 0, right = 0
-    let result = 0
+  let characters = new Set();
+  let left = 0,
+    right = 0;
+  let result = 0;
 
-    while (right < str.length) {
-        if (!characters.has(str[right])) {
-            characters.add(str[right])
-            result = Math.max(result, right - left + 1)
-            right++
-        } else {
-            characters.delete(str[left])
-            left++
-        }
+  while (right < str.length) {
+    if (!characters.has(str[right])) {
+      characters.add(str[right]);
+      result = Math.max(result, right - left + 1);
+      right++;
+    } else {
+      characters.delete(str[left]);
+      left++;
     }
+  }
 
-    return result
+  return result;
 }
-const longestSubstring = 'abcabcbb'
+const longestSubstring = "abcabcbb";
 
 console.log(repeatingCharacters(longestSubstring));
 
-
 // Contains Duplicate
 
-//  Given an array of integers nums, determine whether any value appears at least twice in the array. 
+//  Given an array of integers nums, determine whether any value appears at least twice in the array.
 //  Your function should return true if any value appears at least twice in the array, and false if every element is distinct.
 
-
-const duplicateSArray = [1, 2, 3, 1]
+const duplicateSArray = [1, 2, 3, 1];
 
 function isDuplicates(array) {
-    let duplicatesSet = new Set();
-    for (let index = 0; index < array.length; index++) {
-        const currentElement = array[index];
-        if (!duplicatesSet.has(currentElement)) {
-            duplicatesSet.add(currentElement)
-            return false
-        } else {
-            return true
-        }
+  let duplicatesSet = new Set();
+  for (let index = 0; index < array.length; index++) {
+    const currentElement = array[index];
+    if (!duplicatesSet.has(currentElement)) {
+      duplicatesSet.add(currentElement);
+      return false;
+    } else {
+      return true;
     }
+  }
 }
 
 console.log(isDuplicates(duplicateSArray));
-
 
 // Given an integer array nums, return an array such that each element output[i] is equal to the product of all the elements of nums except nums[i].
 // You must solve it without using division.
@@ -489,33 +438,27 @@ console.log(isDuplicates(duplicateSArray));
 // The solution should be completed in O(n) time complexity, where n is the length of the array.
 
 function productExceptSelf(array) {
-    let result = new Array(array.length).fill(1);
-    let prefix = 1;
-    let postfix = 1;
-    for (let index = 0; index < array.length; index++) {
-        result[index] *= prefix
-        prefix *= array[index]
-
-    }
-    for (let index = array.length - 1; index >= 0; index--) {
-        result[index] *= postfix
-        postfix *= array[index]
-
-    }
-    return result
+  let result = new Array(array.length).fill(1);
+  let prefix = 1;
+  let postfix = 1;
+  for (let index = 0; index < array.length; index++) {
+    result[index] *= prefix;
+    prefix *= array[index];
+  }
+  for (let index = array.length - 1; index >= 0; index--) {
+    result[index] *= postfix;
+    postfix *= array[index];
+  }
+  return result;
 }
 
-const productExceptSelfArray = [1, 2, 3, 4]
+const productExceptSelfArray = [1, 2, 3, 4];
 console.log(productExceptSelf(productExceptSelfArray));
-
-
-
 
 // const assendingArray = (arr) => {
 //     let unsortedArray = []
 //     let sortedArray = []
 //     for (let index = 0; index < array.length; index++) {
-
 
 //     }
 //     return sortedArray
@@ -525,40 +468,33 @@ console.log(productExceptSelf(productExceptSelfArray));
 
 // console.log(assendingArray(array));
 
-
-
 // Given two strings s and t, return true if t is an anagram of s and false otherwise.
 
 // An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
-
 let s = "anagram";
 let t = "nagaram";
 
-
 const isAnagram = (s, t) => {
-    if (s.length !== t.length) return false
-    const HashMap1 = {}
-    for (const char in s) {
-        HashMap1[char] = (HashMap1[char] || 0) + 1;
+  if (s.length !== t.length) return false;
+  const HashMap1 = {};
+  for (const char in s) {
+    HashMap1[char] = (HashMap1[char] || 0) + 1;
+  }
 
+  for (const key in t) {
+    if (!HashMap1[t[key]]) {
+      return false;
     }
-
-    for (const key in t) {
-        if (!HashMap1[t[key]]) {
-            return false
-        }
-        HashMap1[char]--;
+    HashMap1[char]--;
+  }
+  for (const key in HashMap1) {
+    if (HashMap1[key] !== 0) {
+      return false;
     }
-    for (const key in HashMap1) {
-        if (HashMap1[key] !== 0) {
-            return false
-        }
-
-    }
-    return true
-}
-
+  }
+  return true;
+};
 
 console.log(isAnagram(s, t));
 
@@ -567,123 +503,109 @@ console.log(isAnagram(s, t));
 //nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4] outout=6
 
 function max_subarray(nums) {
-    let maxSum = -Infinity;
-    let currentSum = 0;
-    for (const key in nums) {
-        currentSum = Math.max(nums[key], currentSum + nums[key])
-        maxSum = Math.max(maxSum, currentSum)
-
-    }
-    return maxSum
+  let maxSum = -Infinity;
+  let currentSum = 0;
+  for (const key in nums) {
+    currentSum = Math.max(nums[key], currentSum + nums[key]);
+    maxSum = Math.max(maxSum, currentSum);
+  }
+  return maxSum;
 }
 
-const contiguousArray = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+const contiguousArray = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 console.log(max_subarray(contiguousArray));
 
-const contiguousArray1 = [5, 4, -1, 7, 8]
+const contiguousArray1 = [5, 4, -1, 7, 8];
 console.log(max_subarray(contiguousArray1));
-
-
 
 // You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, and the only constraint stopping you from robbing all of them is that adjacent houses have security systems connected, so robbing two adjacent houses will trigger an alarm.
 
 // Given an integer array nums representing the amount of money in each house, return the maximum amount of money you can rob without robbing two adjacent houses.
 
 function rob(arr) {
-    if (arr.length === 0) return 0;
-    if (arr.length === 1) return arr[0];
-    for (let i = 2; i < arr.length; i++) {
-        arr[i] = Math.max(arr[i - 2] + arr[i], arr[i - 1])
-
-    }
-    return arr[arr.length - 1]
+  if (arr.length === 0) return 0;
+  if (arr.length === 1) return arr[0];
+  for (let i = 2; i < arr.length; i++) {
+    arr[i] = Math.max(arr[i - 2] + arr[i], arr[i - 1]);
+  }
+  return arr[arr.length - 1];
 }
 
-const roBnums = [2, 7, 9, 3, 1]
+const roBnums = [2, 7, 9, 3, 1];
 
 console.log(rob(roBnums));
-
 
 // Merge Two Sorted Lists - Leetcode 21 - Python
 
 const mergeTwoList = (l1, l2) => {
-    let l1Node = ArrayToLinkList(l1);
-    let l2Node = ArrayToLinkList(l2);
-    let resultHead = new NodeListV2(); // To store the result
-    let current = resultHead;
+  let l1Node = ArrayToLinkList(l1);
+  let l2Node = ArrayToLinkList(l2);
+  let resultHead = new NodeListV2(); // To store the result
+  let current = resultHead;
 
-    while (l1Node && l2Node) {
-        if (l1Node.value < l2Node.value) {
-            current.next = l1Node
-            l1Node = l1Node.next
-        } else {
-            current.next = l2Node
-            l2Node = l2Node.next
-        }
-        current = current.next
+  while (l1Node && l2Node) {
+    if (l1Node.value < l2Node.value) {
+      current.next = l1Node;
+      l1Node = l1Node.next;
+    } else {
+      current.next = l2Node;
+      l2Node = l2Node.next;
     }
-    if (l1Node !== null) current.next = l1Node;
-    if (l2Node !== null) current.next = l2Node;
+    current = current.next;
+  }
+  if (l1Node !== null) current.next = l1Node;
+  if (l2Node !== null) current.next = l2Node;
 
-    return resultHead.next
-
-}
+  return resultHead.next;
+};
 const list1 = [1, 3, 5];
 const list2 = [2, 4, 6];
 
 const mergedResult = mergeTwoList(list1, list2);
 console.log(linkedListToArray(mergedResult));
 
-
-
 // You are given an array of stock prices where prices[i] is the price of a given stock on day i. You need to find the maximum profit you can achieve by choosing a single day to buy one stock and a different day to sell it. Return the maximum profit or 0 if no profit can be made.
 
-
 function maxProfit(arr) {
-    if (arr.length < 2) return 0;
+  if (arr.length < 2) return 0;
 
-    let buyPrice = arr[0]
-    let maxProfit = 0;
-    let currentProfit = 0
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] < buyPrice) {
-            buyPrice = arr[i]
-        } else {
-            currentProfit = arr[i] - buyPrice
-            maxProfit = Math.max(currentProfit, maxProfit)
-        }
-
+  let buyPrice = arr[0];
+  let maxProfit = 0;
+  let currentProfit = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < buyPrice) {
+      buyPrice = arr[i];
+    } else {
+      currentProfit = arr[i] - buyPrice;
+      maxProfit = Math.max(currentProfit, maxProfit);
     }
-    return maxProfit
+  }
+  return maxProfit;
 }
 
-
-
-const buySellArr = [7, 1, 5, 3, 6, 4]
+const buySellArr = [7, 1, 5, 3, 6, 4];
 
 console.log(maxProfit(buySellArr));
 
-// You are climbing a staircase. It takes 
+// You are climbing a staircase. It takes
 // 𝑛
 // n steps to reach the top.
 
 // Each time you can either climb 1 step or 2 steps. In how many distinct ways can you climb to the top?
 
 function climbStairs(n) {
-    if (n === 1) return 1
-    let step1 = 1
-    let step2 = 2;
-    for (let index = 3; index <= n; index++) {
-        let current = step1 + step2;
-        step1 = step2
-        step2 = current;
+  if (n === 1) return 1;
+  let step1 = 1;
+  let step2 = 2;
+  for (let index = 3; index <= n; index++) {
+    let current = step1 + step2;
+    step1 = step2;
+    step2 = current;
+  }
+  return step2;
+  // console.log(current);
 
-    }
-    return step2
-    // console.log(current);
-
-    // return steps
-
+  // return steps
 }
 
 // console.log(climbStairs(5));
@@ -694,7 +616,6 @@ function climbStairs(n) {
 
 // Definition: Inverting a binary tree means swapping the left and right subtrees of all nodes in the tree.
 
-
 //  const invertTree=(arr)=>{
 //    if(arr.length===0) return null
 //     for (let index = 1; index < arr.length; index++) {
@@ -703,41 +624,39 @@ function climbStairs(n) {
 // }
 
 function ArrayTOTree(value) {
-    this.value = value
-    this.left = null
-    this.right = null
+  this.value = value;
+  this.left = null;
+  this.right = null;
 }
 function arrayToTree(arr) {
-    if (!arr.length) return null
-    const Nodes = arr?.map((value) => {
-        return value !== null ? new ArrayTOTree(value) : null
-    })
-    for (let index = 0; index < arr.length; index++) {
-        if (Nodes[index] !== null) {
-            const leftIndex = 2 * index + 1;
-            const rightIndex = 2 * index + 2;
-            if (leftIndex < arr.length && Nodes[leftIndex] !== null) {
-                Nodes[index].left = Nodes[leftIndex];
-            }
+  if (!arr.length) return null;
+  const Nodes = arr?.map((value) => {
+    return value !== null ? new ArrayTOTree(value) : null;
+  });
+  for (let index = 0; index < arr.length; index++) {
+    if (Nodes[index] !== null) {
+      const leftIndex = 2 * index + 1;
+      const rightIndex = 2 * index + 2;
+      if (leftIndex < arr.length && Nodes[leftIndex] !== null) {
+        Nodes[index].left = Nodes[leftIndex];
+      }
 
-            // Set right child if it exists
-            if (rightIndex < arr.length && Nodes[rightIndex] !== null) {
-                Nodes[index].right = Nodes[rightIndex];
-            }
-        }
-
+      // Set right child if it exists
+      if (rightIndex < arr.length && Nodes[rightIndex] !== null) {
+        Nodes[index].right = Nodes[rightIndex];
+      }
     }
-    return Nodes[0]
-
+  }
+  return Nodes[0];
 }
 function printTree(node) {
-    if (!node) return;
-    printTree(node.left);  // Traverse left subtree
-    console.log(node.value); // Print root value
-    printTree(node.right);  // Traverse right subtree
+  if (!node) return;
+  printTree(node.left); // Traverse left subtree
+  console.log(node.value); // Print root value
+  printTree(node.right); // Traverse right subtree
 }
 
-const rootArray = [4, 2, 7, 1, 3, 6, 9]
+const rootArray = [4, 2, 7, 1, 3, 6, 9];
 
 const treeRoot = arrayToTree(rootArray);
 printTree(treeRoot);
@@ -745,45 +664,38 @@ printTree(treeRoot);
 // You are given an integer array arr. You need to replace each element in the array with the greatest element that is to its right. The last element should be replaced by -1 because there is no element to its right.
 
 const replaceElements = (arr) => {
-    let max_value = -1;
-    for (let index = arr.length - 1; index >= 0; index--) {
-        let temp = arr[index];
-        arr[index] = max_value;
-        max_value = Math.max(max_value, temp);
-    }
-    return arr;
-}
+  let max_value = -1;
+  for (let index = arr.length - 1; index >= 0; index--) {
+    let temp = arr[index];
+    arr[index] = max_value;
+    max_value = Math.max(max_value, temp);
+  }
+  return arr;
+};
 
 const toBeReplacedArray = [17, 18, 5, 4, 6, 1];
 console.log(replaceElements(toBeReplacedArray));
-
 
 // you are given a non-empty array of integers, nums, where every element appears twice except for one. Find the single element that does not appear twice.
 
 // You must implement a solution with a linear runtime complexity (O(n)) and use only constant extra space (O(1)).
 
-
-
 const singleNumber = (array) => {
-    let sing = 0;
-    for (let index = 0; index < array.length; index++) {
-        sing = sing ^ array[index];
+  let sing = 0;
+  for (let index = 0; index < array.length; index++) {
+    sing = sing ^ array[index];
+  }
+  return sing;
+};
 
-    }
-    return sing
-}
-
-const ArrayOfDuplicates = [4, 1, 2, 1, 2]
+const ArrayOfDuplicates = [4, 1, 2, 1, 2];
 
 console.log(singleNumber(ArrayOfDuplicates));
 
-
 // Palindrome Number
-// Given an integer x, return true if x is a 
+// Given an integer x, return true if x is a
 // palindrome
 // , and false otherwise.
-
-
 
 // Example 1:
 
@@ -801,31 +713,26 @@ console.log(singleNumber(ArrayOfDuplicates));
 // Output: false
 // Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
-
 // Constraints:
 
 // -231 <= x <= 231 - 1
 
-
 // Follow up: Could you solve it without converting the integer to a string?
 
-
 function isPalindrome(x) {
-    if (x < 0 || (x !== 0 && x % 10 === 0)) return false;
+  if (x < 0 || (x !== 0 && x % 10 === 0)) return false;
 
-    let half = 0;
-    while (x > half) {
-        half = half * 10 + (x % 10);  // Extract the last digit of x
-        x = Math.floor(x / 10);  // Remove the last digit from x
-    }
+  let half = 0;
+  while (x > half) {
+    half = half * 10 + (x % 10); // Extract the last digit of x
+    x = Math.floor(x / 10); // Remove the last digit from x
+  }
 
-    // Compare the reversed half with the remaining part of x
-    return x === half || x === Math.floor(half / 10);
+  // Compare the reversed half with the remaining part of x
+  return x === half || x === Math.floor(half / 10);
 }
 
-
 console.log(isPalindrome(121));
-
 
 //  Roman to Integer
 // Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -842,12 +749,10 @@ console.log(isPalindrome(121));
 
 // Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
 
-// I can be placed before V (5) and X (10) to make 4 and 9. 
-// X can be placed before L (50) and C (100) to make 40 and 90. 
+// I can be placed before V (5) and X (10) to make 4 and 9.
+// X can be placed before L (50) and C (100) to make 40 and 90.
 // C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
-
-
 
 // Example 1:
 
@@ -865,7 +770,6 @@ console.log(isPalindrome(121));
 // Output: 1994
 // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
-
 // Constraints:
 
 // 1 <= s.length <= 15
@@ -873,42 +777,36 @@ console.log(isPalindrome(121));
 // It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
 const RomanToInt = (romanInput) => {
-    const romans = {
-        I: 1,
-        V: 5,
-        X: 10,
-        L: 50,
-        C: 100,
-        D: 500,
-        M: 1000
-    };
-    let total = 0
-    for (let index = 0; index < romanInput.length; index++) {
-        if (romans[romanInput[index]] < romans[romanInput[index + 1]]) {
-            total -= romans[romanInput[index]]
-        } else {
-            total += romans[romanInput[index]]
-        }
-
-
+  const romans = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let total = 0;
+  for (let index = 0; index < romanInput.length; index++) {
+    if (romans[romanInput[index]] < romans[romanInput[index + 1]]) {
+      total -= romans[romanInput[index]];
+    } else {
+      total += romans[romanInput[index]];
     }
+  }
 
-    return total
+  return total;
+};
 
-}
-
-let romanInput = "MCMXCIV"
+let romanInput = "MCMXCIV";
 
 console.log(RomanToInt(romanInput));
 
 // Longest Common Prefix
 
-
 // Write a function to find the longest common prefix string amongst an array of strings.
 
 // If there is no common prefix, return an empty string "".
-
-
 
 // Example 1:
 
@@ -920,7 +818,6 @@ console.log(RomanToInt(romanInput));
 // Output: ""
 // Explanation: There is no common prefix among the input strings.
 
-
 // Constraints:
 
 // 1 <= strs.length <= 200
@@ -928,22 +825,21 @@ console.log(RomanToInt(romanInput));
 // strs[i] consists of only lowercase English letters.
 
 function longestCommonPrefix(strs) {
-    if (strs.length === 0) return ''
-    let base = strs[0]
-    for (let i = 0; i < base.length; i++) {
-        for (let j = 0; j < strs.length; j++) {
-            if (i >= strs[j].length || base[i] !== strs[j][i]) {
-                return base.slice(0, i)
-            }
-        }
+  if (strs.length === 0) return "";
+  let base = strs[0];
+  for (let i = 0; i < base.length; i++) {
+    for (let j = 0; j < strs.length; j++) {
+      if (i >= strs[j].length || base[i] !== strs[j][i]) {
+        return base.slice(0, i);
+      }
     }
-    return base
+  }
+  return base;
 }
 
-let strs = ["flower", "flow", "flight"]
+let strs = ["flower", "flow", "flight"];
 
 console.log(longestCommonPrefix(strs));
-
 
 // Remove Duplicates from Sorted Array
 
@@ -968,34 +864,27 @@ console.log(longestCommonPrefix(strs));
 // }
 // If all assertions pass, then your solution will be accepted.
 
-
 const removeDuplicatesV1 = (array) => {
-    if (array.length === 0) return 0
-    let k = 0;
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] !== array[i - 1]) {
-            array[k] = array[i]
-            k++
-        }
-
-
+  if (array.length === 0) return 0;
+  let k = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== array[i - 1]) {
+      array[k] = array[i];
+      k++;
     }
-    return k
-}
+  }
+  return k;
+};
 
-
-let ContainsDuplicates = [1, 1, 2]
+let ContainsDuplicates = [1, 1, 2];
 
 console.log(removeDuplicatesV1(ContainsDuplicates));
-
-
 
 // 27. Remove Element
 
 // let ContainsDuplicates = [1, 1, 2]
 
 // console.log(removeDuplicatesV1(ContainsDuplicates));
-
 
 // Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
@@ -1021,8 +910,6 @@ console.log(removeDuplicatesV1(ContainsDuplicates));
 // }
 // If all assertions pass, then your solution will be accepted.
 
-
-
 // Example 1:
 
 // Input: nums = [3,2,2,3], val = 3
@@ -1038,22 +925,20 @@ console.log(removeDuplicatesV1(ContainsDuplicates));
 // It does not matter what you leave beyond the returned k (hence they are underscores).
 
 function removeElement(array, val) {
-    if (array.length === 0) return 0
-    let k = 0
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] !== val) {
-            array[k]=array[i]
-            k++
-        }
-
+  if (array.length === 0) return 0;
+  let k = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== val) {
+      array[k] = array[i];
+      k++;
     }
-   return k
+  }
+  return k;
 }
 
-let Duplicatednums = [3, 2, 2, 3]
-let val = 2
-console.log(removeElement(Duplicatednums,val));
-
+let Duplicatednums = [3, 2, 2, 3];
+let val = 2;
+console.log(removeElement(Duplicatednums, val));
 
 // truthniess and logical operators
 
@@ -1061,19 +946,15 @@ console.log(removeElement(Duplicatednums,val));
 
 // }
 
-// above statement can be written as shorten 
+// above statement can be written as shorten
 
 // if(unserInput){
 
 // }
 
-
 // but the second case didn't accept if we pass zero .
 
-
-
 // Write a function createHelloWorld. It should return a new function that always returns "Hello World".
- 
 
 // Example 1:
 
@@ -1093,54 +974,49 @@ console.log(removeElement(Duplicatednums,val));
 // f({}, null, 42); // "Hello World"
 
 // Any arguments could be passed to the function but it should still always return "Hello World".
- 
 
 // Constraints:
 
 // 0 <= args.length <= 10
 
-var createHelloWorld = function() {
-    
-    return function(...args) {
-        // console.log('Hello World')  
-        return 'Hello World'
-    }   
+var createHelloWorld = function () {
+  return function (...args) {
+    // console.log('Hello World')
+    return "Hello World";
+  };
 };
 
-createHelloWorld()
+createHelloWorld();
 
 // Given an integer n, return a counter function. This counter function initially returns n and then returns 1 more than the previous value every subsequent time it is called (n, n + 1, n + 2, etc).
 
- 
-
 // Example 1:
 
-// Input: 
-// n = 10 
+// Input:
+// n = 10
 // ["call","call","call"]
 // Output: [10,11,12]
-// Explanation: 
+// Explanation:
 // counter() = 10 // The first time counter() is called, it returns n.
 // counter() = 11 // Returns 1 more than the previous time.
 // counter() = 12 // Returns 1 more than the previous time.
 // Example 2:
 
-// Input: 
+// Input:
 // n = -2
 // ["call","call","call","call","call"]
 // Output: [-2,-1,0,1,2]
 // Explanation: counter() initially returns -2. Then increases after each sebsequent call.
 
-const counter= function(n) {
-    return function() {
-        return n++
-    };
+const counter = function (n) {
+  return function () {
+    return n++;
+  };
 };
 
-counter(1)
-counter(2)
-counter(3)
-
+counter(1);
+counter(2);
+counter(3);
 
 // Given an array of functions [f1, f2, f3, ..., fn], return a new function fn that is the function composition of the array of functions.
 
@@ -1149,8 +1025,6 @@ counter(3)
 // The function composition of an empty list of functions is the identity function f(x) = x.
 
 // You may assume each function in the array accepts one integer as input and returns one integer as output.
-
- 
 
 // Example 1:
 
@@ -1177,7 +1051,6 @@ counter(3)
 // Output: 42
 // Explanation:
 // The composition of zero functions is the identity function
- 
 
 // Constraints:
 
@@ -1185,19 +1058,15 @@ counter(3)
 // 0 <= functions.length <= 1000
 // all functions accept and return a single integer
 
-
-
-
-var compose = function(functions) {
-    return function(x) {
-        return functions.reduceRight((acc, fn) => fn(acc), x); 
-    }
+var compose = function (functions) {
+  return function (x) {
+    return functions.reduceRight((acc, fn) => fn(acc), x);
+  };
 };
 
- const fn = compose([x => x + 1, x => 2 * x])
+const fn = compose([(x) => x + 1, (x) => 2 * x]);
 
- console.log(fn(4));
- 
+console.log(fn(4));
 
 //  Given a function fn, return a memoized version of that function.
 
@@ -1208,7 +1077,6 @@ var compose = function(functions) {
 // sum accepts two integers a and b and returns a + b. Assume that if a value has already been cached for the arguments (b, a) where a != b, it cannot be used for the arguments (a, b). For example, if the arguments are (3, 2) and (2, 3), two separate calls should be made.
 // fib accepts a single integer n and returns 1 if n <= 1 or fib(n - 1) + fib(n - 2) otherwise.
 // factorial accepts a single integer n and returns 1 if n <= 1 or factorial(n - 1) * n otherwise.
- 
 
 // Example 1:
 
@@ -1251,7 +1119,6 @@ var compose = function(functions) {
 // Explanation:
 // fib(5) = 8 // "call"
 // // "getCallCount" - total call count: 1
- 
 
 // Constraints:
 
@@ -1262,27 +1129,25 @@ var compose = function(functions) {
 // actions[i] is one of "call" and "getCallCount"
 // fnName is one of "sum", "factorial" and "fib"
 
-
 function memoize(fn) {
-    const cache={}    
-    return function(...args) {
-      const key= JSON.stringify(args)
-      if(key in cache){
-        return cache[key]
-      }
-      cache[key]= fn(...args)
-      return cache[key]      
+  const cache = {};
+  return function (...args) {
+    const key = JSON.stringify(args);
+    if (key in cache) {
+      return cache[key];
     }
+    cache[key] = fn(...args);
+    return cache[key];
+  };
 }
 let callCount = 0;
-  const memoizedFn = memoize(function (a, b) {
- 	 callCount += 1;
-    return a + b;
-  })
-  memoizedFn(2, 3) // 5
-  memoizedFn(2, 3) // 5
- console.log({callCount})
-
+const memoizedFn = memoize(function (a, b) {
+  callCount += 1;
+  return a + b;
+});
+memoizedFn(2, 3); // 5
+memoizedFn(2, 3); // 5
+console.log({ callCount });
 
 //  Add Two Promises
 
@@ -1290,40 +1155,37 @@ let callCount = 0;
 
 // Example 1:
 
-
-// Input: 
-// promise1 = new Promise(resolve => setTimeout(() => resolve(2), 20)), 
+// Input:
+// promise1 = new Promise(resolve => setTimeout(() => resolve(2), 20)),
 // promise2 = new Promise(resolve => setTimeout(() => resolve(5), 60))
 // Output: 7
 // Explanation: The two input promises resolve with the values of 2 and 5 respectively. The returned promise should resolve with a value of 2 + 5 = 7. The time the returned promise resolves is not judged for this problem.
 
 // Example 2:
 
-// Input: 
-// promise1 = new Promise(resolve => setTimeout(() => resolve(10), 50)), 
+// Input:
+// promise1 = new Promise(resolve => setTimeout(() => resolve(10), 50)),
 // promise2 = new Promise(resolve => setTimeout(() => resolve(-12), 30))
 // Output: -2
 // Explanation: The two input promises resolve with the values of 10 and -12 respectively. The returned promise should resolve with a value of 10 + -12 = -2.
 
 const addTwoPromises = async function (promise1, promise2) {
-    return Promise.all([promise1, promise2]).then(([result1,result2]) => {
-        return result1 + result2
-    }).catch((err) => {
-        console.log(err);
-        throw new Error(err)
+  return Promise.all([promise1, promise2])
+    .then(([result1, result2]) => {
+      return result1 + result2;
     })
+    .catch((err) => {
+      console.log(err);
+      throw new Error(err);
+    });
 };
 
- addTwoPromises(Promise.resolve(2), Promise.resolve(2))
-   .then(console.log); // 4
-
+addTwoPromises(Promise.resolve(2), Promise.resolve(2)).then(console.log); // 4
 
 //    Given a positive integer millis, write an asynchronous function that sleeps for millis milliseconds. It can resolve any value.
 
- 
-
 //    Example 1:
-   
+
 //    Input: millis = 100
 //    Output: 100
 //    Explanation: It should return a promise that resolves after 100ms.
@@ -1332,32 +1194,29 @@ const addTwoPromises = async function (promise1, promise2) {
 //      console.log(Date.now() - t); // 100
 //    });
 //    Example 2:
-   
+
 //    Input: millis = 200
 //    Output: 200
 //    Explanation: It should return a promise that resolves after 200ms.
-    
-   
+
 //    Constraints:
-   
+
 //    1 <= millis <= 1000
 
 async function sleep(millis) {
-    await new Promise((resolve,reject)=>{
-        setTimeout(resolve,millis)
-    })
-}   
+  await new Promise((resolve, reject) => {
+    setTimeout(resolve, millis);
+  });
+}
 
-let time = Date.now()
+let time = Date.now();
 // sleep(100).then(() => console.log(Date.now() - time)) //
-
 
 // Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
 
 // You must not use any built-in exponent function or operator.
 
 // For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
- 
 
 // Example 1:
 
@@ -1372,21 +1231,19 @@ let time = Date.now()
 
 const mySqrt = (x) => {
   let left = 0;
-  let right = x
+  let right = x;
   while (left <= right) {
-    let mid =  Math.floor((left + right) / 2)
+    let mid = Math.floor((left + right) / 2);
     if (mid * mid === x) {
-      return mid
-    }
-    else if (mid * mid < x) {
-      left = mid + 1
+      return mid;
+    } else if (mid * mid < x) {
+      left = mid + 1;
     } else {
-      right = mid - 1
-   }
+      right = mid - 1;
+    }
   }
-  return right
-}
-
+  return right;
+};
 
 console.log(mySqrt(4));
 
@@ -1395,8 +1252,6 @@ console.log(mySqrt(4));
 // An empty object contains no key-value pairs.
 // An empty array contains no elements.
 // You may assume the object or array is the output of JSON.parse.
-
- 
 
 // Example 1:
 
@@ -1413,25 +1268,23 @@ console.log(mySqrt(4));
 // Input: obj = [null, false, 0]
 // Output: false
 // Explanation: The array has 3 elements so it is not empty.
- 
 
 // Constraints:
 
 // obj is a valid JSON object or array
 // 2 <= JSON.stringify(obj).length <= 105
- 
 
 // Can you solve it in O(1) time?
 const isEmpty = function (obj) {
-    if (Array.isArray(obj)) {
-        return obj.length === 0; // Check for empty array
-    } else if (typeof obj === 'object' && obj !== null) {
-        return Object.keys(obj).length === 0; // Check for empty object
-    }
-    return false; // Not an object or array
+  if (Array.isArray(obj)) {
+    return obj.length === 0; // Check for empty array
+  } else if (typeof obj === "object" && obj !== null) {
+    return Object.keys(obj).length === 0; // Check for empty object
+  }
+  return false; // Not an object or array
 };
 
-let obj = {"x": 5, "y": 42}
+let obj = { x: 5, y: 42 };
 
 console.log(isEmpty(obj));
 
@@ -1451,12 +1304,10 @@ console.log(isEmpty(obj));
 // Output: -1
 // Explanation: Because there are no elements, return -1.
 
-
-Array.prototype.last = function() {
-    if(this.length===0) return -1
-    return this[this.length - 1];
+Array.prototype.last = function () {
+  if (this.length === 0) return -1;
+  return this[this.length - 1];
 };
-
 
 // Timeout Cancellation
 // Given a function fn, an array of arguments args, and a timeout t in milliseconds, return a cancel function cancelFn.
@@ -1472,7 +1323,7 @@ Array.prototype.last = function() {
 
 // Input: fn = (x) => x * 5, args = [2], t = 20
 // Output: [{"time": 20, "returned": 10}]
-// Explanation: 
+// Explanation:
 // const cancelTimeMs = 50;
 // const cancelFn = cancellable((x) => x * 5, [2], 20);
 // setTimeout(cancelFn, cancelTimeMs);
@@ -1482,7 +1333,7 @@ Array.prototype.last = function() {
 
 // Input: fn = (x) => x**2, args = [2], t = 100
 // Output: []
-// Explanation: 
+// Explanation:
 // const cancelTimeMs = 50;
 // const cancelFn = cancellable((x) => x**2, [2], 100);
 // setTimeout(cancelFn, cancelTimeMs);
@@ -1492,37 +1343,28 @@ Array.prototype.last = function() {
 
 // Input: fn = (x1, x2) => x1 * x2, args = [2,4], t = 30
 // Output: [{"time": 30, "returned": 8}]
-// Explanation: 
+// Explanation:
 // const cancelTimeMs = 100;
 // const cancelFn = cancellable((x1, x2) => x1 * x2, [2,4], 30);
 // setTimeout(cancelFn, cancelTimeMs);
 
 // The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), which happened after the execution of fn(2,4) at 30ms.
- 
 
-
-
-
-
-const cancellable = function(fn, args, t) {
-    return setTimeout(cancelFn, cancelTimeMs)
-
- };
-
-
+const cancellable = function (fn, args, t) {
+  return setTimeout(cancelFn, cancelTimeMs);
+};
 
 //  Given a function fn, return a new function that is identical to the original function except that it ensures fn is called at most once.
 
 // The first time the returned function is called, it should return the same result as fn.
 // Every subsequent time it is called, it should return undefined.
- 
 
 // Example 1:
 
 // Input: fn = (a,b,c) => (a + b + c), calls = [[1,2,3],[2,3,6]]
 // Output: [{"calls":1,"value":6}]
 // Explanation:
-// const onceFn = once(fn); 
+// const onceFn = once(fn);
 // onceFn(1, 2, 3); // 6
 // onceFn(2, 3, 6); // undefined, fn was not called
 // Example 2:
@@ -1534,7 +1376,6 @@ const cancellable = function(fn, args, t) {
 // onceFn(5, 7, 4); // 140
 // onceFn(2, 3, 6); // undefined, fn was not called
 // onceFn(4, 6, 8); // undefined, fn was not called
- 
 
 // Constraints:
 
@@ -1543,8 +1384,6 @@ const cancellable = function(fn, args, t) {
 // 1 <= calls[i].length <= 100
 // 2 <= JSON.stringify(calls).length <= 1000
 
-
-
 // Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
 // An input string is valid if:
@@ -1552,7 +1391,6 @@ const cancellable = function(fn, args, t) {
 // Open brackets must be closed by the same type of brackets.
 // Open brackets must be closed in the correct order.
 // Every close bracket has a corresponding open bracket of the same type.
- 
 
 // Example 1:
 
@@ -1578,39 +1416,34 @@ const cancellable = function(fn, args, t) {
 
 // Output: true
 
- 
-
 // Constraints:
 
 // 1 <= s.length <= 104
 // s consists of parentheses only '()[]{}'.
 
-
 const isValid = (char) => {
-  const stack = []
+  const stack = [];
   const matching = {
-    ')': '(',
-    '}': '{',
-    ']': '['
+    ")": "(",
+    "}": "{",
+    "]": "[",
   };
   for (const element of char) {
     if (element in matching) {
-      if (stack.length > 0 & stack[stack.length - 1] === matching[element]) {
-        stack.pop()
+      if (
+        (stack.length > 0) &
+        (stack[stack.length - 1] === matching[element])
+      ) {
+        stack.pop();
       } else {
-        return false
+        return false;
       }
-
     } else {
-      stack.push(element)
+      stack.push(element);
     }
   }
-  return stack.length === 0
-
-
-}
-
-
+  return stack.length === 0;
+};
 
 console.log(isValid("()"));
 
@@ -1621,8 +1454,6 @@ console.log(isValid("()"));
 // The tests are generated such that there is exactly one solution. You may not use the same element twice.
 
 // Your solution must use only constant extra space.
-
- 
 
 // Example 1:
 
@@ -1639,7 +1470,6 @@ console.log(isValid("()"));
 // Input: numbers = [-1,0], target = -1
 // Output: [1,2]
 // Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
- 
 
 // Constraints:
 
@@ -1649,32 +1479,26 @@ console.log(isValid("()"));
 // -1000 <= target <= 1000
 // The tests are generated such that there is exactly one solution.
 
-
 function twoSumV3(nums, target) {
-    let left = 0
-    let right = nums.length - 1
-    while (left < right) {
-        let currentSum = nums[left] + nums[right]
-        if (currentSum < target) {
-            left++
-        } else
-            if (currentSum > target) {
-                right--
-            } else if (currentSum === target) {
-                return [left + 1, right + 1]
-            }
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    let currentSum = nums[left] + nums[right];
+    if (currentSum < target) {
+      left++;
+    } else if (currentSum > target) {
+      right--;
+    } else if (currentSum === target) {
+      return [left + 1, right + 1];
     }
-
+  }
 }
-    
-    // console.log(twoSumV3(numsv2,targetv2));
-    
 
+// console.log(twoSumV3(numsv2,targetv2));
 
 // 977. Squares of a Sorted Array
 
 // Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
-
 
 // Example 1:
 
@@ -1687,38 +1511,32 @@ function twoSumV3(nums, target) {
 // Input: nums = [-7,-3,2,3,11]
 // Output: [4,9,9,49,121]
 
-
 const sortedSquares = function (nums) {
-    let left = 0;
-    let right = nums.length - 1;
-    let pos= nums.length - 1
-    const result = new Array(nums.length); // Create a new array to store the result
-    while (left <= right) {
-        if (Math.abs(nums[left]) > Math.abs(nums[right])) {
-            result[pos] = nums[left] * nums[left]
-            left++
-            pos--
-        } else {
-            result[pos] = nums[right] * nums[right]
-            right--
-            pos--
-        }
+  let left = 0;
+  let right = nums.length - 1;
+  let pos = nums.length - 1;
+  const result = new Array(nums.length); // Create a new array to store the result
+  while (left <= right) {
+    if (Math.abs(nums[left]) > Math.abs(nums[right])) {
+      result[pos] = nums[left] * nums[left];
+      left++;
+      pos--;
+    } else {
+      result[pos] = nums[right] * nums[right];
+      right--;
+      pos--;
     }
-    return result
-
+  }
+  return result;
 };
 
-const unsortedArray = [-4, -1, 0, 3, 10]
-
+const unsortedArray = [-4, -1, 0, 3, 10];
 
 // console.log(sortedSquares(unsortedArray));
-
 
 // Find the Index of the First Occurrence in a String
 
 // Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-
- 
 
 // Example 1:
 
@@ -1733,123 +1551,100 @@ const unsortedArray = [-4, -1, 0, 3, 10]
 // Explanation: "leeto" did not occur in "leetcode", so we return -1.
 
 const strStr = function (haystack, needle) {
-  if (needle.length === 0) return 0
+  if (needle.length === 0) return 0;
   for (let left = 0; left < haystack.length - needle.length + 1; left++) {
     let right = needle.length + left;
-    if (haystack.slice(left, right)===needle) {
-      return left
+    if (haystack.slice(left, right) === needle) {
+      return left;
     }
   }
-  return -1
-
+  return -1;
 };
 
-
-const haystack ="sadbutsad"
-const needle ="sad"
-console.log(strStr(haystack,needle));
-
+const haystack = "sadbutsad";
+const needle = "sad";
+console.log(strStr(haystack, needle));
 
 // To remove a column from a 2D array, you can directly modify each row using the splice method.
 
-
 function removeColumn(matrix, colIndex) {
-    for (const element of matrix) {
-        element.splice(colIndex, 1)
-
-    }
-    return matrix
+  for (const element of matrix) {
+    element.splice(colIndex, 1);
+  }
+  return matrix;
 }
 
-
 let twoDarray = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
 ];
 
 let colIndex = 2; // Removing the 3rd column (index 2)
 // console.log(removeColumn(twoDarray, colIndex));
 
-
 // Traversing the multi dimensional Arrays
 
-
-
 function MultiDimensionalFn(matrix) {
-    for (let i = 0; i < matrix.length; i++) {
-        for (let j = 0; j < matrix[i].length; j++) {
-            console.log(matrix[i][j]);
-
-        }
-
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      console.log(matrix[i][j]);
     }
+  }
 }
 
 let apartmentBuilding = [
-    ["Apt 101", "Apt 102", "Apt 103"],
-    ["Apt 201", "Apt 202", "Apt 203"],
-    ["Apt 301", "Apt 302", "Apt 303"]
+  ["Apt 101", "Apt 102", "Apt 103"],
+  ["Apt 201", "Apt 202", "Apt 203"],
+  ["Apt 301", "Apt 302", "Apt 303"],
 ];
-
 
 console.log(MultiDimensionalFn(apartmentBuilding));
 
-
 // Your job is to update the second apartment on the second floor of the apartmentBuilding from "Apt 202" to "Renovated Apt 202" in the provided JavaScript 2D array. Make sure not to alter the original array initialization; perform the update after the array has been created.
 
-
-
 function MultiDimensionalFnv2(matrix) {
-    for (let i = 0; i < matrix.length; i++) {
-        for (let j = 0; j < matrix[i].length; j++) {
-           if(matrix[i][j]==="Apt 202"){
-               matrix[i][j] = 'Renovated Apt 202';
-               return matrix; // Exits both loops immediately
-           }
-        }
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] === "Apt 202") {
+        matrix[i][j] = "Renovated Apt 202";
+        return matrix; // Exits both loops immediately
+      }
     }
-    return matrix;
+  }
+  return matrix;
 }
 
 console.log(MultiDimensionalFnv2(apartmentBuilding));
-
 
 // The JavaScript code provided is supposed to list all the unoccupied apartments in an apartment building. Each apartment has a number and an occupancy status; however, the code isn't working correctly just yet. Your mission is to sprinkle some of your magic and fix the code so it shines and functions perfectly.
 
 // Happy coding! 🌟
 
-
-
-function buildingTraversing(building){
-    for (let i = 0; i < building.length; i++) {
-        for (let j = 0; j < building[i].length; j++) {
-            let parts = building[i][j].split(" ");
-            let number = parts[0];
-            let occupied = parts[1] === "true";
-            if (!occupied) {
-                console.log("Apartment " + number + " is unoccupied.");
-            }
-        }
+function buildingTraversing(building) {
+  for (let i = 0; i < building.length; i++) {
+    for (let j = 0; j < building[i].length; j++) {
+      let parts = building[i][j].split(" ");
+      let number = parts[0];
+      let occupied = parts[1] === "true";
+      if (!occupied) {
+        console.log("Apartment " + number + " is unoccupied.");
+      }
     }
+  }
 }
 
 let building = [
-    ["101 true", "102 false", "103 false"],
-    ["201 true", "202 true", "203 false"]
+  ["101 true", "102 false", "103 false"],
+  ["201 true", "202 true", "203 false"],
 ];
 console.log(buildingTraversing(building));
-
-
-
 
 // Binary Search Problems
 
 // Binary search 704 Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
 
 // You must write an algorithm with O(log n) runtime complexity.
-
- 
 
 // Example 1:
 
@@ -1862,38 +1657,31 @@ console.log(buildingTraversing(building));
 // Output: -1
 // Explanation: 2 does not exist in nums so return -1
 
-
-
 const search = function (nums, target) {
-    let left = 0
-    let right = nums.length - 1
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2)
-        if (nums[mid] > target) {
-            right = mid - 1
-        } else if (nums[mid] < target) {
-            left = mid + 1
-
-        } else {
-            return mid
-        }
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] > target) {
+      right = mid - 1;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      return mid;
     }
-    return -1
+  }
+  return -1;
 };
 
+const SortedArray = [-1, 0, 3, 5, 9, 12];
+const target1 = 9;
 
-const SortedArray= [-1,0,3,5,9,12];
-const target1= 9;
-
-console.log(search(SortedArray,target1));
-
+console.log(search(SortedArray, target1));
 
 //35. Search Insert Position
 // Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 // You must write an algorithm with O(log n) runtime complexity.
-
- 
 
 // Example 1:
 
@@ -1908,23 +1696,62 @@ console.log(search(SortedArray,target1));
 // Input: nums = [1,3,5,6], target = 7
 // Output: 4
 
-const searchInsert = function(nums, target) {
-    let left = 0
-    let right = nums.length - 1
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2)
-        if (nums[mid] > target) {
-            right = mid - 1
-        } else if (nums[mid] < target) {
-            left = mid + 1
-
-        } else {
-            return left
-        }
+const searchInsert = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] > target) {
+      right = mid - 1;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      return left;
     }
-    return -1
+  }
+  return -1;
 };
-const numsv3=[1,3,5,6]
-const targetv3= 1;
+const numsv3 = [1, 3, 5, 6];
+const targetv3 = 1;
 
-console.log(searchInsert(numsv3,targetv3));
+console.log(searchInsert(numsv3, targetv3));
+
+// Climbing Stairs
+
+// You are climbing a staircase. It takes n steps to reach the top.
+
+// Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+// Example 1:
+
+// Input: n = 2
+// Output: 2
+// Explanation: There are two ways to climb to the top.
+// 1. 1 step + 1 step
+// 2. 2 steps
+// Example 2:
+
+// Input: n = 3
+// Output: 3
+// Explanation: There are three ways to climb to the top.
+// 1. 1 step + 1 step + 1 step
+// 2. 1 step + 2 steps
+// 3. 2 steps + 1 step
+
+// Constraints:
+
+// 1 <= n <= 45
+
+const climbStairss = function (n) {
+    if (n === 1) return 1;
+    let step1 = 1;
+    let step2 = 2;
+    for (let index = 3; index <= n; index++) {
+        let current = step1 + step2;
+        step1 = step2
+        step2 = current
+    }
+    return step2;
+};
+
+console.log(climbStairss(4));
