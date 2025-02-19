@@ -1771,8 +1771,8 @@ let generate = function (numRows) {
       if (i === 0 || i === j) {
         rows.push(1);
       } else {
-        let leftParent =j - 1 >= 0 ? triangle[i - 1][j - 1] : 0;  // Get value from previous row
-        let rightParent = triangle[i - 1][j];     // Get value from previous row
+        let leftParent = j - 1 >= 0 ? triangle[i - 1][j - 1] : 0; // Get value from previous row
+        let rightParent = triangle[i - 1][j]; // Get value from previous row
         rows.push(leftParent + rightParent);
       }
     }
@@ -1781,6 +1781,25 @@ let generate = function (numRows) {
   return triangle;
 };
 
-let numRows = 5;
+let numRows = 501;
 
-console.log(generate(numRows));
+// console.log(generate(numRows));
+
+// optimized the below code
+
+const generateV2 = (numRows) => {
+  let triangle = [[1]];
+  for (let i = 1; i < numRows; i++) {
+    let row = new Array(i + 1).fill(1);
+    let prevRow = triangle[i - 1];
+    for (let j = 1; j < i; j++) {
+      row[j] = prevRow[j - 1] + prevRow[j];
+    }
+    triangle.push(row);
+  }
+  return triangle;
+};
+
+let numRowsV2 = 50000;
+
+console.log(generateV2(numRowsV2));
