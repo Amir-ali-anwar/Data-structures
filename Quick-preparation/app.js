@@ -1743,15 +1743,44 @@ console.log(searchInsert(numsv3, targetv3));
 // 1 <= n <= 45
 
 const climbStairss = function (n) {
-    if (n === 1) return 1;
-    let step1 = 1;
-    let step2 = 2;
-    for (let index = 3; index <= n; index++) {
-        let current = step1 + step2;
-        step1 = step2
-        step2 = current
-    }
-    return step2;
+  if (n === 1) return 1;
+  let step1 = 1;
+  let step2 = 2;
+  for (let index = 3; index <= n; index++) {
+    let current = step1 + step2;
+    step1 = step2;
+    step2 = current;
+  }
+  return step2;
 };
 
-console.log(climbStairss(4));
+// console.log(climbStairss(4));
+
+// 118. Pascal's Triangle
+
+// Given an integer numRows, return the first numRows of Pascal's triangle.
+
+// In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+
+let generate = function (numRows) {
+  let triangle = [];
+
+  for (let i = 0; i < numRows; i++) {
+    let rows = [];
+    for (let j = 0; j <= i; j++) {
+      if (i === 0 || i === j) {
+        rows.push(1);
+      } else {
+        let leftParent =j - 1 >= 0 ? triangle[i - 1][j - 1] : 0;  // Get value from previous row
+        let rightParent = triangle[i - 1][j];     // Get value from previous row
+        rows.push(leftParent + rightParent);
+      }
+    }
+    triangle.push(rows);
+  }
+  return triangle;
+};
+
+let numRows = 5;
+
+console.log(generate(numRows));
