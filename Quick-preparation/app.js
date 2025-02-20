@@ -1800,6 +1800,61 @@ const generateV2 = (numRows) => {
   return triangle;
 };
 
-let numRowsV2 = 50000;
+let numRowsV2 = 50;
 
 console.log(generateV2(numRowsV2));
+
+
+// 509. Fibonacci Number
+
+// The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
+
+// F(0) = 0, F(1) = 1
+// F(n) = F(n - 1) + F(n - 2), for n > 1.
+// Given n, calculate F(n).
+
+
+// extra feature added memoziation using to top down approach
+const fib = function (n,memo={}) {
+  if(n in memo) return memo[n]
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+  memo[n]= fib(n - 1) + fib(n - 2);
+  return memo[n]
+};
+console.log(fib(55))
+const fibv1 = function (n) {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+  let dp = new Array(n);
+  dp[0] = 0;
+  dp[1] = 1;
+  for (let i = 2; i <= n; i++) {
+    dp[i] = dp[i - 1] + dp[i - 2];
+  }
+  return dp[n];
+};
+
+console.log(fibv1(5));
+
+// Fabonacci using iterative dynamic programming (Bottom up)  
+
+
+
+
+// Longest Palindromic Substring
+
+// Given a string s, return the longest 
+// palindromic substring
+// in s.
+
+/**
+
+ */
+// const longestPalindrome = function(s) {
+    
+// };
+
+// const string = "babad"
+
+// console.log(longestPalindrome(string));
