@@ -1823,6 +1823,9 @@ const fib = function (n,memo={}) {
   return memo[n]
 };
 console.log(fib(55))
+
+
+// Fabonacci using iterative dynamic programming (Bottom up)  
 const fibv1 = function (n) {
   if (n === 0) return 0;
   if (n === 1) return 1;
@@ -1837,9 +1840,42 @@ const fibv1 = function (n) {
 
 console.log(fibv1(5));
 
-// Fabonacci using iterative dynamic programming (Bottom up)  
 
 
+// 11. Container With Most Water
+
+
+// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+// Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+// Return the maximum amount of water a container can store.
+
+// Notice that you may not slant the container.
+
+
+const maxArea = function (height) {
+  let left = 0;
+  let right = height.length - 1;
+  let maxArea = 0;
+  while (left < right) {
+    let width = right - left;
+    let height1 = Math.min(height[left], height[right]);
+     maxArea = Math.max(maxArea, width * height1);
+   if (height[left] < height[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  return maxArea;
+};
+
+
+const height=[1,8,6,2,5,4,8,3,7]
+
+
+console.log(maxArea(height));
 
 
 // Longest Palindromic Substring
