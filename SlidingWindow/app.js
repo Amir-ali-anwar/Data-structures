@@ -7,7 +7,7 @@ const findMaxAverage = function (nums, k) {
   let maxSum = -Infinity,
     windowSum = 0;
 
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 0; i < k; i++) {
     windowSum += nums[i];
   }
   maxSum = windowSum;
@@ -15,9 +15,9 @@ const findMaxAverage = function (nums, k) {
     windowSum += nums[i] - nums[i - k];
     maxSum = Math.max(maxSum, windowSum);
   }
-  return maxSum / 5;
+  return maxSum / k;
 };
 
-const _subArray = [1, 12, -5, -6, 50, 3];
-const k = 5;
+const _subArray = [1,12,-5,-6,50,3];
+const k = 4;
 console.log(findMaxAverage(_subArray, k));
