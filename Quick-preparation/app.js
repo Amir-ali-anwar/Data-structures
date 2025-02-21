@@ -1822,7 +1822,7 @@ const fib = function (n,memo={}) {
   memo[n]= fib(n - 1) + fib(n - 2);
   return memo[n]
 };
-console.log(fib(55))
+console.log(fib(50))
 
 
 // Fabonacci using iterative dynamic programming (Bottom up)  
@@ -1876,6 +1876,28 @@ const height=[1,8,6,2,5,4,8,3,7]
 
 
 console.log(maxArea(height));
+
+
+// Maximum Average Subarray I
+// You are given an integer array nums consisting of n elements, and an integer k.
+
+// Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10-5 will be accepted.
+
+const findMaxAverage = function(nums, k) {
+  let maxSum = 0, windowSum = 0;
+  
+  for (let i = 0; i < nums.length; i++) {
+    windowSum+= nums[i]
+    
+  }
+  console.log(windowSum);
+  
+  
+};
+
+const _subArray= [1,12,-5,-6,50,3]
+const k=5;
+console.log(findMaxAverage(_subArray,k));
 
 
 // Longest Palindromic Substring
