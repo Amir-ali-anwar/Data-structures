@@ -3,7 +3,7 @@
 
 // You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
- 
+
 
 // Example 1:
 
@@ -19,7 +19,7 @@
 
 // Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 // Output: [8,9,9,9,0,0,0,1]
- 
+
 
 // Constraints:
 
@@ -32,22 +32,22 @@
 
 
 class NodeList {
-    constructor(value = 0, next = null) {
-      this.value = value;
-      this.next = next;
-    }
+  constructor(value = 0, next = null) {
+    this.value = value;
+    this.next = next;
   }
-  function arrayToList(arr) {
-    const head = new NodeList();
-    let current = head;
-    for (const val of arr) {
-      current.next = new NodeList(val);
-      current= current.next
-    }
-    console.log(current);
+}
+function arrayToList(arr) {
+  const head = new NodeList();
+  let current = head;
+  for (const val of arr) {
+    current.next = new NodeList(val);
+    current = current.next
   }
-  let list = [2, 7, 11, 15];
-  console.log(arrayToList(list));
+  console.log(current);
+}
+let list = [2, 7, 11, 15];
+console.log(arrayToList(list));
 
 
 
@@ -131,21 +131,21 @@ class NodeList {
 
 function birthday(s, d, m) {
   let count = 0;
-  
+
   // Iterate through the array, considering each possible segment of length m
   for (let i = 0; i <= s.length - m; i++) {
-      // Calculate the sum of the current segment of length m
-      let segmentSum = 0;
-      for (let j = 0; j < m; j++) {
-          segmentSum += s[i + j];
-      }
-      
-      // If the sum matches Ron's birth day, increase the count
-      if (segmentSum === d) {
-          count++;
-      }
+    // Calculate the sum of the current segment of length m
+    let segmentSum = 0;
+    for (let j = 0; j < m; j++) {
+      segmentSum += s[i + j];
+    }
+
+    // If the sum matches Ron's birth day, increase the count
+    if (segmentSum === d) {
+      count++;
+    }
   }
-  
+
   return count;
 }
 
@@ -218,30 +218,30 @@ console.log(birthday([4], 4, 1));  // Output: 1
 
 // Object.keys(console).forEach(method => console[method] = () => {});
 function migratoryBirds(arr) {
-  const birdCount = {}; 
+  const birdCount = {};
   for (let i = 0; i < arr.length; i++) {
-    birdCount[arr[i]]=(birdCount[arr[i]]|| 0)+1
+    birdCount[arr[i]] = (birdCount[arr[i]] || 0) + 1
   }
   console.log(birdCount);
-  
+
   let maxCount = 0;
-  let mincount= Number.MIN_SAFE_INTEGER
+  let mincount = Number.MIN_SAFE_INTEGER
   for (const bird in birdCount) {
     const count = birdCount[bird];
-    if(count > maxCount){
-      maxCount=count
-      mincount=bird
+    if (count > maxCount) {
+      maxCount = count
+      mincount = bird
     }
     else if (count === maxCount) {
       mincount = Math.min(mincount, parseInt(bird));
     }
   }
- return mincount
-  
+  return mincount
+
 }
 
-const bird_sightings = [1, 2, 3 ,4 ,5 ,4 ,3 ,2, 1, 3, 4];
-const bird_sightings_1 = [1, 4 ,4 ,4, 5, 3
+const bird_sightings = [1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4];
+const bird_sightings_1 = [1, 4, 4, 4, 5, 3
 ];
 console.log(migratoryBirds(bird_sightings_1));  // Output: 4
 
@@ -296,16 +296,16 @@ function miniMaxSum(arr) {
   let sum = 0
   let sumArray = []
   for (let i = 0; i < arr.length; i++) {
-     sum += arr[i]
+    sum += arr[i]
   }
   for (const key of arr) {
 
-     sumArray.push(sum - key)
+    sumArray.push(sum - key)
 
   }
-   const minSum = Math.min(...sumArray);
+  const minSum = Math.min(...sumArray);
   const maxSum = Math.max(...sumArray);
-  console.log(minSum,maxSum);
+  console.log(minSum, maxSum);
 
 }
 
@@ -403,11 +403,11 @@ console.log(timeConversion(timeInput));
 function lonelyinteger(a) {
   let uniqueElement = 0;
   for (const element of a) {
-      uniqueElement ^= element
+    uniqueElement ^= element
   }
   return uniqueElement
 }
-const a=[1,2,3,4,3,2,1]
+const a = [1, 2, 3, 4, 3, 2, 1]
 console.log(lonelyinteger(a));
 
 
@@ -416,21 +416,21 @@ console.log(lonelyinteger(a));
 
 function findRepeatingElements(arr) {
   const countMap = {};
-  const repeatingElements=[]
+  const repeatingElements = []
   for (const element of arr) {
     countMap[element] = (countMap[element] || 0) + 1
-    
+
   }
 
   for (const key in countMap) {
-      console.log(key);
-      if(countMap[key]>1){
-        repeatingElements.push(parseInt(key))
-      }
-      
+    console.log(key);
+    if (countMap[key] > 1) {
+      repeatingElements.push(parseInt(key))
+    }
+
   }
   return repeatingElements
-  
+
 }
 
 console.log(findRepeatingElements(a));
@@ -498,7 +498,7 @@ console.log(findRepeatingElements(a));
 const diagonalDifference = (matrix) => {
   for (let i = 0; i < matrix.length; i++) {
     console.log({ i });
-    for (let j = 0; j < matrix.length-1; j++) {
+    for (let j = 0; j < matrix.length - 1; j++) {
       console.log({ j });
 
 
@@ -552,18 +552,18 @@ console.log(result);
 // The indices should be in ascending order.
 
 function twoSumV2(nums, target) {
-  let left = 0  
+  let left = 0
   let right = nums.length - 1
   while (left < right) {
     let currentSum = nums[left] + nums[right]
     if (currentSum < target) {
       left++
-    }else
-    if (currentSum > target) {
-      right--
-    }else if  (currentSum === target) {
-      return [left + 1, right + 1]
-    }
+    } else
+      if (currentSum > target) {
+        right--
+      } else if (currentSum === target) {
+        return [left + 1, right + 1]
+      }
   }
 
 
@@ -584,22 +584,76 @@ console.log(resultv2);
 
 function repeatingCharacters(str) {
   let characters = new Set()
-  let left=0,right = 0
-  let result=0
+  let left = 0, right = 0
+  let result = 0
 
-    while (right<str.length) {
-      if(!characters.has(str[right])){
-        characters.add(str[right])
-        result= Math.max(result, right - left + 1)
-        right++
-      }else{
-        characters.delete(str[left])
-        left++
-      }
+  while (right < str.length) {
+    if (!characters.has(str[right])) {
+      characters.add(str[right])
+      result = Math.max(result, right - left + 1)
+      right++
+    } else {
+      characters.delete(str[left])
+      left++
     }
-     
+  }
+
   return result
 }
-const longestSubstring= 'abcabcbb'
+const longestSubstring = 'abcabcbb'
 
 console.log(repeatingCharacters(longestSubstring));
+
+
+
+// 367. Valid Perfect Square
+
+// Given a positive integer num, return true if num is a perfect square or false otherwise.
+
+// A perfect square is an integer that is the square of an integer. In other words, it is the product of some integer with itself.
+
+// You must not use any built-in library function, such as sqrt.
+
+
+
+// Example 1:
+
+// Input: num = 16
+// Output: true
+// Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
+// Example 2:
+
+// Input: num = 14
+// Output: false
+// Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
+
+const isPerfectSquare = function (num) {
+  if (num < 2) return true
+  let left = num
+  let right = 1 
+
+  while (left<=right) {
+    let mid = Math.floor((left + right) / 2);
+      let square= mid * mid
+      if(square===num){
+        return true
+      }else if(square<num){
+        left=mid+1
+      }else{
+        right=mid-1
+      }
+    }
+    return false
+  }
+
+
+
+
+
+
+
+
+
+
+
+
