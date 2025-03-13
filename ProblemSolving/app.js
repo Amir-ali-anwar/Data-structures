@@ -660,7 +660,7 @@ const isPerfectSquare = function (num) {
       let coins = (mid * (mid + 1)) / 2;
       if (coins === n) {
         return mid;
-      } else if (coins < n) {
+      } else if (coins < nd) {
         left = mid + 1;
       } else {
         right = mid - 1;
@@ -672,8 +672,7 @@ const isPerfectSquare = function (num) {
   console.log(arrangeCoins(5));
   
 
-
-
+// 
 
 
 
