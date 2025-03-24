@@ -672,7 +672,24 @@ const isPerfectSquare = function (num) {
   console.log(arrangeCoins(5));
   
 
-// 
+//  Given the root node of a binary tree, return an array containing all the values of the tree in depth-first order.
+
+
+const depthFirstValues = (root) => {
+  const result = [];
+  const stack = [root];
+  while (stack.length > 0) {
+    const current = stack.pop();
+    result.push(current.val);
+    if (stack.right) stack.push(current.right);
+    if (stack.left) stack.push(current.left);
+  }
+  return result;
+};
+
+  
+
+
 
 
 
