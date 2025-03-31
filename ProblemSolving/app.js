@@ -660,7 +660,7 @@ const isPerfectSquare = function (num) {
       let coins = (mid * (mid + 1)) / 2;
       if (coins === n) {
         return mid;
-      } else if (coins < nd) {
+      } else if (coins < n) {
         left = mid + 1;
       } else {
         right = mid - 1;
@@ -681,8 +681,8 @@ const depthFirstValues = (root) => {
   while (stack.length > 0) {
     const current = stack.pop();
     result.push(current.val);
-    if (stack.right) stack.push(current.right);
-    if (stack.left) stack.push(current.left);
+    if (current.right) stack.push(current.right);
+    if (current.left) stack.push(current.left);
   }
   return result;
 };
@@ -690,6 +690,21 @@ const depthFirstValues = (root) => {
   
 
 
+const tree = {
+  val: 'A',
+  left: {
+    val: 'B',
+    left: { val: 'D', left: null, right: null },
+    right: { val: 'E', left: null, right: null }
+  },
+  right: {
+    val: 'C',
+    left: { val: 'F', left: null, right: null },
+    right: { val: 'G', left: null, right: null }
+  }
+};
+
+console.log(depthFirstValues(tree));
 
 
 
