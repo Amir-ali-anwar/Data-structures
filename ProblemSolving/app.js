@@ -660,7 +660,7 @@ const isPerfectSquare = function (num) {
       let coins = (mid * (mid + 1)) / 2;
       if (coins === n) {
         return mid;
-      } else if (coins < nd) {
+      } else if (coins < n) {
         left = mid + 1;
       } else {
         right = mid - 1;
@@ -672,8 +672,144 @@ const isPerfectSquare = function (num) {
   console.log(arrangeCoins(5));
   
 
-// 
+//  Given the root node of a binary tree, return an array containing all the values of the tree in depth-first order.
 
+
+const depthFirstValues = (root) => {
+  const result = [];
+  const stack = [root];
+  while (stack.length > 0) {
+    const current = stack.pop();
+    result.push(current.val);
+    if (current.right) stack.push(current.right);
+    if (current.left) stack.push(current.left);
+  }
+  return result;
+};
+
+  
+
+
+const tree = {
+  val: 'A',
+  left: {
+    val: 'B',
+    left: { val: 'D', left: null, right: null },
+    right: { val: 'E', left: null, right: null }
+  },
+  right: {
+    val: 'C',
+    left: { val: 'F', left: null, right: null },
+    right: { val: 'G', left: null, right: null }
+  }
+};
+
+console.log(depthFirstValues(tree));
+
+
+
+// Problem Statement: Shortest Path in an Unweighted Graph 
+// You are given an unweighted graph represented as an adjacency list and a starting node. Your task is to find the shortest path (in terms of the number of edges) from the starting node to all other reachable nodes.
+
+// Input:
+// An integer N representing the number of nodes in the graph.
+
+// An integer M representing the number of edges.
+
+// A list of M pairs (u, v) representing the edges in an undirected graph.
+
+// An integer S representing the starting node.
+
+// Output:
+// Print the shortest distance from node S to every other node. If a node is unreachable, print -1 for that node.
+
+// Example Input:
+// Copy
+// Edit
+// 7 6
+// 1 2
+// 1 3
+// 2 4
+// 3 5
+// 5 6
+// 5 7
+// 1
+// Example Output:
+// Copy
+// Edit
+// 0 1 1 2 2 3 3
+// Explanation:
+// Node 1 is the starting node (distance 0).
+
+// Node 2 and 3 are directly connected to 1 (distance 1).
+
+// Node 4 is reached via 2 (distance 2).
+
+// Node 5 is reached via 3 (distance 2).
+
+// Nodes 6 and 7 are reached via 5 (distance 3).
+
+// Constraints:
+// 1
+// ≤
+// 𝑁
+// ,
+// 𝑀
+// ≤
+// 10
+// 5
+// 1≤N,M≤10 
+// 5
+ 
+
+// 1
+// ≤
+// 𝑢
+// ,
+// 𝑣
+// ≤
+// 𝑁
+// 1≤u,v≤N
+
+const shortestPath = (edges, nodeA, nodeB) => {
+  const graph = buildGraph(edges);
+  const queue = [[nodeA, 0]];
+  const visited = new Set([nodeA]);
+  while (queue.length > 0) {
+    const [node, distance] = queue.shift();
+    if (node === nodeB) return distance;
+    for (const neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push([neighbor, distance + 1]);
+      }
+    }
+  }
+  return -1;
+};
+
+const buildGraph = (edges) => {
+  const graph = {};
+  for (let edge of edges) {
+    let [a, b] = edge;
+    if (!(a in graph)) graph[a] = [];
+    if (!(b in graph)) graph[b] = [];
+    graph[a].push(b)
+    graph[b].push(a)
+  }
+
+  return graph;
+};
+
+const edges = [
+  [1, 2],
+  [1, 3],
+  [2, 4]
+];
+
+const graph= buildGraph(edges)
+
+console.log({graph});
 
 
 
