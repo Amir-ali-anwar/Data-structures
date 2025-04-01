@@ -1,12 +1,8 @@
-
 // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
 // You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
-
-
 // Example 1:
-
 
 // Input: l1 = [2,4,3], l2 = [5,6,4]
 // Output: [7,0,8]
@@ -20,16 +16,13 @@
 // Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 // Output: [8,9,9,9,0,0,0,1]
 
-
 // Constraints:
 
 // The number of nodes in each linked list is in the range [1, 100].
 // 0 <= Node.val <= 9
 // It is guaranteed that the list represents a number that does not have leading zeros.
 
-
 // via Linklist
-
 
 class NodeList {
   constructor(value = 0, next = null) {
@@ -42,14 +35,12 @@ function arrayToList(arr) {
   let current = head;
   for (const val of arr) {
     current.next = new NodeList(val);
-    current = current.next
+    current = current.next;
   }
-  console.log(current);
+  // console.log(current);
 }
 let list = [2, 7, 11, 15];
-console.log(arrayToList(list));
-
-
+// console.log(arrayToList(list));
 
 //   Two children, Lily and Ron, want to share a chocolate bar. Each of the squares has an integer on it.
 
@@ -60,8 +51,6 @@ console.log(arrayToList(list));
 // Determine how many ways she can divide the chocolate.
 
 // Example
-
-
 
 // Lily wants to find segments summing to Ron's birth day,  with a length equalling his birth month, . In this case, there are two segments meeting her criteria:  and .
 
@@ -128,7 +117,6 @@ console.log(arrayToList(list));
 
 // Lily only wants to give Ron  square of chocolate with an integer value of . Because the only square of chocolate in the bar satisfies this constraint, we print  as our answer.
 
-
 function birthday(s, d, m) {
   let count = 0;
 
@@ -150,11 +138,9 @@ function birthday(s, d, m) {
 }
 
 // Sample Inputs
-console.log(birthday([1, 2, 1, 3, 2], 3, 2));  // Output: 2
-console.log(birthday([1, 1, 1, 1, 1, 1], 3, 2));  // Output: 0
-console.log(birthday([4], 4, 1));  // Output: 1
-
-
+// console.log(birthday([1, 2, 1, 3, 2], 3, 2));  // Output: 2
+// console.log(birthday([1, 1, 1, 1, 1, 1], 3, 2));  // Output: 0
+// console.log(birthday([4], 4, 1));  // Output: 1
 
 // Given an array of bird sightings where every element represents a bird type id, determine the id of the most frequently sighted type. If more than 1 type has been spotted that maximum amount, return the smallest of their ids.
 
@@ -209,42 +195,38 @@ console.log(birthday([4], 4, 1));  // Output: 1
 
 // The different types of birds occur in the following frequencies:
 
-// Type : 
-// Type : 
-// Type : 
-// Type : 
-// Type : 
+// Type :
+// Type :
+// Type :
+// Type :
+// Type :
 // Two types have a frequency of , and the lower of those is type .
 
 // Object.keys(console).forEach(method => console[method] = () => {});
 function migratoryBirds(arr) {
   const birdCount = {};
   for (let i = 0; i < arr.length; i++) {
-    birdCount[arr[i]] = (birdCount[arr[i]] || 0) + 1
+    birdCount[arr[i]] = (birdCount[arr[i]] || 0) + 1;
   }
-  console.log(birdCount);
+  // console.log(birdCount);
 
   let maxCount = 0;
-  let mincount = Number.MIN_SAFE_INTEGER
+  let mincount = Number.MIN_SAFE_INTEGER;
   for (const bird in birdCount) {
     const count = birdCount[bird];
     if (count > maxCount) {
-      maxCount = count
-      mincount = bird
-    }
-    else if (count === maxCount) {
+      maxCount = count;
+      mincount = bird;
+    } else if (count === maxCount) {
       mincount = Math.min(mincount, parseInt(bird));
     }
   }
-  return mincount
-
+  return mincount;
 }
 
 const bird_sightings = [1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4];
-const bird_sightings_1 = [1, 4, 4, 4, 5, 3
-];
-console.log(migratoryBirds(bird_sightings_1));  // Output: 4
-
+const bird_sightings_1 = [1, 4, 4, 4, 5, 3];
+// console.log(migratoryBirds(bird_sightings_1));  // Output: 4
 
 // Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
 
@@ -267,7 +249,6 @@ console.log(migratoryBirds(bird_sightings_1));  // Output: 4
 
 // Constraints
 
-
 // Output Format
 
 // Print two space-separated long integers denoting the respective minimum and maximum values that can be calculated by summing exactly four of the five integers. (The output can be greater than a 32 bit integer.)
@@ -289,31 +270,24 @@ console.log(migratoryBirds(bird_sightings_1));  // Output: 4
 // Sum everything except , the sum is .
 // Hints: Beware of integer overflow! Use 64-bit Integer.
 
-
-
 function miniMaxSum(arr) {
   // Write your code here
-  let sum = 0
-  let sumArray = []
+  let sum = 0;
+  let sumArray = [];
   for (let i = 0; i < arr.length; i++) {
-    sum += arr[i]
+    sum += arr[i];
   }
   for (const key of arr) {
-
-    sumArray.push(sum - key)
-
+    sumArray.push(sum - key);
   }
   const minSum = Math.min(...sumArray);
   const maxSum = Math.max(...sumArray);
   console.log(minSum, maxSum);
-
 }
 
-const minmax = [1, 3, 5, 7, 9]
+const minmax = [1, 3, 5, 7, 9];
 
-console.log(miniMaxSum(minmax));
-
-
+// console.log(miniMaxSum(minmax));
 
 // Given a time in -hour AM/PM format, convert it to military (24-hour) time.
 
@@ -322,9 +296,7 @@ console.log(miniMaxSum(minmax));
 
 // Example
 
-
 // Return '12:01:00'.
-
 
 // Return '00:01:00'.
 
@@ -352,35 +324,30 @@ console.log(miniMaxSum(minmax));
 
 // 19:05:45
 
-
 function timeConversion(s) {
-  const timeConversion = s.slice(-2)
-  let timewithoutFormat = s.slice(0, -2)
-  let [hours, minutes, seconds] = timewithoutFormat.split(':')
-  if (timeConversion === 'AM') {
-    if (hours === '12') {
-      hours = '00'; // Midnight case
+  const timeConversion = s.slice(-2);
+  let timewithoutFormat = s.slice(0, -2);
+  let [hours, minutes, seconds] = timewithoutFormat.split(":");
+  if (timeConversion === "AM") {
+    if (hours === "12") {
+      hours = "00"; // Midnight case
     }
-  }
-  else if (timeConversion === 'PM') {
-    if (hours !== '12') {
+  } else if (timeConversion === "PM") {
+    if (hours !== "12") {
       hours = String(parseInt(hours) + 12); // Convert to 24-hour format
     }
   }
   return `${hours}:${minutes}:${seconds}`;
-
 }
 
 let timeInput = "07:05:45PM";
 
-console.log(timeConversion(timeInput));
-
+// console.log(timeConversion(timeInput));
 
 // Given an array of integers, where all elements but one occur twice, find the unique element.
 
 // Example
 // a=[1,2,3,4,3,2,1]
-
 
 // The unique element is .
 
@@ -399,43 +366,35 @@ console.log(timeConversion(timeInput));
 // The first line contains a single integer, , the number of integers in the array.
 // The second line contains  space-separated integers that describe the values in .
 
-
 function lonelyinteger(a) {
   let uniqueElement = 0;
   for (const element of a) {
-    uniqueElement ^= element
+    uniqueElement ^= element;
   }
-  return uniqueElement
+  return uniqueElement;
 }
-const a = [1, 2, 3, 4, 3, 2, 1]
-console.log(lonelyinteger(a));
-
-
+const a = [1, 2, 3, 4, 3, 2, 1];
+// console.log(lonelyinteger(a));
 
 // Find Repeating Elements
 
 function findRepeatingElements(arr) {
   const countMap = {};
-  const repeatingElements = []
+  const repeatingElements = [];
   for (const element of arr) {
-    countMap[element] = (countMap[element] || 0) + 1
-
+    countMap[element] = (countMap[element] || 0) + 1;
   }
 
   for (const key in countMap) {
     console.log(key);
     if (countMap[key] > 1) {
-      repeatingElements.push(parseInt(key))
+      repeatingElements.push(parseInt(key));
     }
-
   }
-  return repeatingElements
-
+  return repeatingElements;
 }
 
-console.log(findRepeatingElements(a));
-
-
+// console.log(findRepeatingElements(a));
 
 // Given a square matrix, calculate the absolute difference between the sums of its diagonals.
 
@@ -443,7 +402,7 @@ console.log(findRepeatingElements(a));
 
 // 1 2 3
 // 4 5 6
-// 9 8 9  
+// 9 8 9
 // The left-to-right diagonal = . The right to left diagonal = . Their absolute difference is .
 
 // Function description
@@ -493,20 +452,14 @@ console.log(findRepeatingElements(a));
 // Sum across the secondary diagonal: 4 + 5 + 10 = 19
 // Difference: |4 - 19| = 15
 
-
-
 const diagonalDifference = (matrix) => {
   for (let i = 0; i < matrix.length; i++) {
     console.log({ i });
     for (let j = 0; j < matrix.length - 1; j++) {
       console.log({ j });
-
-
     }
   }
-
-}
-
+};
 
 const matrix = [
   [11, 2, 4],
@@ -521,17 +474,15 @@ const matrix = [
 // nums = [2, 7, 11, 15], target = 9
 
 function twoSum(nums, target) {
-  const prevMap = {}
+  const prevMap = {};
   for (let index = 0; index < nums.length; index++) {
-    const diff = target - nums[index]
+    const diff = target - nums[index];
     if (diff in prevMap) {
-      return [prevMap[diff], index]
+      return [prevMap[diff], index];
     }
-    prevMap[nums[index]] = index
-
+    prevMap[nums[index]] = index;
   }
-  return []
-
+  return [];
 }
 
 const nums = [2, 7, 11, 15];
@@ -539,9 +490,7 @@ const target = 9;
 
 const result = twoSum(nums, target);
 
-console.log(result);
-
-
+// console.log(result);
 
 // Problem Statement: Two Sum II - Input Array Is Sorted
 
@@ -552,21 +501,18 @@ console.log(result);
 // The indices should be in ascending order.
 
 function twoSumV2(nums, target) {
-  let left = 0
-  let right = nums.length - 1
+  let left = 0;
+  let right = nums.length - 1;
   while (left < right) {
-    let currentSum = nums[left] + nums[right]
+    let currentSum = nums[left] + nums[right];
     if (currentSum < target) {
-      left++
-    } else
-      if (currentSum > target) {
-        right--
-      } else if (currentSum === target) {
-        return [left + 1, right + 1]
-      }
+      left++;
+    } else if (currentSum > target) {
+      right--;
+    } else if (currentSum === target) {
+      return [left + 1, right + 1];
+    }
   }
-
-
 }
 
 const numsv2 = [2, 7, 11, 15];
@@ -574,37 +520,33 @@ const targetv2 = 9;
 
 const resultv2 = twoSumV2(numsv2, targetv2);
 
-console.log(resultv2);
-
-
+// console.log(resultv2);
 
 // Problem Statement:
 // Given a string, find the length of the longest substring that does not contain any repeating characters.
 
-
 function repeatingCharacters(str) {
-  let characters = new Set()
-  let left = 0, right = 0
-  let result = 0
+  let characters = new Set();
+  let left = 0,
+    right = 0;
+  let result = 0;
 
   while (right < str.length) {
     if (!characters.has(str[right])) {
-      characters.add(str[right])
-      result = Math.max(result, right - left + 1)
-      right++
+      characters.add(str[right]);
+      result = Math.max(result, right - left + 1);
+      right++;
     } else {
-      characters.delete(str[left])
-      left++
+      characters.delete(str[left]);
+      left++;
     }
   }
 
-  return result
+  return result;
 }
-const longestSubstring = 'abcabcbb'
+const longestSubstring = "abcabcbb";
 
-console.log(repeatingCharacters(longestSubstring));
-
-
+// console.log(repeatingCharacters(longestSubstring));
 
 // 367. Valid Perfect Square
 
@@ -613,8 +555,6 @@ console.log(repeatingCharacters(longestSubstring));
 // A perfect square is an integer that is the square of an integer. In other words, it is the product of some integer with itself.
 
 // You must not use any built-in library function, such as sqrt.
-
-
 
 // Example 1:
 
@@ -628,52 +568,48 @@ console.log(repeatingCharacters(longestSubstring));
 // Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
 
 const isPerfectSquare = function (num) {
-  if (num < 2) return true
-  let left = num
-  let right = 1 
+  if (num < 2) return true;
+  let left = num;
+  let right = 1;
 
-  while (left<=right) {
+  while (left <= right) {
     let mid = Math.floor((left + right) / 2);
-      let square= mid * mid
-      if(square===num){
-        return true
-      }else if(square<num){
-        left=mid+1
-      }else{
-        right=mid-1
-      }
+    let square = mid * mid;
+    if (square === num) {
+      return true;
+    } else if (square < num) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
     }
-    return false
   }
-
-
+  return false;
+};
 
 // You have n coins and you want to build a staircase with these coins. The staircase consists of k rows where the ith row has exactly i coins. The last row of the staircase may be incomplete.
 
 // Given the integer n, return the number of complete rows of the staircase you will build.\
 
-  function arrangeCoins(n) {
-    let left = 1;
-    let right = n;
-    while (left <= right) {
-      let mid = Math.floor((left + right) / 2);
-      let coins = (mid * (mid + 1)) / 2;
-      if (coins === n) {
-        return mid;
-      } else if (coins < n) {
-        left = mid + 1;
-      } else {
-        right = mid - 1;
-      }
+function arrangeCoins(n) {
+  let left = 1;
+  let right = n;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    let coins = (mid * (mid + 1)) / 2;
+    if (coins === n) {
+      return mid;
+    } else if (coins < n) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
     }
-    return right;
   }
+  return right;
+}
 
-  console.log(arrangeCoins(5));
-  
+// console.log(arrangeCoins(5));
 
 //  Given the root node of a binary tree, return an array containing all the values of the tree in depth-first order.
-
 
 const depthFirstValues = (root) => {
   const result = [];
@@ -687,28 +623,23 @@ const depthFirstValues = (root) => {
   return result;
 };
 
-  
-
-
 const tree = {
-  val: 'A',
+  val: "A",
   left: {
-    val: 'B',
-    left: { val: 'D', left: null, right: null },
-    right: { val: 'E', left: null, right: null }
+    val: "B",
+    left: { val: "D", left: null, right: null },
+    right: { val: "E", left: null, right: null },
   },
   right: {
-    val: 'C',
-    left: { val: 'F', left: null, right: null },
-    right: { val: 'G', left: null, right: null }
-  }
+    val: "C",
+    left: { val: "F", left: null, right: null },
+    right: { val: "G", left: null, right: null },
+  },
 };
 
-console.log(depthFirstValues(tree));
+// console.log(depthFirstValues(tree));
 
-
-
-// Problem Statement: Shortest Path in an Unweighted Graph 
+// Problem Statement: Shortest Path in an Unweighted Graph
 // You are given an unweighted graph represented as an adjacency list and a starting node. Your task is to find the shortest path (in terms of the number of edges) from the starting node to all other reachable nodes.
 
 // Input:
@@ -758,9 +689,8 @@ console.log(depthFirstValues(tree));
 // ≤
 // 10
 // 5
-// 1≤N,M≤10 
+// 1≤N,M≤10
 // 5
- 
 
 // 1
 // ≤
@@ -794,8 +724,8 @@ const buildGraph = (edges) => {
     let [a, b] = edge;
     if (!(a in graph)) graph[a] = [];
     if (!(b in graph)) graph[b] = [];
-    graph[a].push(b)
-    graph[b].push(a)
+    graph[a].push(b);
+    graph[b].push(a);
   }
 
   return graph;
@@ -804,15 +734,75 @@ const buildGraph = (edges) => {
 const edges = [
   [1, 2],
   [1, 3],
-  [2, 4]
+  [2, 4],
 ];
 
-const graph= buildGraph(edges)
+const graph = buildGraph(edges);
 
-console.log({graph});
+// console.log({graph});
 
+// Island Count (W & L Version)
+// You are given a 2D grid representing a map where:
+// 'L' represents land
+// 'W' represents water
 
+// An island is formed by connecting adjacent lands horizontally or vertically.
+// You need to determine the number of islands in the grid.
 
+// grid = [
+//   ["L", "L", "W", "W", "W"],
+//   ["L", "L", "W", "W", "W"],
+//   ["W", "W", "L", "W", "W"],
+//   ["W", "W", "W", "L", "L"]
+// ]
 
+// Explanation:
+// There are three islands in the grid:
 
+// The first island at the top-left ('L's connected).
 
+// The second island in the middle ('L' alone).
+
+// The third island at the bottom-right ('L's connected).
+
+// The grid is always rectangular (rows and columns can be different).
+
+// Grid size: 1 ≤ rows, cols ≤ 300
+
+// You must explore the grid efficiently.
+
+const explore = (grid, r, c, visited) => {
+  const rowInBounds = 0 <= r && r < grid.length;
+  const columnInBounds = 0 <= c && c < grid.length;
+  if (!rowInBounds || !columnInBounds) return false;
+  if (grid[r][c] === "W") return false;
+  const pos = r + "," + c;
+  if(visited.has(pos)) return false
+  visited.add(pos);
+  explore(grid, r - 1, c, visited);
+  explore(grid, r + 1, c, visited);
+  explore(grid, r, c - 1, visited);
+  explore(grid, r, c + 1, visited);
+  return true;
+};
+const isLandCount = (grid) => {
+  const visited = new Set();
+  let count = 0;
+  for (let r = 0; r < grid.length; r += 1) {
+    for (let c = 0; c < grid[0].length; c += 1) {
+      if (explore(grid, r, c, visited) === true) {
+        count += 1;
+      }
+    }
+  }
+  return count;
+};
+
+const grid = [
+  ["L", "L", "W", "W", "W"],
+  ["L", "L", "W", "W", "W"],
+  ["W", "W", "L", "W", "W"],
+  ["W", "W", "W", "L", "L"],
+];
+
+console.log(isLandCount(grid));
