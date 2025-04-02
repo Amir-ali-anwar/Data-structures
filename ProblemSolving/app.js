@@ -821,7 +821,7 @@ const adjListFn=(numCourses, prerequisites)=>{
 
 let numCourses = 4;
 let prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]];
-console.log(adjListFn(numCourses,prerequisites));
+// console.log(adjListFn(numCourses,prerequisites));
 
 
 // 207. Course Schedule
@@ -856,5 +856,29 @@ console.log(adjListFn(numCourses,prerequisites));
 // All the pairs prerequisites[i] are unique.
 
 
+const canFinish = (numCourses, prerequisites) => {
+  let adjList = Array.from({ length: numCourses }, () => []);
 
+  for (let [course, prereq] of prerequisites) {
+    adjList[prereq].push(course);
+  }
+  let visited = Array(numCourses).fill(0);
+  function dfs(course) {
+    if (visited[course] === 1) return false;
+    if (visited[course] === 2) return true;
+    visited[course] = 1;
+    for (let neighbor of adjList[course]) {
+      if (!dfs(neighbor)) return false;
+    }
+    visited[course] = 2;
+    return true;
+  }
+  for (let i = 0; i < numCourses; i++) {
+    if (visited[i] === 0) {
+      if (!dfs(i)) return false;
+    }
+  }
+  return true;
+};
 
+console.log(canFinish(numCourses,prerequisites));
