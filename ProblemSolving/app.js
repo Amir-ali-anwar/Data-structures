@@ -912,6 +912,26 @@ const graphDFS = {
   F: []
 };
 
-console.log(DFS(graphDFS, 'C')); 
+console.log(DFS(graphDFS, 'A')); 
 // Possible output: ['A', 'C', 'F', 'B', 'E', 'D']
 // (DFS order may vary depending on neighbor order)
+
+
+function bfs(graph, start) {
+  const queue = [start];
+  const visited = new Set([start]);
+
+  while (queue.length) {
+    const node = queue.shift();
+    console.log(node); // Process node
+    for (let neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push(neighbor);
+      }
+    }
+  }
+}
+
+
+console.log(bfs(graphDFS,"A"));
