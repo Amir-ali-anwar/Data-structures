@@ -882,3 +882,36 @@ const canFinish = (numCourses, prerequisites) => {
 };
 
 console.log(canFinish(numCourses,prerequisites));
+
+
+// DFS and BFS 
+
+function DFS(graph, start) {
+  const stack = [start];
+  const visited = new Set();
+  const result = [];
+  while (stack.length) {
+    const node = stack.pop();
+    if (!visited.has(node)) {
+      result.push(node);
+      visited.add(node);
+    }
+    for (const neighbor of graph[node]) {
+      stack.push(neighbor);
+    }
+  }
+  return result;
+}
+
+const graphDFS = {
+  A: ['B', 'C'],
+  B: ['D', 'E'],
+  C: ['F'],
+  D: [],
+  E: ['F'],
+  F: []
+};
+
+console.log(DFS(graphDFS, 'C')); 
+// Possible output: ['A', 'C', 'F', 'B', 'E', 'D']
+// (DFS order may vary depending on neighbor order)
