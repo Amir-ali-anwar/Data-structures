@@ -777,7 +777,7 @@ const explore = (grid, r, c, visited) => {
   if (!rowInBounds || !columnInBounds) return false;
   if (grid[r][c] === "W") return false;
   const pos = r + "," + c;
-  if(visited.has(pos)) return false
+  if (visited.has(pos)) return false;
   visited.add(pos);
   explore(grid, r - 1, c, visited);
   explore(grid, r + 1, c, visited);
@@ -807,22 +807,24 @@ const grid = [
 
 // console.log(isLandCount(grid));
 
-
 // creating the adjList function
 
-const adjListFn=(numCourses, prerequisites)=>{
-  let adjList= Array.from({length:numCourses},()=>[])
+const adjListFn = (numCourses, prerequisites) => {
+  let adjList = Array.from({ length: numCourses }, () => []);
   for (let [course, prereq] of prerequisites) {
-      adjList[prereq].push(course)
-    
+    adjList[prereq].push(course);
   }
-  return adjList
-}
+  return adjList;
+};
 
 let numCourses = 4;
-let prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]];
+let prerequisites = [
+  [1, 0],
+  [2, 0],
+  [3, 1],
+  [3, 2],
+];
 // console.log(adjListFn(numCourses,prerequisites));
-
 
 // 207. Course Schedule
 
@@ -831,21 +833,18 @@ let prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]];
 // For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
 // Return true if you can finish all courses. Otherwise, return false.
 
- 
-
 // Example 1:
 
 // Input: numCourses = 2, prerequisites = [[1,0]]
 // Output: true
-// Explanation: There are a total of 2 courses to take. 
+// Explanation: There are a total of 2 courses to take.
 // To take course 1 you should have finished course 0. So it is possible.
 // Example 2:
 
 // Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
 // Output: false
-// Explanation: There are a total of 2 courses to take. 
+// Explanation: There are a total of 2 courses to take.
 // To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
- 
 
 // Constraints:
 
@@ -854,7 +853,6 @@ let prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]];
 // prerequisites[i].length == 2
 // 0 <= ai, bi < numCourses
 // All the pairs prerequisites[i] are unique.
-
 
 const canFinish = (numCourses, prerequisites) => {
   let adjList = Array.from({ length: numCourses }, () => []);
@@ -881,10 +879,9 @@ const canFinish = (numCourses, prerequisites) => {
   return true;
 };
 
-console.log(canFinish(numCourses,prerequisites));
+console.log(canFinish(numCourses, prerequisites));
 
-
-// DFS and BFS 
+// DFS and BFS
 
 function DFS(graph, start) {
   const stack = [start];
@@ -904,23 +901,21 @@ function DFS(graph, start) {
 }
 
 const graphDFS = {
-  A: ['B', 'C'],
-  B: ['D', 'E'],
-  C: ['F'],
+  A: ["B", "C"],
+  B: ["D", "E"],
+  C: ["F"],
   D: [],
-  E: ['F'],
-  F: []
+  E: ["F"],
+  F: [],
 };
 
-console.log(DFS(graphDFS, 'A')); 
+console.log(DFS(graphDFS, "A"));
 // Possible output: ['A', 'C', 'F', 'B', 'E', 'D']
 // (DFS order may vary depending on neighbor order)
-
 
 function bfs(graph, start) {
   const queue = [start];
   const visited = new Set([start]);
-
   while (queue.length) {
     const node = queue.shift();
     console.log(node); // Process node
@@ -933,5 +928,25 @@ function bfs(graph, start) {
   }
 }
 
+console.log(bfs(graphDFS, "A"));
 
-console.log(bfs(graphDFS,"A"));
+// You are given an array A with a random permutation of numbers from 1 to N. So no duplicates, and all elements from 1 to N are present.
+
+// You can make at most B swaps.
+
+// You need to rearrange the array into the largest lexicographical permutation possible using at most B swaps.
+
+function largestPermutation(A, B) {
+  let N = A.length;
+  const positionMap = new Map();
+  for (let i = 0; i < N; i++) {
+    positionMap.set(A[i], i);
+  }
+  
+  
+}
+
+let A = [1, 2, 3, 4];
+let B = 1;
+
+console.log(largestPermutation(A,B));
