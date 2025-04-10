@@ -942,8 +942,17 @@ function largestPermutation(A, B) {
   for (let i = 0; i < N; i++) {
     positionMap.set(A[i], i);
   }
-  
-  
+  for (let i = 0; i < N && B > 0; i++) {
+    const targetValue = N - i;
+
+    if (A[i] === targetValue) continue;
+    const targetIndex= positionMap.get(targetValue);
+    [A[i],A[targetIndex]]= [A[targetIndex],A[i]];
+    positionMap.set(A[targetIndex], targetIndex);
+    positionMap.set(A[i], i);
+    B--
+  }
+  return A
 }
 
 let A = [1, 2, 3, 4];
