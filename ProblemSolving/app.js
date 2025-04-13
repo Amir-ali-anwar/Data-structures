@@ -959,3 +959,73 @@ let A = [1, 2, 3, 4];
 let B = 1;
 
 console.log(largestPermutation(A,B));
+
+
+// Given an array nums of distinct integers, return all possible permutations of the array.
+
+// Input: nums = [1,2,3]
+// Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
+
+function permute(nums){
+  const result=[]
+  function backtrack(path,used){
+    if(path.length === used.length) return result.push([...path])
+      for (let i = 0; i < nums.length; i++) {
+        if(used[i]) continue
+        used[i]= true
+        path.push(nums[i])
+        backtrack(path,used)
+        path.pop()
+        used[i]= false
+      }
+  }
+  backtrack([],Array(nums.length).fill(false))
+  return result
+}
+
+console.log(permute([1, 2, 3]));
+
+
+// 78. Subsets
+
+// Given an integer array nums of unique elements, return all possible subsets (the power set).
+
+// The solution set must not contain duplicate subsets. Return the solution in any order.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,3]
+// Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+// Example 2:
+
+// Input: nums = [0]
+// Output: [[],[0]]
+ 
+
+// Constraints:
+
+// 1 <= nums.length <= 10
+// -10 <= nums[i] <= 10
+// All the numbers of nums are unique.
+
+
+function subsets(nums) {
+  const result = [];
+  function backtrack(start, path){
+    result.push([...path]);
+    for (let i = start; i < nums.length; i++) {
+      path.push(nums[i]);              // choose
+      backtrack(i + 1, path);          // explore
+      path.pop();        
+    }
+  }
+  backtrack(0,[])
+};
+
+
+const subArrays= [1,2,3]
+
+console.log(subsets(subArrays));
