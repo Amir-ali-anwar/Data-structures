@@ -959,3 +959,29 @@ let A = [1, 2, 3, 4];
 let B = 1;
 
 console.log(largestPermutation(A,B));
+
+
+// Given an array nums of distinct integers, return all possible permutations of the array.
+
+// Input: nums = [1,2,3]
+// Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
+
+function permute(nums){
+  const result=[]
+  function backtrack(path,used){
+    if(path.length === used.length) return result.push([...path])
+      for (let i = 0; i < nums.length; i++) {
+        if(used[i]) continue
+        used[i]= true
+        path.push(nums[i])
+        backtrack(path,used)
+        path.pop()
+        used[i]= false
+      }
+  }
+  backtrack([],Array(nums.length).fill(false))
+  return result
+}
+
+console.log(permute([1, 2, 3]));
