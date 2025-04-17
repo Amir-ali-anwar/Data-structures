@@ -48,3 +48,23 @@ function PrintSumV2(n) {
   }
 
 console.log(PrintSumV2(1222222));
+
+
+//Check if a number is a palindrome using recursion.
+
+
+const palidromRecursive = (num) => {
+  const string = num.toString();
+  let left = 0;
+  let right = string.length - 1;
+  while (left < right) {
+    if (string[left] !== string[right]) {
+      return false
+    }
+    left++
+    right--
+  }
+  return true;
+};
+
+console.log(palidromRecursive(121));
