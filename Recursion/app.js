@@ -53,7 +53,7 @@ console.log(PrintSumV2(1222222));
 //Check if a number is a palindrome using recursion.
 
 
-const palidromRecursive = (num) => {
+const palidromIterative = (num) => {
   const string = num.toString();
   let left = 0;
   let right = string.length - 1;
@@ -67,4 +67,7 @@ const palidromRecursive = (num) => {
   return true;
 };
 
-console.log(palidromRecursive(121));
+console.log(palidromIterative(121));
+
+
+//
