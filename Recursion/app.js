@@ -71,3 +71,18 @@ console.log(palidromIterative(121));
 
 
 //
+
+
+const isPalindromeRecursive = (num,left,right) => {
+  const string = num.toString();
+  if (left === undefined) left = 0;
+  if (right === undefined) right = string.length - 1;
+
+  if (left >= right) return true;
+  if (string[left] !== string[right]) return false;
+
+  return isPalindromeRecursive(num, left + 1, right - 1);
+
+};
+
+console.log(isPalindromeRecursive("121"));
