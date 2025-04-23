@@ -86,6 +86,7 @@ Contributions are welcome! If you'd like to improve this repository by adding ne
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/Amir-ali-anwar/user-rating-boilerplate.git
-cd user-rating-boilerplate
+git clone https://github.com/Amir-ali-anwar/Data-structures
+cd Data-structures
+
 
