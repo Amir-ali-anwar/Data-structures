@@ -80,3 +80,12 @@ This repository can serve as a guide to enhancing your knowledge of data structu
 ## Contributing
 
 Contributions are welcome! If you'd like to improve this repository by adding new problems, data structures, or algorithms, feel free to open a pull request.
+
+## 🧱 Usage
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/Amir-ali-anwar/user-rating-boilerplate.git
+cd user-rating-boilerplate
+
