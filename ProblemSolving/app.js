@@ -928,7 +928,7 @@ function bfs(graph, start) {
   }
 }
 
-console.log(bfs(graphDFS, "A"));
+// console.log(bfs(graphDFS, "A"));
 
 // You are given an array A with a random permutation of numbers from 1 to N. So no duplicates, and all elements from 1 to N are present.
 
@@ -946,54 +946,49 @@ function largestPermutation(A, B) {
     const targetValue = N - i;
 
     if (A[i] === targetValue) continue;
-    const targetIndex= positionMap.get(targetValue);
-    [A[i],A[targetIndex]]= [A[targetIndex],A[i]];
+    const targetIndex = positionMap.get(targetValue);
+    [A[i], A[targetIndex]] = [A[targetIndex], A[i]];
     positionMap.set(A[targetIndex], targetIndex);
     positionMap.set(A[i], i);
-    B--
+    B--;
   }
-  return A
+  return A;
 }
 
 let A = [1, 2, 3, 4];
 let B = 1;
 
-console.log(largestPermutation(A,B));
-
+// console.log(largestPermutation(A,B));
 
 // Given an array nums of distinct integers, return all possible permutations of the array.
 
 // Input: nums = [1,2,3]
 // Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 
-
-function permute(nums){
-  const result=[]
-  function backtrack(path,used){
-    if(path.length === used.length) return result.push([...path])
-      for (let i = 0; i < nums.length; i++) {
-        if(used[i]) continue
-        used[i]= true
-        path.push(nums[i])
-        backtrack(path,used)
-        path.pop()
-        used[i]= false
-      }
+function permute(nums) {
+  const result = [];
+  function backtrack(path, used) {
+    if (path.length === used.length) return result.push([...path]);
+    for (let i = 0; i < nums.length; i++) {
+      if (used[i]) continue;
+      used[i] = true;
+      path.push(nums[i]);
+      backtrack(path, used);
+      path.pop();
+      used[i] = false;
+    }
   }
-  backtrack([],Array(nums.length).fill(false))
-  return result
+  backtrack([], Array(nums.length).fill(false));
+  return result;
 }
 
-console.log(permute([1, 2, 3]));
-
+// console.log(permute([1, 2, 3]));
 
 // 78. Subsets
 
 // Given an integer array nums of unique elements, return all possible subsets (the power set).
 
 // The solution set must not contain duplicate subsets. Return the solution in any order.
-
- 
 
 // Example 1:
 
@@ -1003,7 +998,6 @@ console.log(permute([1, 2, 3]));
 
 // Input: nums = [0]
 // Output: [[],[0]]
- 
 
 // Constraints:
 
@@ -1011,21 +1005,83 @@ console.log(permute([1, 2, 3]));
 // -10 <= nums[i] <= 10
 // All the numbers of nums are unique.
 
-
 function subsets(nums) {
   const result = [];
-  function backtrack(start, path){
+  function backtrack(start, path) {
     result.push([...path]);
     for (let i = start; i < nums.length; i++) {
-      path.push(nums[i]);              // choose
-      backtrack(i + 1, path);          // explore
-      path.pop();        
+      path.push(nums[i]); // choose
+      backtrack(i + 1, path); // explore
+      path.pop();
     }
   }
-  backtrack(0,[])
+  backtrack(0, []);
+}
+
+const subArrays = [1, 2, 3];
+
+// console.log(subsets(subArrays));
+
+// 66. Plus One
+
+// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+// Increment the large integer by one and return the resulting array of digits.
+
+// Example 1:
+
+// Input: digits = [1,2,3]
+// Output: [1,2,4]
+// Explanation: The array represents the integer 123.
+// Incrementing by one gives 123 + 1 = 124.
+// Thus, the result should be [1,2,4].
+// Example 2:
+
+// Input: digits = [4,3,2,1]
+// Output: [4,3,2,2]
+// Explanation: The array represents the integer 4321.
+// Incrementing by one gives 4321 + 1 = 4322.
+// Thus, the result should be [4,3,2,2].
+// Example 3:
+
+// Input: digits = [9]
+// Output: [1,0]
+// Explanation: The array represents the integer 9.
+// Incrementing by one gives 9 + 1 = 10.
+// Thus, the result should be [1,0].
+
+// const plusOne = function (digits) {
+//   let result = [];
+//   let carry = 0;
+//   let lastElement = digits[digits.length - 1];
+//   lastElement++;
+//   let digit = lastElement % 10;
+//   carry = Math.floor(lastElement / 10);
+
+//   for (let index =0 ; index < digits.length - 1; index++) {
+//     const element = digits[index];
+//     result.push(element);
+//   }
+//   result.push(lastElement);
+//   return result;
+// };
+
+const plusOne = function (digits) {
+  let result = [];
+  let carry=1
+  for (let index = digits.length - 1; index >= 0; index--) {
+    const element = digits[index];
+    let finalDigit = element + carry;
+    let digit = finalDigit % 10;
+    carry = Math.floor(finalDigit / 10);
+    result.push(digit)
+  }
+  if(carry>0){
+    result.push(carry)
+  }
+  return result.reverse();
 };
 
+const plusOneArray = [1, 2, 3];
 
-const subArrays= [1,2,3]
-
-console.log(subsets(subArrays));
+console.log(plusOne(plusOneArray));
