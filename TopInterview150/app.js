@@ -19,6 +19,16 @@
 // Constraints:
 
 
-const majorityElement = function(nums) {
-    
+const majorityElement = function (nums) {
+  const totalCounts = Math.floor(nums.length / 2);
+  const hashMap = {};
+  for (let i = 0; i < nums.length; i++) {
+    hashMap[nums[i]] = (hashMap[nums[i]] || 0) + 1;
+
+    if (hashMap[nums[i]] > totalCounts) {
+      return nums[i];
+    }
+  }
 };
+
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
