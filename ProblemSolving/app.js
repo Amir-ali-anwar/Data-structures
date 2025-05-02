@@ -1210,3 +1210,4 @@ const nums2 = [2, 5, 6];
 const n = 3;
 
 console.log(merge(nums1, m, nums2, n));
+
