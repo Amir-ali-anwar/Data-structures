@@ -585,7 +585,7 @@ function maxProfit(arr) {
 
 const buySellArr = [7, 1, 5, 3, 6, 4];
 
-console.log(maxProfit(buySellArr));
+// console.log(maxProfit(buySellArr));
 
 // You are climbing a staircase. It takes
 // 𝑛
