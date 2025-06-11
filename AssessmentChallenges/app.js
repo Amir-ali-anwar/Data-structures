@@ -17,3 +17,26 @@ function getMostFrequentTags(posts, N) {
 }
 
 console.log(getMostFrequentTags(posts,3));
+
+
+
+
+
+
+function parseUrlParams(url) {
+  const params = {};
+  const queryString = new URL(url).search;
+  const searchParams = new URLSearchParams(queryString);
+
+  for (const [key, value] of searchParams.entries()) {
+    params[key] = value;
+  }
+
+  return params;
+}
+
+// Example usage:
+const url = "https://example.com/?name=John&age=30&job=developer";
+const params = parseUrlParams(url);
+console.log(params); 
+// Output: { name: 'John', age: '30', job: 'developer' }
