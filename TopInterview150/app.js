@@ -413,4 +413,55 @@ const s = "III";
   const needle = "sad";
 
   console.log(strStr(haystack, needle));
-  
+
+
+
+  // Given an m x n matrix, return all elements of the matrix in spiral order.
+
+
+const spiralOrder = function (matrix) {
+  let result = [];
+  if (!matrix || matrix.length === 0) return result;
+
+  let rowBegin = 0;
+  let rowEnd = matrix.length - 1;
+  let colBegin = 0;
+  let colEnd = matrix[0].length - 1;
+
+  while (rowBegin <= rowEnd && colBegin <= colEnd) {
+    // Traverse Right
+    for (let col = colBegin; col <= colEnd; col++) {
+      result.push(matrix[rowBegin][col]);
+    }
+    rowBegin++;
+
+    // Traverse Down
+    for (let row = rowBegin; row <= rowEnd; row++) {
+      result.push(matrix[row][colEnd]);
+    }
+    colEnd--;
+
+    // Traverse Left
+    if (rowBegin <= rowEnd) {
+      for (let col = colEnd; col >= colBegin; col--) {
+        result.push(matrix[rowEnd][col]);
+      }
+      rowEnd--;
+    }
+
+    // Traverse Up
+    if (colBegin <= colEnd) {
+      for (let row = rowEnd; row >= rowBegin; row--) {
+        result.push(matrix[row][colBegin]);
+      }
+      colBegin++;
+    }
+  }
+
+  return result;
+};
+
+
+const matrix= [[1,2,3],[4,5,6],[7,8,9]]
+
+console.log(spiralOrder(matrix));
