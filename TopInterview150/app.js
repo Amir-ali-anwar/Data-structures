@@ -465,3 +465,187 @@ const spiralOrder = function (matrix) {
 const matrix= [[1,2,3],[4,5,6],[7,8,9]]
 
 console.log(spiralOrder(matrix));
+  // console.log(strStr(haystack, needle));
+  
+
+//   55. Jump Game
+// Medium
+// Topics
+// Companies
+// You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+
+// Return true if you can reach the last index, or false otherwise.
+
+ 
+
+// Example 1:
+
+// Input: nums = [2,3,1,1,4]
+// Output: true
+// Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+// Example 2:
+
+// Input: nums = [3,2,1,0,4]
+// Output: false
+// Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+
+
+
+const canJump = function(nums) {
+  let farthest=0;  
+  for (let i = 0; i < nums.length; i++) {
+      if(i > farthest) return false
+      farthest = Math.max(farthest, i + nums[i])
+      if(farthest>= nums.length-1) return true
+  }
+  return false
+
+};
+
+
+
+const Jumpnums = [2,3,1,1,4]
+
+
+// console.log(canJump(Jumpnums));
+
+
+// 69. Sqrt(x)
+
+// Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+
+// You must not use any built-in exponent function or operator.
+
+// For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
+ 
+
+// Example 1:
+
+// Input: x = 4
+// Output: 2
+// Explanation: The square root of 4 is 2, so we return 2.
+// Example 2:
+
+// Input: x = 8
+// Output: 2
+// Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+ 
+
+// Constraints:
+
+// 0 <= x <= 231 - 1
+
+const mySqrt = (x) => {
+  let left = 0;
+  let right = x;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (mid * mid === x) {
+      return mid;
+    } else if (mid * mid < x) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return right;
+};
+
+// console.log(mySqrt(16));
+
+
+// 66. Plus One
+
+// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+// Increment the large integer by one and return the resulting array of digits.
+
+ 
+
+// Example 1:
+
+// Input: digits = [1,2,3]
+// Output: [1,2,4]
+// Explanation: The array represents the integer 123.
+// Incrementing by one gives 123 + 1 = 124.
+// Thus, the result should be [1,2,4].
+// Example 2:
+
+// Input: digits = [4,3,2,1]  
+// Output: [4,3,2,2]
+// Explanation: The array represents the integer 4321.
+// Incrementing by one gives 4321 + 1 = 4322.
+// Thus, the result should be [4,3,2,2].
+// Example 3:
+
+// Input: digits = [9]
+// Output: [1,0]
+// Explanation: The array represents the integer 9.
+// Incrementing by one gives 9 + 1 = 10.
+// Thus, the result should be [1,0].
+ 
+
+// Constraints:
+
+// 1 <= digits.length <= 100
+// 0 <= digits[i] <= 9
+// digits does not contain any leading 0's.
+
+
+//Container With Most Water
+
+
+// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+// Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+// Return the maximum amount of water a container can store.
+
+// Notice that you may not slant the container
+
+
+
+
+const maxArea = (height) => {
+  let left = 0;
+  let right = height.length - 1;
+  let maxheight = 0;
+  while (left < right) {
+    let area = Math.min(height[left], height[right]) * (right - left);
+    maxheight = Math.max(area, maxheight);
+    if (height[left] > height[right]) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+};
+
+
+
+
+
+
+
+const height= [1,8,6,2,5,4,8,3,7]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
