@@ -600,6 +600,21 @@ const height= [1,8,6,2,5,4,8,3,7]
 // Output: 0
 // Explanation: There is no way to make a positive profit, so we never buy the stock to achieve the maximum profit of 0.
 
+const maxProfitV2 = function (prices) {
+  let profit = 0;
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] > prices[i - 1]) {
+      profit += prices[i] - prices[i - 1];
+    }
+  }
+  return profit;
+};
+
+const prices = [7,1,5,3,6,4]
+
+console.log(maxProfitV2(prices));
+
+
 
 
 
