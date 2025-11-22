@@ -1211,3 +1211,20 @@ const n = 3;
 
 console.log(merge(nums1, m, nums2, n));
 
+
+
+// Longest Substring Without Repeating Characters
+
+
+  function lengthOfLongestSubstring(s) {
+  let left = 0
+  let right = s.length - 1
+  console.log(left);
+  return right
+
+};
+
+
+
+let s = "abcabcbb"
+console.log(lengthOfLongestSubstring(s));
