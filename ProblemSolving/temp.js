@@ -6,17 +6,15 @@ function lengthOfLongestSubstring(s) {
     let right = 0;
     let maxLength = 0
     let hashmap = {}
-    while (left < right) {
-        if (!hashmap) {
-            hashmap[s[left]]= s[left]
+    while (right <= s.length-1) {
+       if (!hashmap[s[right]]){
+            hashmap[s[right]]= s[right]
+            right++
+        } else{
+            delete hashmap[s[left]]
+            left ++
         }
+    maxLength= Math.max(maxLength,right - left)
     }
-    console.log(hashmap);
-    
-
+    return maxLength 
 };
-
-
-
-let s = "abcabcbb"
-console.log(lengthOfLongestSubstring(s));
