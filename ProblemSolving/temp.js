@@ -18,3 +18,25 @@ function lengthOfLongestSubstring(s) {
     }
     return maxLength 
 };
+
+
+
+
+// Longest Common Prefix
+
+
+function longestCommonPrefix(s) {
+    let prefix = s[0]
+      for (let i = 1; i < s.length; i++) {
+        while (!s[i].startsWith(prefix)) {
+           prefix = prefix.slice(0,-i) 
+        }
+        
+    }
+    return prefix
+
+}
+
+const strs = ["flower","flow","flight"]
+
+console.log(longestCommonPrefix(strs))
