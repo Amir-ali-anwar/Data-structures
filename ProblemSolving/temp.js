@@ -40,3 +40,27 @@ function longestCommonPrefix(s) {
 const strs = ["flower","flow","flight"]
 
 console.log(longestCommonPrefix(strs))
+
+
+
+//  26. Remove Duplicates from Sorted Array
+
+
+function removeDuplicates(s) {
+    let result = []
+    let k=1
+    for (let i = 0; i < s.length-1; i++) {
+        const element = s[i];
+        if (element !== s[i - 1]) {
+            result.push(element)
+            k++
+        }
+
+    }
+    return k
+}
+
+const nums = [0,0,1,1,1,2,2,3,3,4]
+const nums1 = [1,1,2]
+console.log(removeDuplicates(nums1));
+
