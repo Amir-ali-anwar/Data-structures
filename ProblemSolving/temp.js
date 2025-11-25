@@ -39,7 +39,7 @@ function longestCommonPrefix(s) {
 
 const strs = ["flower","flow","flight"]
 
-console.log(longestCommonPrefix(strs))
+// console.log(longestCommonPrefix(strs))
 
 
 
@@ -62,5 +62,37 @@ function removeDuplicates(s) {
 
 const nums = [0,0,1,1,1,2,2,3,3,4]
 const nums1 = [1,1,2]
-console.log(removeDuplicates(nums1));
+// console.log(removeDuplicates(nums1));
+
+
+
+// 9. Palindrome Number
+
+
+function isPalindrome(s) {
+    let numToString = s.toString();
+    let left = 0
+    let right = numToString.length - 1
+    while (left <= right) {
+        if (numToString[left] !== numToString[right]) {
+            return false
+        } 
+        
+            left ++
+            right--
+    }
+    return true
+
+}
+
+
+const x = 1111
+
+
+console.log(isPalindrome(x));
+
+
+
+
+
 
