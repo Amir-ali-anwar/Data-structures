@@ -89,7 +89,7 @@ function isPalindrome(s) {
 const x = 1111
 
 
-console.log(isPalindrome(x));
+// console.log(isPalindrome(x));
 
 
 // 1929. Concatenation of Array
@@ -134,4 +134,60 @@ function getConcatenation(array) {
 
 const nums2 = [1,3,2,1]
 
-console.log(getConcatenation(nums2));
+// console.log(getConcatenation(nums2));
+
+
+
+// 242. Valid Anagram
+
+
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+ 
+
+// Example 1:
+
+// Input: s = "anagram", t = "nagaram"
+
+// Output: true
+
+// Example 2:
+
+// Input: s = "rat", t = "car"
+
+// Output: false
+
+ 
+
+// Constraints:
+
+// 1 <= s.length, t.length <= 5 * 104
+// s and t consist of lowercase English letters.
+
+
+function isAnagram(s, t) {
+    if(s.length !== t.length) return false
+    const hashmap={}
+    for (const element of s) {
+        // hashmap[]
+        hashmap[element]= (hashmap[element] || 0) + 1
+        
+    }    
+    for (const element of t) {
+        if(!hashmap[element]){
+            return false
+        }
+        hashmap[element] -- 
+    }
+
+    return true
+    
+}
+
+
+
+let s = "anagram";
+let t = "nagaram";
+console.log(isAnagram(s,t));
+
+
