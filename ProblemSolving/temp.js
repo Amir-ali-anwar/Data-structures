@@ -262,4 +262,42 @@ const nums3 = [0,1,2,2,3,0,4,2]
 const val = 2
 
 
-console.log(removeElement(nums3, val));
+// console.log(removeElement(nums3, val));
+
+
+// Minimum Size Subarray Sum (LeetCode 209)
+
+//  if (currentsum === target) {
+//             minWindow = Math.min(left - right)
+//             return minWindow
+//         } else if (currentsum >= target) {
+//             minWindow = Math.min(left - right)
+//             currentsum -= nums[right]
+//             right++
+//             return minWindow
+//         }
+function minSubArrayLen(target, nums) {
+    let left = 0
+    let right = 0
+    let currentsum = 0
+    let minWindow = Infinity;
+
+    while (left < nums.length) {
+        currentsum += nums[left]
+        
+        while (currentsum >= target) {
+            currentsum -= nums[right]
+            let currentWinow= left - right + 1;
+            minWindow = Math.min(currentWinow , minWindow)
+            right++ 
+        }
+        left++
+    }
+    return (minWindow === Infinity) ? 0 : minWindow
+}
+
+const numsArray=[2,3,1,2,4,3]
+const target= 7
+
+
+console.log(minSubArrayLen(target,numsArray));
