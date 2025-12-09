@@ -300,4 +300,67 @@ const numsArray=[2,3,1,2,4,3]
 const target= 7
 
 
-console.log(minSubArrayLen(target,numsArray));
+// console.log(minSubArrayLen(target,numsArray));
+
+
+
+// Given an array of integers, write a function that takes the array as argument and returns the first non-repeating number. It should return null if there is no non-repeating number.
+
+function NonRepeating(arr) {
+    const hashmap = {}
+    let left = 0
+    while (left < arr.length) {
+        hashmap[arr[left]] = (hashmap[arr[left]] || 0) + 1;
+        left++;
+
+    }
+
+    for (const element of arr) {
+        if (hashmap[element] === 1) {
+            return element;
+        }
+
+    }
+    
+    return null
+}
+
+const nums4 = [4,1,2,1,2]
+
+// console.log(NonRepeating(nums4));
+
+
+// 260. Single Number III
+// Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
+
+// You must write an algorithm that runs in linear runtime complexity and uses only constant extra space
+
+
+
+function NonRepeatingv2(arr) {
+    const hashmap = {}
+    let result = []
+    let left = 0
+    while (left < arr.length) {
+        hashmap[arr[left]] = (hashmap[arr[left]] || 0) + 1;
+        left++;
+
+    }
+
+
+    for (const element of arr) {
+        if (hashmap[element] === 1) {
+            // console.log(element);
+             result.push(element)
+            // return [element];
+        }
+
+    }
+    
+    return result.length === 0 ? null : result
+}
+
+
+const nums5 = [1,2,1,3,2,5,5]
+
+console.log(NonRepeatingv2(nums5));
