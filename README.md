@@ -2,6 +2,13 @@
 
 Welcome to my repository on **Data Structures & Problem Solving**! This repo contains various data structure implementations and problem-solving challenges, aimed at helping to improve problem-solving skills, prepare for coding interviews, and master fundamental algorithms and data structures.
 
+## Repository Layout
+
+| Folder | Purpose |
+|---|---|
+| [`dsa-practice/`](dsa-practice/) | **Active.** Fresh, timed re-solves of problems, organized by pattern, with tests. Start with [dsa-practice/README.md](dsa-practice/README.md). |
+| [`archive/`](archive/) | My first-pass implementations and solutions (all folders below live here). Reference only. |
+
 ## Table of Contents
 - [Data Structures](#data-structures)
 - [Algorithms](#algorithms)
@@ -27,7 +34,7 @@ This section contains implementations of key data structures:
 - **Matrix**  
 - **Matrix Multiplication**  
 
-Each folder contains the structure's implementation with code and, where applicable, solutions to specific problems using the structure.
+Each folder in `archive/` contains the structure's implementation with code and, where applicable, solutions to specific problems using the structure.
 
 ---
 

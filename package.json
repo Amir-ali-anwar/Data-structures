@@ -4,7 +4,8 @@
   "description": "In this repository we are going to cover the important topics in data structures with the JavaScript programming language.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test \"dsa-practice/[0-9]*/*.js\"",
+    "new": "node dsa-practice/scripts/new.js"
   },
   "repository": {
     "type": "git",
