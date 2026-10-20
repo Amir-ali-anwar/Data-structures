@@ -62,10 +62,10 @@ console.log(groupAnagrams(strs));
 
 
 
-module.exports = { groupAnagrams };
+if (typeof module !== "undefined") module.exports = { groupAnagrams }; // Node only; skipped in the browser
 
 // ---------------- Tests (run: node --test <this file>) ----------------
-if (require.main === module || process.env.NODE_TEST_CONTEXT) {
+if (typeof require !== "undefined" && (require.main === module || process.env.NODE_TEST_CONTEXT)) {
   const { test } = require("node:test");
   const assert = require("node:assert/strict");
 
