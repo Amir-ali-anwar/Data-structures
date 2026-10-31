@@ -33,6 +33,7 @@ Then fill in Time / Result / Redo-on in [PROGRESS.md](PROGRESS.md).
 
 | Folder | Covers |
 |---|---|
+| `00-arrays` | Core array problems: traversal, in-place updates, rotation, subarrays |
 | `01-arrays-hashing` | Hash maps/sets, prefix sums, counting |
 | `02-two-pointers` | Sorted arrays, in-place edits, pair/triple sums |
 | `03-sliding-window` | Substrings and subarrays with a constraint |
