@@ -61,10 +61,10 @@ let nums =[2,2,1,1,1,2,2]
 
 console.log(majorityElement(nums));
 
-module.exports = { majorityElement };
+if (typeof module !== "undefined") module.exports = { majorityElement }; // Node only; skipped in the browser
 
 // ---------------- Tests (run: node --test <this file>) ----------------
-if (require.main === module || process.env.NODE_TEST_CONTEXT) {
+if (typeof require !== "undefined" && (require.main === module || process.env.NODE_TEST_CONTEXT)) {
   const { test } = require("node:test");
   const assert = require("node:assert/strict");
 

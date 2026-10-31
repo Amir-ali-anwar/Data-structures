@@ -38,10 +38,10 @@ const solve = function (nums, target) {
     }
 };
 
-module.exports = { solve };
+if (typeof module !== "undefined") module.exports = { solve }; // Node only; skipped in the browser
 
 // ---------------- Tests (run: node --test <this file>) ----------------
-if (require.main === module || process.env.NODE_TEST_CONTEXT) {
+if (typeof require !== "undefined" && (require.main === module || process.env.NODE_TEST_CONTEXT)) {
   const { test } = require("node:test");
   const assert = require("node:assert/strict");
 
